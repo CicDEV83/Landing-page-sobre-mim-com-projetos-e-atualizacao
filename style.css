@@ -1,0 +1,375 @@
+:root {
+  --cor-primaria: #00bcd4;
+  --cor-fundo: #0f172a;
+  --cor-card: #1e293b;
+  --cor-texto: #f1f5f9;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #0ea5e9, #020617);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  color: var(--cor-texto);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* FOTO PERFIL */
+.foto-perfil {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--cor-primaria);
+  margin-bottom: 20px;
+  box-shadow: 0 0 25px var(--cor-primaria);
+}
+
+/* TITULOS */
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+  }
+
+.hero p {
+  font-size: 1.2rem;
+  font-weight: 300;
+  opacity: 0.85;
+  max-width: 600px;
+}
+
+/* BOTÃO HERO */
+.hero a {
+  text-decoration: none;
+}
+
+.hero button {
+  margin-top: 25px;
+  padding: 14px 30px;
+  border: none;
+  background: var(--cor-primaria);
+  color: black;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.4s ease;
+  box-shadow: 0 0 15px var(--cor-primaria);
+}
+
+.hero button:hover {
+  box-shadow: 0 0 35px var(--cor-primaria);
+  transform: scale(1.08);
+}
+
+/* MAIN */
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* SECTIONS */
+section {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  padding: 40px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  transition: 0.4s ease;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s ease forwards;
+}
+
+section:nth-of-type(1) {
+  animation-delay: 0.3s;
+}
+
+section:nth-of-type(2) {
+  animation-delay: 0.6s;
+}
+
+section:nth-of-type(3) {
+  animation-delay: 0.9s;
+}
+
+section:hover {
+  transform: translateY(-5px);
+}
+
+/* TITULOS SECTION */
+h2 {
+  margin-bottom: 15px;
+  color: var(--cor-primaria);
+}
+
+/* BOTÕES GERAIS */
+button {
+  padding: 14px 30px;
+  border: none;
+  background: var(--cor-primaria);
+  color: black;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.4s ease;
+  box-shadow: 0 0 10px var(--cor-primaria);
+}
+
+button:hover {
+  box-shadow: 0 0 25px var(--cor-primaria);
+  transform: scale(1.05);
+}
+
+/* SKILLS */
+.skills {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skill-card {
+  background: #334155;
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 120px;
+  transition: 0.3s;
+}
+
+.skill-card:hover {
+  background: var(--cor-primaria);
+  color: black;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #0b1220;
+  margin-top: 40px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 80px 20px;
+  }
+
+  .skills {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  section {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .foto-perfil {
+    width: 100px;
+    height: 100px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ANIMAÇÕES */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* EFEITO LUZ PROJETOS */
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.4) 0%, transparent 60%);
+  top: var(--y);
+  left: var(--x);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+/* ==========================
+   GLOW ANIMADO NO NOME
+========================== */
+
+.hero h1 {
+  position: relative;
+  color: #fff;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 5px #00f0ff,
+      0 0 10px #00f0ff,
+      0 0 20px #00f0ff;
+  }
+
+  50% {
+    text-shadow: 0 0 10px #00f0ff,
+      0 0 20px #00f0ff,
+      0 0 40px #00f0ff;
+  }
+
+  100% {
+    text-shadow: 0 0 5px #00f0ff,
+      0 0 10px #00f0ff,
+      0 0 20px #00f0ff;
+  }
+}
+
+/* ==========================
+   PARTÍCULAS FUNDO
+========================== */
+
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* ==========================
+   CURSOR FUTURISTA
+========================== */
+
+body {
+  cursor: none;
+}
+
+.cursor {
+  position: fixed;
+  width: 15px;
+  height: 15px;
+  background: #00f0ff;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  box-shadow: 0 0 15px #00f0ff,
+    0 0 30px #00f0ff;
+  transition: transform 0.1s ease;
+}
+
+.cursor.active {
+  transform: translate(-50%, -50%) scale(2);
+}
+
+/* ==========================
+   EFEITO 3D REAL
+========================== */
+
+main {
+  perspective: 1000px;
+}
+
+section {
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+section:hover {
+  transform: rotateX(5deg) rotateY(5deg);
+}
+
+/* ==========================
+   LOADER PREMIUM
+========================== */
+
+.loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid #00f0ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.nome-destaque {
+  color: #ffffff;
+  animation: glowPulse 2.5s infinite ease-in-out;
+}
