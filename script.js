@@ -85,20 +85,20 @@ document.addEventListener("DOMContentLoaded", () => {
 /* =====================================================
    PARALLAX SUAVE
 ===================================================== */
-
 window.addEventListener("scroll", () => {
-  const hero = document.querySelector(".hero-content");
-  if (hero) {
-    let offset = window.scrollY * 0.2;
-    hero.style.transform = `translateY(${offset}px)`;
-  }
+  const hero = document.querySelector(".hero");
+  if (!hero) return;
+
+  const offset = window.scrollY * 0.15;
+  hero.style.backgroundPositionY = offset + "px";
 });
 
 /* ==========================
    SISTEMA DE PARTÍCULAS
 ========================== */
-
-const canvas = document.getElementById("particles");
+document.addEventListener("DOMContentLoaded", () => {
+   // código das partículas aqui
+   const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
@@ -184,6 +184,8 @@ window.addEventListener("resize", () => {
 
 initParticles();
 animateParticles();
+
+});
 
 /* ==========================
    CURSOR PERSONALIZADO
