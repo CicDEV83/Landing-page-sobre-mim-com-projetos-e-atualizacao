@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.iconeclima {
+    width: 100px;
+    height: 100px;
+    display: none;
+    margin: 10px auto;
+
+}

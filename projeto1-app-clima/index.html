@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto 1 | App Clima</title>
+  <meta name="description" content="Aplicação de clima com geolocalização, relógio em tempo real e mensagens dinâmicas.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="app-clima">
+
+    <p id="mensagemClima"></p>
+
+    <!-- Cabeçalho do App -->
+    <header class="app-header">
+      <h1 id="saudacao"></h1>
+      <p id="relogio"></p>
+    </header>
+
+    <!-- Seção de Busca -->
+    <section class="busca">
+      <div class="search-box">
+        <input type="text" id="cidadeInput" placeholder="Digite a cidade">
+        <button id="buscarBtn">Buscar</button>
+      </div>
+    </section>
+
+    <!-- Seção Resultado do Clima -->
+    <section class="resultado">
+      <article class="weather-card">
+        <img id="iconeClima" alt="Ícone do clima" width="100">
+        <h2 id="cidade"></h2>
+        <p id="temperatura"></p>
+        <p id="descricao"></p>
+        <p id="umidade"></p>
+      </article>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
