@@ -1,48 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projeto 1 | App Clima</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projeto 1 | App Clima</title>
-  <meta name="description" content="Aplicação de clima com geolocalização, relógio em tempo real e mensagens dinâmicas.">
-  <link rel="stylesheet" href="style.css">
-</head>
+  <body>
+    <main>
+      <header>
+        <h1 id="saudacao">Boa noite</h1>
+        <p id="relogio"></p>
+      </header>
 
-<body>
+      <section aria-labelledby="buscar-cidade">
+        <h2 id="buscar-cidade">Buscar Cidade</h2>
 
-  <main class="app-clima">
+        <form id="formClima">
+          <label for="cidadeInput">Digite a cidade:</label>
+          <input type="text" id="cidadeInput" name="cidade" required />
+          <button type="submit">Buscar</button>
+        </form>
+      </section>
 
-    <p id="mensagemClima"></p>
+      <section aria-labelledby="resultado-clima">
+        <h2 id="resultado-clima">Resultado do Clima</h2>
 
-    <!-- Cabeçalho do App -->
-    <header class="app-header">
-      <h1 id="saudacao"></h1>
-      <p id="relogio"></p>
-    </header>
+        <figure>
+          <img id="icone" src="" alt="Ícone do clima" />
+        </figure>
 
-    <!-- Seção de Busca -->
-    <section class="busca">
-      <div class="search-box">
-        <input type="text" id="cidadeInput" placeholder="Digite a cidade">
-        <button id="buscarBtn">Buscar</button>
-      </div>
-    </section>
+        <article>
+          <h3 id="cidade"></h3>
+          <p id="temperatura"></p>
+          <p id="descricao"></p>
+          <p id="umidade"></p>
+        </article>
+      </section>
 
-    <!-- Seção Resultado do Clima -->
-    <section class="resultado">
-      <article class="weather-card">
-        <img id="iconeClima" alt="Ícone do clima" width="100">
-        <h2 id="cidade"></h2>
-        <p id="temperatura"></p>
-        <p id="descricao"></p>
-        <p id="umidade"></p>
-      </article>
-    </section>
+      <nav>
+        <button type="button" onclick="voltar()">
+          Voltar para a Landing Page
+        </button>
+      </nav>
+    </main>
 
-  </main>
-
-  <script src="script.js"></script>
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -1,90 +1,138 @@
-/* ==========================
-   RELÓGIO + SAUDAÇÃO
-========================== */
+const apiKey = "b98966e169785c6b77365acc80010d41s";
+
+const form = document.getElementById("formClima");
+const cidadeInput = document.getElementById("cidadeInput");
+
+const saudacao = document.getElementById("saudacao");
+const relogio = document.getElementById("relogio");
+
+const cidade = document.getElementById("cidade");
+const temperatura = document.getElementById("temperatura");
+const descricao = document.getElementById("descricao");
+const umidade = document.getElementById("umidade");
+const icone = document.getElementById("icone");
+
+// =======================
+// RELÓGIO EM TEMPO REAL
+// =======================
 
 function atualizarRelogio() {
   const agora = new Date();
-  const horaAtual = agora.getHours();
+  const horas = agora.getHours().toString().padStart(2, "0");
+  const minutos = agora.getMinutes().toString().padStart(2, "0");
+  const segundos = agora.getSeconds().toString().padStart(2, "0");
 
-  const horas = String(horaAtual).padStart(2, "0");
-  const minutos = String(agora.getMinutes()).padStart(2, "0");
-  const segundos = String(agora.getSeconds()).padStart(2, "0");
-
-  const relogioEl = document.getElementById("relogio");
-  const saudacaoEl = document.getElementById("saudacao");
-
-  if (relogioEl) {
-    relogioEl.textContent = `${horas}:${minutos}:${segundos}`;
-  }
-
-  if (saudacaoEl) {
-    let mensagem;
-
-    if (horaAtual >= 5 && horaAtual < 12) {
-      mensagem = "Bom dia";
-    } else if (horaAtual >= 12 && horaAtual < 18) {
-      mensagem = "Boa tarde";
-    } else {
-      mensagem = "Boa noite";
-    }
-
-    saudacaoEl.textContent = mensagem;
-  }
+  relogio.textContent = `${horas}:${minutos}:${segundos}`;
 }
 
 setInterval(atualizarRelogio, 1000);
 atualizarRelogio();
 
-function obterLocalizacao() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
+// =======================
+// SAUDAÇÃO POR HORÁRIO
+// =======================
 
-        buscarClimaPorCoordenadas(lat, lon);
-      },
-      (erro) => {
-        alert("Não foi possível obter sua localização.");
-      }
-    );
+function atualizarSaudacao() {
+  const hora = new Date().getHours();
+
+  if (hora < 12) {
+    saudacao.textContent = "Bom dia";
+  } else if (hora < 18) {
+    saudacao.textContent = "Boa tarde";
   } else {
-    alert("Geolocalização não suportada pelo navegador.");
+    saudacao.textContent = "Boa noite";
   }
 }
 
-async function buscarClima(cidade) {
-  const apiKey = "b98966e169785c6b77365acc80010d41s";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}&units=metric&lang=pt_br`;
+atualizarSaudacao();
 
-  const response = await fetch(url);
-  const data = await response.json();
+// =======================
+// BUSCA POR CIDADE
+// =======================
 
-  document.getElementById("cidade").textContent = data.name;
-  document.getElementById("temperatura").textContent = data.main.temp + "°C";
-  document.getElementById("descricao").textContent = data.weather[0].description;
-  document.getElementById("umidade").textContent = "Umidade: " + data.main.humidity + "%";
-
-  // 🔥 AQUI ENTRA O NOVO CÓDIGO
-  const iconCode = data.weather[0].icon;
-  const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
-  document.getElementById("iconeClima").src = iconUrl;
-}
-
-function mensagemInteligente(condicao, temperatura) {
-  const mensagem = document.getElementById("mensagemClima");
-
-  if (condicao === "Rain") {
-    mensagem.textContent = "Leve um guarda-chuva ☔";
-  } else if (condicao === "Clear" && temperatura > 30) {
-    mensagem.textContent = "Dia perfeito para piscina! ☀️";
-  } else if (temperatura < 15) {
-    mensagem.textContent = "Está frio, use um casaco 🧥";
-  } else {
-    mensagem.textContent = "Tenha um excelente dia! 🌤️";
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  obterLocalizacao();
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const cidadeNome = cidadeInput.value;
+  buscarClima(cidadeNome);
 });
+
+// =======================
+// GEOLOCALIZAÇÃO
+// =======================
+
+function obterLocalizacao() {
+  navigator.geolocation.getCurrentPosition((posicao) => {
+    const lat = posicao.coords.latitude;
+    const lon = posicao.coords.longitude;
+    buscarClimaPorCoords(lat, lon);
+  });
+}
+
+obterLocalizacao();
+
+// =======================
+// FETCH POR NOME
+// =======================
+
+async function buscarClima(nomeCidade) {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${nomeCidade}&appid=${apiKey}&units=metric&lang=pt_br`;
+
+  const resposta = await fetch(url);
+  const dados = await resposta.json();
+
+  atualizarTela(dados);
+}
+
+// =======================
+// FETCH POR COORDENADAS
+// =======================
+
+async function buscarClimaPorCoords(lat, lon) {
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=pt_br`;
+
+  const resposta = await fetch(url);
+  const dados = await resposta.json();
+
+  atualizarTela(dados);
+}
+
+// =======================
+// ATUALIZA TELA
+// =======================
+
+function atualizarTela(dados) {
+  cidade.textContent = dados.name;
+  temperatura.textContent = `Temperatura: ${dados.main.temp}°C`;
+  descricao.textContent = `Clima: ${dados.weather[0].description}`;
+  umidade.textContent = `Umidade: ${dados.main.humidity}%`;
+
+  icone.src = `https://openweathermap.org/img/wn/${dados.weather[0].icon}@2x.png`;
+
+  mudarFundo(dados.weather[0].main);
+}
+
+// =======================
+// FUNDO DINÂMICO
+// =======================
+
+function mudarFundo(condicao) {
+  const body = document.body;
+
+  if (condicao.includes("Cloud")) {
+    body.style.background = "linear-gradient(135deg, #757f9a, #d7dde8)";
+  } else if (condicao.includes("Rain")) {
+    body.style.background = "linear-gradient(135deg, #4b79a1, #283e51)";
+  } else if (condicao.includes("Clear")) {
+    body.style.background = "linear-gradient(135deg, #f7971e, #ffd200)";
+  } else {
+    body.style.background = "linear-gradient(135deg, #1e3c72, #2a5298)";
+  }
+}
+
+// =======================
+// VOLTAR
+// =======================
+
+function voltar() {
+  window.location.href = "../index.html";
+}

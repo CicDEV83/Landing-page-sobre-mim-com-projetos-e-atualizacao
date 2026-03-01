@@ -1,13 +1,91 @@
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.iconeclima {
-    width: 100px;
-    height: 100px;
-    display: none;
-    margin: 10px auto;
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+  transition: background 0.5s ease;
+}
 
+main {
+  width: 95%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+#relogio {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+section {
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+
+input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #00c6ff;
+  color: black;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #0072ff;
+  color: white;
+}
+
+figure {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+#icone {
+  width: 100px;
+}
+
+article {
+  text-align: center;
+}
+
+nav {
+  text-align: center;
 }
