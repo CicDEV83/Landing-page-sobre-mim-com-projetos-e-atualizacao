@@ -8,41 +8,69 @@
   </head>
 
   <body>
-    <main>
-      <header>
-        <h1 id="saudacao">Boa noite</h1>
-        <p id="relogio"></p>
+    <main class="app" aria-labelledby="titulo-projeto">
+      <header class="app__header">
+        <p class="tag">Projeto 1</p>
+        <h1 id="titulo-projeto">App Clima</h1>
+        <p id="saudacao" class="saudacao">Boa noite</p>
+        <p id="relogio" class="relogio" aria-live="polite"></p>
       </header>
 
-      <section aria-labelledby="buscar-cidade">
-        <h2 id="buscar-cidade">Buscar Cidade</h2>
+      <section class="painel" aria-labelledby="buscar-cidade">
+        <div class="section-title">
+          <h2 id="buscar-cidade">Buscar cidade</h2>
+          <button
+            id="usarLocalizacao"
+            class="button button--ghost"
+            type="button"
+          >
+            Usar localização
+          </button>
+        </div>
 
-        <form id="formClima">
-          <label for="cidadeInput">Digite a cidade:</label>
-          <input type="text" id="cidadeInput" name="cidade" required />
-          <button type="submit">Buscar</button>
+        <form id="formClima" class="search-form">
+          <label for="cidadeInput">Digite a cidade</label>
+          <div class="search-form__row">
+            <input
+              type="text"
+              id="cidadeInput"
+              name="cidade"
+              placeholder="Ex: São Paulo"
+              autocomplete="address-level2"
+              required
+            />
+            <button class="button" type="submit">Buscar</button>
+          </div>
         </form>
+
+        <p id="loading" class="status" role="status" aria-live="polite" hidden>
+          Buscando clima...
+        </p>
+        <p id="erro" class="status status--erro" role="alert" hidden></p>
       </section>
 
-      <section aria-labelledby="resultado-clima">
-        <h2 id="resultado-clima">Resultado do Clima</h2>
+      <section class="resultado" aria-labelledby="resultado-clima">
+        <h2 id="resultado-clima">Resultado do clima</h2>
 
-        <figure>
-          <img id="icone" src="" alt="Ícone do clima" />
+        <figure class="weather-icon">
+          <img id="icone" src="" alt="" hidden />
         </figure>
 
-        <article>
-          <h3 id="cidade"></h3>
-          <p id="temperatura"></p>
-          <p id="descricao"></p>
-          <p id="umidade"></p>
+        <article class="weather-card" aria-live="polite">
+          <h3 id="cidade">Pesquise uma cidade</h3>
+          <p id="descricao">Os dados do clima aparecerão aqui.</p>
+
+          <div class="weather-grid">
+            <p id="temperatura">Temperatura: --</p>
+            <p id="sensacao">Sensação: --</p>
+            <p id="umidade">Umidade: --</p>
+            <p id="vento">Vento: --</p>
+          </div>
         </article>
       </section>
 
-      <nav>
-        <button type="button" onclick="voltar()">
-          Voltar para a Landing Page
-        </button>
+      <nav class="project-nav" aria-label="Navegação do projeto">
+        <a href="../index.html">Voltar ao portfólio</a>
       </nav>
     </main>
 
