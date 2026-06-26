@@ -17,7 +17,7 @@ body {
   font-family: "Inter", sans-serif;
   background: linear-gradient(-45deg, #0f172a, #1e293b, #0ea5e9, #020617);
   background-size: 400% 400%;
-const siglasEstadosBrasil = { ease infinite;
+  animation: gradientMove 15s ease infinite;
   color: var(--cor-texto);
   line-height: 1.6;
   overflow-x: hidden;
