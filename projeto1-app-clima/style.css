@@ -86,7 +86,7 @@ label {
   font-size: 0.95rem;
 }
 
-Device Info
+.device-info {
   color: var(--muted);
   font-size: 0.85rem;
 }
