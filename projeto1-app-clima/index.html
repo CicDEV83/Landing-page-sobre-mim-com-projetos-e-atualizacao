@@ -14,6 +14,7 @@
         <h1 id="titulo-projeto">App Clima</h1>
         <p id="saudacao" class="saudacao">Boa noite</p>
         <p id="relogio" class="relogio" aria-live="polite"></p>
+        <p id="dispositivo" class="device-info"></p>
       </header>
 
       <section class="painel" aria-labelledby="buscar-cidade">
@@ -27,6 +28,20 @@
             Usar localização
           </button>
         </div>
+
+        <form id="formUsuario" class="user-form">
+          <label for="nomeInput">Seu nome</label>
+          <div class="user-form__row">
+            <input
+              type="text"
+              id="nomeInput"
+              name="nome"
+              placeholder="Ex: Cícero"
+              autocomplete="given-name"
+            />
+            <button class="button button--ghost" type="submit">Salvar</button>
+          </div>
+        </form>
 
         <form id="formClima" class="search-form">
           <label for="cidadeInput">Digite a cidade</label>
@@ -62,9 +77,12 @@
 
           <div class="weather-grid">
             <p id="temperatura">Temperatura: --</p>
+            <p id="temperaturaMinima">Mínima: --</p>
+            <p id="temperaturaMaxima">Máxima: --</p>
             <p id="sensacao">Sensação: --</p>
             <p id="umidade">Umidade: --</p>
             <p id="vento">Vento: --</p>
+            <p id="atualizacao">Atualizado: --</p>
           </div>
         </article>
       </section>
