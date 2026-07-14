@@ -131,7 +131,7 @@ function atualizarDispositivo() {
 function detectarDispositivo() {
   const userAgent = navigator.userAgent.toLowerCase();
   const largura = window.innerWidth;
-  const temToque = navigator.maxTouchPoints > 1;
+  const temToque = navigator.maxTouchPoints > 1; // Corrigido aqui!
 
   if (
     /ipad|tablet/.test(userAgent) ||
@@ -185,7 +185,7 @@ async function buscarLocalizacaoPorCidade(nomeCidade) {
   const dados = await resposta.json();
 
   if (!resposta.ok || dados.length === 0) {
-    throw new Error("Cidade n\u00e3o encontrada.");
+    throw new Error("Cidade não encontrada.");
   }
 
   return dados[0];
@@ -208,7 +208,7 @@ async function buscarDadosClima(url) {
 
   if (!resposta.ok || Number(dados.cod) !== 200) {
     throw new Error(
-      dados.message || "N\u00e3o foi poss\u00edvel buscar o clima.",
+      dados.message || "Não foi possível buscar o clima.",
     );
   }
 
@@ -233,7 +233,7 @@ async function buscarClima(nomeCidade) {
     registrarUltimaBusca(localizacao.lat, localizacao.lon, localizacao);
     atualizarTela(dados, localizacao);
   } catch (error) {
-    mostrarErro("Cidade n\u00e3o encontrada. Tente novamente.");
+    mostrarErro("Cidade não encontrada. Tente novamente.");
     console.error(error);
   } finally {
     mostrarLoading(false);
@@ -247,7 +247,7 @@ function buscarClimaPorLocalizacao() {
   }
 
   if (!navigator.geolocation) {
-    mostrarErro("Seu navegador n\u00e3o suporta geolocaliza\u00e7\u00e3o.");
+    mostrarErro("Seu navegador não suporta geolocalização.");
     return;
   }
 
@@ -270,7 +270,7 @@ function buscarClimaPorLocalizacao() {
         atualizarTela(dados, localizacao);
       } catch (error) {
         mostrarErro(
-          "N\u00e3o foi poss\u00edvel buscar o clima pela sua localiza\u00e7\u00e3o.",
+          "Não foi possível buscar o clima pela sua localização.",
         );
         console.error(error);
       } finally {
@@ -279,7 +279,7 @@ function buscarClimaPorLocalizacao() {
     },
     () => {
       mostrarLoading(false);
-      mostrarErro("Permiss\u00e3o de localiza\u00e7\u00e3o negada.");
+      mostrarErro("Permissão de localização negada.");
     },
   );
 }
@@ -313,7 +313,7 @@ async function atualizarClimaAutomaticamente() {
     atualizarTela(dados, ultimaBusca.localizacao);
   } catch (error) {
     mostrarErro(
-      "N\u00e3o foi poss\u00edvel atualizar o clima automaticamente.",
+      "Não foi possível atualizar o clima automaticamente.",
     );
     console.error(error);
   }
@@ -327,16 +327,16 @@ function atualizarTela(dados, localizacao) {
   cidade.textContent = formatarLocalizacao(dados, localizacao);
   descricao.textContent = traduzirCondicaoClimatica(climaAtual);
   temperatura.textContent = `Temperatura: ${Math.round(dados.main.temp)}°C`;
-  sensacao.textContent = `Sensa\u00e7\u00e3o: ${Math.round(dados.main.feels_like)}°C`;
+  sensacao.textContent = `Sensação: ${Math.round(dados.main.feels_like)}°C`;
   umidade.textContent = `Umidade: ${dados.main.humidity}%`;
   vento.textContent = `Vento: ${dados.wind.speed.toFixed(1)} m/s`;
 
   if (temperaturaMinima) {
-    temperaturaMinima.textContent = `M\u00ednima: ${Math.round(dados.main.temp_min)}°C`;
+    temperaturaMinima.textContent = `Mínima: ${Math.round(dados.main.temp_min)}°C`;
   }
 
   if (temperaturaMaxima) {
-    temperaturaMaxima.textContent = `M\u00e1xima: ${Math.round(dados.main.temp_max)}°C`;
+    temperaturaMaxima.textContent = `Máxima: ${Math.round(dados.main.temp_max)}°C`;
   }
 
   if (atualizacao) {
@@ -344,7 +344,7 @@ function atualizarTela(dados, localizacao) {
   }
 
   icone.src = `https://openweathermap.org/img/wn/${climaAtual.icon}@2x.png`;
-  icone.alt = `\u00cdcone do clima: ${traduzirCondicaoClimatica(climaAtual)}`;
+  icone.alt = `Ícone do clima: ${traduzirCondicaoClimatica(climaAtual)}`;
   icone.hidden = false;
 
   mudarFundo(climaAtual.main);
@@ -380,14 +380,14 @@ function traduzirCondicaoClimatica(clima) {
   const ehDia = clima.icon.endsWith("d");
 
   const condicoes = {
-    Clear: ehDia ? "Ensolarado" : "C\u00e9u limpo",
+    Clear: ehDia ? "Ensolarado" : "Céu limpo",
     Clouds: traduzirNuvens(clima.description),
     Rain: descricaoApi.includes("leve") ? "Chuva leve" : "Chuva",
     Drizzle: "Garoa",
     Thunderstorm: "Tempestade",
     Snow: "Neve",
     Mist: "Neblina",
-    Smoke: "Fuma\u00e7a",
+    Smoke: "Fumaça",
     Haze: "Neblina seca",
     Dust: "Poeira",
     Fog: "Nevoeiro",
@@ -482,3 +482,34 @@ window.addEventListener("resize", atualizarDispositivo);
 
 prepararUsuario();
 iniciarRelogio();
+
+/* =========================================================================
+   MÓDULO DE PAGINAÇÃO DO PORTFÓLIO (SISTEMA DE LIVRO)
+   ========================================================================= */
+
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const pageIndicator = document.getElementById('pageIndicator');
+
+const projetosPortfolio = [
+  { id: 1, nome: "App Clima", url: "#" },
+  { id: 2, nome: "Task Manager Pro", url: "../task-manager-pro/index.html" }
+];
+
+function iniciarNavegacaoLivro() {
+  if (pageIndicator) {
+    pageIndicator.textContent = `Projeto 1 de ${projetosPortfolio.length}`;
+  }
+
+  if (prevBtn) {
+    prevBtn.disabled = true;
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      window.location.href = projetosPortfolio[1].url;
+    });
+  }
+}
+
+iniciarNavegacaoLivro();

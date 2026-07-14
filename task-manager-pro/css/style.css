@@ -1,0 +1,261 @@
+/* =========================================
+   LAYOUT PRINCIPAL
+   ========================================= */
+.app-header,
+.app-main,
+.app-footer {
+  width: 100%;
+  max-width: 800px;
+}
+
+.app-header {
+  text-align: center;
+  padding: 1rem;
+}
+
+.app-header h1 {
+  color: var(--primary-color);
+}
+
+.app-main {
+  background-color: var(--container-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease;
+}
+
+/* =========================================
+   BOTÃO DE TEMA (DARK/LIGHT)
+   ========================================= */
+.theme-toggle {
+  margin-top: 1rem;
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--border-color);
+}
+
+/* =========================================
+   FORMULÁRIO E BOTÕES
+   ========================================= */
+.task-form-section {
+  padding: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.task-form-section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.task-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.task-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: var(--container-bg);
+  color: var(--text-color);
+  transition:
+    border-color 0.3s ease,
+    background-color 0.4s ease;
+}
+
+.task-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+/* =========================================
+   LISTA DE TAREFAS
+   ========================================= */
+.task-list-section {
+  padding: 2rem;
+}
+
+.task-list-section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--container-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  transition: all 0.4s ease;
+}
+
+.task-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.btn-delete {
+  background-color: var(--danger-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+.btn-delete:hover {
+  opacity: 0.8;
+}
+
+/* =========================================
+   BARRA LATERAL E RODAPÉ
+   ========================================= */
+.app-sidebar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--border-color);
+  transition: background-color 0.4s ease;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+}
+
+.user-profile figcaption {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.stats {
+  text-align: right;
+}
+
+.stats h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 1px;
+}
+
+#total-tasks {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+/* =========================================================================
+   BOTÃO VOLTAR ULTRA-MINIMALISTA (WHITE/GLASS MODE)
+   ========================================================================= */
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem; /* Pequeno e discreto */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+
+  /* Cores minimalistas baseadas em branco e transparência */
+  color: rgba(255, 255, 255, 0.7); /* Branco levemente fosco */
+  background: rgba(255, 255, 255, 0.03); /* Fundo quase invisível */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Borda fina e elegante */
+  border-radius: 6px;
+
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Efeito Hover (Interação ao passar o mouse) */
+.btn-back:hover {
+  color: #ffffff; /* Branco puro */
+  background: rgba(255, 255, 255, 0.08); /* Brilho sutil de fundo */
+  border-color: rgba(255, 255, 255, 0.3); /* Borda destaca um pouco mais */
+  transform: translateX(-3px); /* Deslocamento suave indicando "retorno" */
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05); /* Sombra de luz branca super suave */
+}
+
+/* Ícone da seta */
+.btn-back__icon {
+  font-size: 0.95rem;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.btn-back:hover .btn-back__icon {
+  transform: translateX(-2px); /* Empurra a setinha levemente para a esquerda */
+}
+
+/* =========================================================================
+   RODAPÉ CENTRALIZADO E ALINHADO
+   ========================================================================= */
+.app-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Empilha o botão e o texto um em cima do outro */
+  align-items: center; /* Centraliza ambos horizontalmente na tela */
+  justify-content: center;
+  gap: 1rem; /* Dá um espaço perfeito entre o botão e o copyright */
+  margin-top: 3rem; /* Afasta o rodapé do resto do conteúdo para respirar */
+  padding: 2rem 0; /* Espaço interno para não colar na borda de baixo */
+  text-align: center;
+}
+
+/* Ajuste fino no botão dentro do rodapé */
+.app-footer .btn-back {
+  margin: 0; /* Remove margens antigas para o Flexbox alinhar com precisão */
+}

@@ -5,140 +5,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Portfólio de Cicero W. Silva, Desenvolvedor Fullstack em formação focado em HTML5, CSS3 e JavaScript moderno."
+      content="Portfólio de Desenvolvedor Web Frontend focado em Clean Code e interfaces modernas."
     />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
-      rel="stylesheet"
-    />
-
-    <title>Cicero W. Silva | Fullstack Developer</title>
-
+    <title>Meu Portfólio | Desenvolvedor Web</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- Ícones do Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
   </head>
-
   <body>
-    <!-- LOADER -->
-    <div class="loader">
-      <div class="spinner"></div>
-    </div>
-
-    <!-- PARTICLES BACKGROUND -->
-    <canvas id="particles"></canvas>
-
-    <!-- HERO -->
-    <header class="hero">
-      <div class="hero-content">
-        <img
-          src="img/WhatsApp Image 2026-02-17 at 09.11.30.jpeg"
-          alt="Foto de perfil de Cicero W. Silva"
-          class="foto-perfil"
-        />
-
-        <h1 class="typing" data-text="Cicero W. Silva"></h1>
-
-        <p
-          class="typing typing-dot"
-          data-text="Fullstack Developer em formação para o mercado nacional ou internacional"
-        ></p>
-
-        <!-- Botão correto (apenas <a>) -->
-        <a
-          href="./projeto1-app-clima/index.html"
-          class="botao-projetos typing"
-          data-text="Ver Projetos"
+    <!-- Cabecalho e Navegação -->
+    <header class="header">
+      <div class="header__container">
+        <a href="#" class="logo" aria-label="Página inicial"
+          >Dev<span>.</span></a
         >
-        </a>
+        <button
+          id="theme-toggle"
+          class="theme-btn"
+          aria-label="Alternar modo escuro"
+          title="Alternar Dark Mode"
+        >
+          <i class="ph ph-moon"></i>
+        </button>
       </div>
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
     <main>
-      <!-- SOBRE -->
-      <section id="sobre">
-        <h2 class="typing" data-text="Sobre mim"></h2>
-
-        <p
-          class="typing typing-dot"
-          data-text="Estou em jornada para me tornar um Desenvolvedor Fullstack focado no mercado nacional ou internacional, estudando HTML5, CSS3 e JavaScript moderno"
-        ></p>
-      </section>
-
-      <!-- HABILIDADES -->
-      <section id="habilidades">
-        <h2 class="typing" data-text="Habilidades em desenvolvimento"></h2>
-
-        <div class="skills">
-          <a
-            href="https://www.w3schools.com/html/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="skill-card"
-            data-tooltip="Clique para aprender HTML"
-          >
-            HTML5
-          </a>
-
-          <a
-            href="https://www.w3schools.com/css/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="skill-card"
-            data-tooltip="Clique para aprender CSS"
-          >
-            CSS3
-          </a>
-
-          <a
-            href="https://www.w3schools.com/js/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="skill-card"
-            data-tooltip="Clique para aprender JavaScript"
-          >
-            JavaScript
-          </a>
+      <!-- Seção Hero (Apresentação Espetacular) -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__content">
+          <span class="hero__badge">Disponível para oportunidades</span>
+          <h1 id="hero-title">
+            Construindo experiências digitais
+            <span class="highlight">incríveis</span>.
+          </h1>
+          <p class="hero__subtitle">
+            Desenvolvendo ecossistemas digitais resilientes, focados em semântica, alta escalabilidade e soluções que impactam o mundo real.
+          </p>
+          <div class="hero__actions">
+            <a href="#projetos" class="btn btn--primary">
+              Ver Meus Projetos <i class="ph ph-arrow-right"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/cicero-silva-056253362/"
+              target="_blank"
+              class="btn btn--secondary"
+              aria-label="Meu LinkedIn"
+            >
+              <i class="ph ph-linkedin-logo"></i> LinkedIn
+            </a>
+          </div>
         </div>
       </section>
 
-      <!-- CONTATO -->
-      <section id="contato">
-        <h2 class="typing" data-text="Contato"></h2>
-        <button id="botaoContato">Fale comigo</button>
-      </section>
+      <!-- Seção de Projetos -->
+      <section id="projetos" class="projects" aria-labelledby="projects-title">
+        <div class="projects__header">
+          <h2 id="projects-title">Meu Ecosistema de Projetos</h2>
+          <p>
+            Abaixo, a coleção de sistemas que desenvolvi, focados em resolver
+            problemas reais.
+          </p>
+        </div>
 
-      <!-- REFERÊNCIAS (ÚLTIMA SECTION DO MAIN) -->
-      <section id="referencias">
-        <h2>Referências de Estudo</h2>
+        <div class="projects__grid">
+          <!-- Card Projeto 1 -->
+          <article class="project-card">
+            <div class="project-card__content">
+              <span class="project-card__tag">Projeto 01</span>
+              <h3>App Clima Global</h3>
+              <p>
+                Consumo de APIs REST e geolocalização nativa para prever o clima
+                em tempo real em qualquer cidade do mundo.
+              </p>
+              <div class="project-card__tech">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+                <span>API Rest</span>
+              </div>
+              <a href="projeto1-app-clima/index.html" class="btn btn--link">
+                Acessar Projeto <i class="ph ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </article>
 
-        <p
-          class="typing typing-dot"
-          data-text="Parte do meu aprendizado contínuo é baseado em plataformas reconhecidas
-                internacionalmente na área de desenvolvimento web"
-        ></p>
+          <!-- Card Projeto 2 (Em breve vamos adicionar os arquivos do Task) -->
+          <article class="project-card">
+            <div class="project-card__content">
+              <span class="project-card__tag">Projeto 02</span>
+              <h3>Task Manager Pro</h3>
+              <p>
+                Gerenciador de tarefas avançado focado em manipulação robusta do
+                DOM, acessibilidade e persistência de dados.
+              </p>
+              <div class="project-card__tech">
+                <span>Clean Code</span>
+                <span>LocalStorage</span>
+                <span>Dark Mode</span>
+              </div>
+              <a href="task-manager-pro/index.html" class="btn btn--link">
+                Acessar Projeto <i class="ph ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </article>
 
-        <div class="referencias-links">
-          <a
-            href="https://www.w3schools.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            W3Schools – Documentação e Tutoriais Web
-          </a>
+          <!-- Espaço para o Conversor de Moedas -->
+          <article class="project-card project-card--upcoming">
+            <div class="project-card__content">
+              <span class="project-card__tag">Em Desenvolvimento</span>
+              <h3>Conversor Global</h3>
+              <p>
+                Dashboard estilo Home Broker com dados cambiais de alta
+                precisão.
+              </p>
+            </div>
+          </article>
         </div>
       </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer>
-      <p>© 2026 - Cicero W. Silva - Todos os direitos reservados</p>
+    <!-- Rodapé com Contador -->
+    <footer class="footer">
+      <div class="footer__container">
+        <p>&copy; 2026 Desenvolvido com código limpo e muita dedicação.</p>
+        <div class="visitor-counter" aria-live="polite">
+          <i class="ph ph-users"></i>
+          <span
+            &gt; Unique Visitors:<strong id="visitor-count">...</strong>&lt;/span>
+        </div>
+      </div>
     </footer>
 
-    <!-- CURSOR CUSTOM -->
-    <div class="cursor"></div>
-
-    <!-- SCRIPT -->
     <script src="script.js"></script>
   </body>
 </html>

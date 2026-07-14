@@ -1,66 +1,69 @@
-# Landing Page — Configuração da API (App Clima)
+# 🚀 Portfolio Hub - Modern Web Solutions
 
-Este repositório contém uma landing page pessoal e um pequeno projeto demonstrativo de clima em `projeto1-app-clima/` que usa a API do OpenWeatherMap.
+Bem-vindo ao repositório do meu portfólio pessoal e hub de projetos! Este espaço centraliza minhas principais criações como Desenvolvedor Front-End, servindo de vitrine para a aplicação prática de conceitos modernos de engenharia de software, arquitetura CSS avançada e usabilidade focada no usuário.
 
-Este README explica como configurar a _API key_ do OpenWeatherMap de forma segura e as opções rápidas para desenvolvimento local.
+---
 
-Opção 1 — Rápida (não segura)
+## 🎨 Projeto Principal: Landing Page Portfólio
 
-- Abra `projeto1-app-clima/script.js` e substitua o valor de `const apiKey = "..."` pela sua chave.
-- Atenção: NÃO comite a chave no repositório. Use esta opção apenas para testes rápidos em local.
+Uma interface responsiva de alta fidelidade visual feita para conectar recrutadores e desenvolvedores às minhas soluções. Ela funciona como o núcleo (Hub) do meu ecossistema de projetos.
 
-Opção 2 — Recomendada (sem commitar a chave)
+### 🧠 Destaques Técnicos da Landing Page:
 
-1. Crie um ficheiro `projeto1-app-clima/config.example.js` com o conteúdo:
+- **Semântica Estrutural:** Construída com uso rigoroso de tags semânticas para SEO e legibilidade de tela.
+- **Componentização e Navegação:** Arquitetura limpa de diretórios onde cada subprojeto é modular e isolado, permitindo o fluxo contínuo de navegação ("ir e voltar") sem quebras de escopo.
+- **Consistência de Design:** Uso de variáveis CSS (custom properties) para paleta de cores e tipografia consistente.
 
-```js
-// projeto1-app-clima/config.example.js
-window.OPENWEATHER_API_KEY = "YOUR_API_KEY_HERE";
+---
+
+## ☁️ Projeto 1: App Clima Global
+
+Aplicação que consome dados meteorológicos em tempo real, fornecendo informações dinâmicas de clima de forma limpa e intuitiva.
+
+| <img src="./img/app-clima-preview.jpg" width="350" alt="Preview App Clima"> | **Tecnologias Utilizadas:** <br>• HTML5 Semântico <br>• CSS3 (Custom Grid & Flexbox) <br>• JavaScript (ES6+ Assíncrono) <br>• Integração com API REST |
+| :-------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+### 🛠️ Diferenciais de Engenharia no App Clima:
+
+- **Integração Assíncrona com APIs:** Uso de `fetch`, `async/await` e tratamento robusto de exceções para garantir que o aplicativo continue funcional mesmo em caso de falha de conexão ou dados inconsistentes da API de meteorologia.
+- **Acessibilidade Aplicada:** Inclusão de tags `<nav>` estruturais com o atributo `aria-label="Navegação do projeto"` para dar contexto claro a leitores de tela na jornada de retorno ao portfólio.
+- **Layout Flexível:** Grid estruturado para exibir dados de temperatura, vento, umidade e horário de atualização de forma organizada e simétrica no rodapé da aplicação.
+
+---
+
+## 📝 Projeto 2: Task Manager Pro
+
+Um gerenciador de tarefas avançado focado em produtividade diária, com controle de estado, contadores dinâmicos e persistência local.
+
+| <img src="./img/task-manager-preview.jpg" width="350" alt="Preview Task Manager"> | **Tecnologias Utilizadas:** <br>• HTML5 Semântico (`<aside>`, `<footer>`, `<main>`) <br>• CSS3 (Glassmorphism & Flexbox) <br>• JavaScript Dinâmico (Manipulação de DOM) <br>• LocalStorage API |
+| :-------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+### 🛠️ Diferenciais de Engenharia no Task Manager:
+
+- **Persistência de Dados Offline:** Implementação de persistência local de dados (`localStorage`), garantindo que as tarefas criadas pelo usuário permaneçam salvas mesmo após fechar ou recarregar o navegador.
+- **Controle Dinâmico de Estado:** Monitoramento de lista e contadores em tempo real. Sempre que uma tarefa é criada, concluída ou excluída, o contador (`#total-tasks`) atualiza instantaneamente através de manipulação de DOM baseada em eventos.
+- **Engine de Dark Mode nativo:** Algoritmo que lê a preferência de tema do sistema operacional (`window.matchMedia('(prefers-color-scheme: dark)')`) e permite alternância dinâmica de classes na tag `<body>`, sincronizando o estado preferido no `localStorage` do usuário.
+- **UI/UX Polida:** Design baseado no estilo de vidro translúcido (_glassmorphism_) com microinterações elegantes. O botão de retorno (`.btn-back`) utiliza transições CSS suaves (`transition: all 0.25s`) e pequenos deslocamentos (`translateX`) para sinalizar ações físicas ao usuário.
+
+---
+
+## ⚙️ Arquitetura do Repositório
+
+O projeto foi estruturado para manter total modularidade e independência de estilos, evitando conflitos de escopo entre as aplicações:
+
+```text
+Landinpage_sobre_mim/
+│
+├── index.html                   # Landing page e portfólio principal
+├── css/                         # Estilos globais da landing page
+│
+├── projeto1-app-clima/          # Módulo independente do App Clima
+│   ├── index.html
+│   ├── css/
+│   └── script.js
+│
+└── task-manager-pro/            # Independent Task Manager Module
+    ├── index.html
+    ├── css/
+    └── js/
 ```
-
-2. Copie este ficheiro para `projeto1-app-clima/config.js` e substitua `YOUR_API_KEY_HERE` pela sua chave privada.
-3. Adicione `projeto1-app-clima/config.js` ao `.gitignore` para garantir que não será comitado:
-
-```
-# Ignore local API key
-projeto1-app-clima/config.js
-```
-
-4. Inclua o `config.js` em `projeto1-app-clima/index.html` ANTES do `script.js`:
-
-```html
-<!-- antes do -->
-<script src="config.js"></script>
-<script src="script.js"></script>
-```
-
-5. (Opcional) Alteração segura no `script.js` para ler a chave de `window.OPENWEATHER_API_KEY`:
-
-```js
-// no topo de projeto1-app-clima/script.js
-const apiKey = window.OPENWEATHER_API_KEY || "";
-if (!apiKey) {
-  console.warn(
-    "OpenWeather API key not set. Configure projeto1-app-clima/config.js or edit script.js for local testing.",
-  );
-}
-```
-
-Notas importantes
-
-- Geolocation: o app pede permissão para geolocalização; isto só funciona em `https://` ou `http://localhost`.
-- Não comite chaves secretas. Se for necessário partilhar instruções, inclua apenas `config.example.js` ou `.env.example`.
-- A API do OpenWeatherMap tem limites de uso no plano gratuito (~1000 requests/dia). Monitore se o app for usado frequentemente.
-
-Testar localmente
-
-- Servir ficheiros por um servidor local (recomendado) — exemplo com `http-server` ou Live Server.
-
-Em PowerShell (Windows):
-
-```powershell
-npx http-server -c-1 .
-# ou, se usar Live Server no VS Code, basta clicar em "Go Live"
-```
-
-Se quiser que eu implemente a leitura a partir de `window.OPENWEATHER_API_KEY` e a inclusão automática de `config.example.js`, posso abrir um PR com essas mudanças — diga se prefere isso.

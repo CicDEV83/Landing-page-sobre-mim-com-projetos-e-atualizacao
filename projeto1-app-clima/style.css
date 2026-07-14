@@ -175,6 +175,11 @@ input:focus {
   color: var(--text);
 }
 
+.button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
 .status {
   margin-top: 12px;
   font-size: 0.92rem;
@@ -231,24 +236,53 @@ input:focus {
   background: rgba(15, 23, 42, 0.45);
 }
 
+/* =========================================================================
+   ESTILIZAÇÃO DO NAV DO APP CLIMA
+   ========================================================================= */
+
+/* Centraliza o container <nav> na tela */
 .project-nav {
-  margin-top: 18px;
-  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3.5rem; /* Espaço confortável abaixo do card do clima */
+  margin-bottom: 2rem; /* Margem de segurança no fim da página */
 }
 
+/* Transforma o link <a> em um botão moderno e minimalista */
 .project-nav a {
   display: inline-flex;
   align-items: center;
-  min-height: 40px;
-  border-bottom: 1px solid currentColor;
+  justify-content: center;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   text-decoration: none;
-  font-weight: 700;
+
+  /* Cores elegantes translúcidas para o tema escuro */
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
+/* Efeito ao passar o mouse (Hover) */
 .project-nav a:hover {
-  color: var(--text);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px); /* Flutua levemente para cima */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* ==============================================
+   RESPONSIVIDADE (Mobile)
+   ============================================== */
 @media (max-width: 560px) {
   body {
     padding: 16px;
@@ -272,4 +306,50 @@ input:focus {
   .weather-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* =========================================================================
+   ESTILOS DA BARRA DE NAVEGAÇÃO DO LIVRO
+   ========================================================================= */
+
+.portfolio-book-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.book-btn {
+  min-height: 38px;
+  padding: 0 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.book-btn:hover:not(:disabled) {
+  background: var(--accent);
+  color: #082f49;
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.book-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.book-page-indicator {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--accent-strong);
+  letter-spacing: 0.05em;
 }

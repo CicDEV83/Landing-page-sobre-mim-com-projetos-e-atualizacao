@@ -1,0 +1,50 @@
+/* =========================================
+   1. RESET GERAL
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* =========================================
+   2. VARIÁVEIS DE TEMA (Claro e Escuro)
+   ========================================= */
+:root {
+  --bg-color: #f4f6f8;
+  --container-bg: #ffffff;
+  --text-color: #0f172a;
+  --border-color: #e2e8f0;
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --danger-color: #ef4444;
+}
+
+[data-theme="dark"] {
+  --bg-color: #0f172a;
+  --container-bg: #1e293b;
+  --text-color: #f8fafc;
+  --border-color: #334155;
+  --primary-color: #3b82f6;
+}
+
+/* =========================================
+   3. BASE DA PÁGINA (Body)
+   ========================================= */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  gap: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+
+  /* Puxa as cores automáticas e adiciona a animação suave */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
