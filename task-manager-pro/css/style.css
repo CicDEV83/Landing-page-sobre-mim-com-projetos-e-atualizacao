@@ -266,79 +266,63 @@
    ========================================================================= */
 
 /* Ajustes para telas de celular (Layout da barra lateral) */
+/* =========================================================================
+   CORREÇÃO DEFINITIVA DE LAYOUT PARA CELULARES (MOBILE)
+   ========================================================================= */
+
 @media (max-width: 768px) {
-  .app-sidebar {
-    display: flex;
-    flex-direction: row; /* Organiza foto e status lado a lado */
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 1.2rem;
-    gap: 1rem;
-    box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
+  /* 1. FORMULÁRIO: Empilha o Input e o Botão (Evita o corte lateral) */
+  .task-form,
+  .input-group,
+  .todo-form,
+  form {
+    flex-direction: column !important; /* Coloca um em cima do outro */
+    gap: 0.8rem !important;
+    width: 100% !important;
   }
 
-  /* Alinha a foto e o texto do perfil horizontalmente */
+  .task-form input,
+  .input-group input,
+  .todo-form input,
+  input[type="text"] {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .task-form button,
+  .input-group button,
+  .todo-form button,
+  form button {
+    width: 100% !important; /* Botão 100% largo, ótimo para o dedo no touch */
+    padding: 0.9rem !important;
+    margin: 0 !important;
+  }
+
+  /* 2. RODAPÉ DO PERFIL: Empilha e centraliza Foto, Nome e Status */
+  .app-sidebar {
+    flex-direction: column !important; /* Tudo na vertical */
+    align-items: center !important;
+    text-align: center !important;
+    justify-content: center !important;
+    padding: 1.5rem !important;
+    gap: 1.2rem !important;
+  }
+
   .user-profile {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    margin: 0;
+    flex-direction: column !important; /* Foto em cima, nome embaixo */
+    justify-content: center !important;
+    gap: 0.5rem !important;
   }
 
   .user-profile figcaption {
-    font-size: 0.9rem;
-    font-weight: 500;
+    text-align: center !important;
   }
 
-  /* Painel de estatísticas alinhado à direita no mobile */
   .stats {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    border-top: 1px solid rgba(128, 128, 128, 0.2) !important; /* Linha sutil para separar */
+    padding-top: 1rem !important;
   }
-
-  .stats h3 {
-    margin: 0;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  .stats p {
-    margin: 0;
-    font-size: 0.85rem;
-  }
-}
-
-/* Evita que o input e o botão de adicionar cortem na tela do celular */
-.task-form,
-.input-group,
-.todo-form {
-  display: flex;
-  width: 100%;
-  gap: 0.5rem;
-  box-sizing: border-box;
-}
-
-.task-form input,
-.input-group input,
-.todo-form input {
-  flex: 1;
-  min-width: 0; /* Permite que o input encolha sem estourar a tela */
-}
-
-.task-form button,
-.input-group button,
-.todo-form button {
-  flex-shrink: 0; /* Impede o botão de ser esmagado */
-  white-space: nowrap;
-}
-
-/* Ajuste fino no botão dentro do rodapé */
-.app-footer .btn-back {
-  margin: 0; /* Remove margens antigas para o Flexbox alinhar com precisão */
 }
