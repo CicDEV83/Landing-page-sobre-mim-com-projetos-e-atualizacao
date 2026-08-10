@@ -3,74 +3,57 @@
  * Arquivo: app.js
  */
 
-// 1. Importando os serviços da API diretamente via ES6 Modules
 import { detectUserLocation, fetchExchangeRates } from "./api.js";
 
-// Lista de moedas suportadas com suas bandeiras oficiais e símbolos
 const AVAILABLE_CURRENCIES = {
   BRL: {
     name: "Real Brasileiro",
     symbol: "R$",
     flag: "https://flagcdn.com/w40/br.png",
-    symbolChar: "R$",
   },
   USD: {
     name: "Dólar Americano",
     symbol: "$",
     flag: "https://flagcdn.com/w40/us.png",
-    symbolChar: "$",
   },
-  EUR: {
-    name: "Euro",
-    symbol: "€",
-    flag: "https://flagcdn.com/w40/eu.png",
-    symbolChar: "€",
-  },
+  EUR: { name: "Euro", symbol: "€", flag: "https://flagcdn.com/w40/eu.png" },
   GBP: {
     name: "Libra Esterlina",
     symbol: "£",
     flag: "https://flagcdn.com/w40/gb.png",
-    symbolChar: "£",
   },
   ARS: {
     name: "Peso Argentino",
     symbol: "$",
     flag: "https://flagcdn.com/w40/ar.png",
-    symbolChar: "$",
   },
   JPY: {
     name: "Iene Japonês",
     symbol: "¥",
     flag: "https://flagcdn.com/w40/jp.png",
-    symbolChar: "¥",
   },
   CAD: {
     name: "Dólar Canadense",
     symbol: "$",
     flag: "https://flagcdn.com/w40/ca.png",
-    symbolChar: "$",
   },
   AUD: {
     name: "Dólar Australiano",
     symbol: "$",
     flag: "https://flagcdn.com/w40/au.png",
-    symbolChar: "$",
   },
   CHF: {
     name: "Franco Suíço",
     symbol: "Fr",
     flag: "https://flagcdn.com/w40/ch.png",
-    symbolChar: "CHF",
   },
   CNY: {
     name: "Yuan Chinês",
     symbol: "¥",
     flag: "https://flagcdn.com/w40/cn.png",
-    symbolChar: "¥",
   },
 };
 
-// Seleção de Elementos do DOM
 const dom = {
   userName: document.getElementById("user-name"),
   editNameBtn: document.getElementById("edit-name-btn"),
@@ -91,7 +74,6 @@ const dom = {
   ratesGrid: document.getElementById("rates-grid"),
 };
 
-// Estado da Aplicação (Memória em execução)
 let appState = {
   user: { name: "Investidor", currency: "BRL" },
   rates: {},
@@ -99,32 +81,22 @@ let appState = {
   target: "USD",
 };
 
-// Inicialização do App
 document.addEventListener("DOMContentLoaded", async () => {
   setupUserPreferences();
   populateDropdowns();
   setupEventListeners();
 
-  // Detecta localização e configura moeda sugerida por padrão
   await initializeLocationAndCurrencies();
-
-  // Executa a primeira carga de cotações
   await updateExchangeData();
 });
 
-/* =========================================================================
-   CONFIGURAÇÕES INICIAIS E PREFERÊNCIAS
-   ========================================================================= */
-
 function setupUserPreferences() {
-  // Nome do usuário
   const savedName = localStorage.getItem("broker-user-name");
   if (savedName) {
     appState.user.name = savedName;
     dom.userName.textContent = savedName;
   }
 
-  // Tema Claro/Escuro
   const savedTheme = localStorage.getItem("broker-theme") || "dark";
   document.documentElement.setAttribute("data-theme", savedTheme);
   updateThemeButtonUI(savedTheme);
@@ -134,10 +106,9 @@ async function initializeLocationAndCurrencies() {
   const geo = await detectUserLocation();
   dom.userLocation.innerHTML = `📍 Conectado de: <strong>${geo.country}</strong>`;
 
-  // Se a moeda do usuário for suportada por nós, configure-a como base
   if (AVAILABLE_CURRENCIES[geo.currency]) {
     appState.base = geo.currency;
-    appState.target = geo.currency === "USD" ? "BRL" : "USD"; // Evita base e target serem iguais
+    appState.target = geo.currency === "USD" ? "BRL" : "USD";
   }
 
   dom.baseCurrency.value = appState.base;
@@ -154,12 +125,7 @@ function populateDropdowns() {
   dom.targetCurrency.innerHTML = optionsHTML;
 }
 
-/* =========================================================================
-   EVENTOS (INTERATIVIDADE)
-   ========================================================================= */
-
 function setupEventListeners() {
-  // Editar Nome
   dom.editNameBtn.addEventListener("click", () => {
     const newName = prompt("Qual o seu nome, investidor?", appState.user.name);
     if (newName && newName.trim() !== "") {
@@ -169,7 +135,6 @@ function setupEventListeners() {
     }
   });
 
-  // Alternar Tema
   dom.themeToggle.addEventListener("click", () => {
     const currentTheme = document.documentElement.getAttribute("data-theme");
     const nextTheme = currentTheme === "dark" ? "light" : "dark";
@@ -178,7 +143,6 @@ function setupEventListeners() {
     updateThemeButtonUI(nextTheme);
   });
 
-  // Mudança nos campos de Moeda e Valores
   dom.baseCurrency.addEventListener("change", (e) => {
     appState.base = e.target.value;
     updateDropdownVisuals();
@@ -195,7 +159,6 @@ function setupEventListeners() {
     calculateConversions();
   });
 
-  // Botão de Inversão (Swap)
   dom.swapBtn.addEventListener("click", () => {
     const temp = appState.base;
     appState.base = appState.target;
@@ -221,10 +184,8 @@ function updateDropdownVisuals() {
   const baseData = AVAILABLE_CURRENCIES[appState.base];
   const targetData = AVAILABLE_CURRENCIES[appState.target];
 
-  // Atualiza Símbolo no Input
   dom.baseSymbol.textContent = baseData.symbol;
 
-  // Atualiza Bandeiras nos Dropdowns
   dom.baseFlag.src = baseData.flag;
   dom.baseFlag.alt = `Bandeira ${appState.base}`;
   dom.baseFlag.classList.remove("hidden");
@@ -233,10 +194,6 @@ function updateDropdownVisuals() {
   dom.targetFlag.alt = `Bandeira ${appState.target}`;
   dom.targetFlag.classList.remove("hidden");
 }
-
-/* =========================================================================
-   SISTEMA DE CORRETAGEM & CÁLCULOS (O CORE FINANCEIRO)
-   ========================================================================= */
 
 async function updateExchangeData() {
   dom.primaryOutput.textContent = "Calculando taxas...";
@@ -249,10 +206,8 @@ async function updateExchangeData() {
     appState.rates = { [appState.base]: 1.0 };
 
     for (const key in rawData) {
-      const targetCode = rawData[key].codein;
       const originCode = rawData[key].code;
       const bidValue = parseFloat(rawData[key].bid);
-
       appState.rates[originCode] = 1 / bidValue;
     }
 

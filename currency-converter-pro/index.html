@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Câmbio Pro | Home Broker</title>
     <link rel="stylesheet" href="css/style.css" />
-    <!-- Modern source and financeira -->
     <!-- Modular scripts with optimized loading (defer) -->
     <script type="module" src="js/app.js" defer></script>
     <link
@@ -13,9 +12,31 @@
       rel="stylesheet"
     />
   </head>
-<!-- PAINEL PRINCIPAL DE CONVERSÃO -->
+  <body>
+    <!-- CABEÇALHO DO HOME BROKER (Integrado) -->
+    <header class="broker-header">
+      <div class="user-info">
+        <h1>
+          <span>Olá,</span> <span id="user-name">Investidor</span>
+          <button
+            id="edit-name-btn"
+            title="Editar nome"
+            aria-label="Editar nome"
+          >
+            ✏️
+          </button>
+        </h1>
+        <p id="user-location">📍 Detectando localização...</p>
+      </div>
+      <div class="header-controls">
+        <button id="theme-toggle" class="btn-theme">☀️ Modo Claro</button>
+        <a href="../index.html" class="btn-back">Voltar ao Portfólio</a>
+      </div>
+    </header>
+
+    <!-- PAINEL PRINCIPAL DE CONVERSÃO -->
     <main class="broker-dashboard">
-      <!-- Seção de Inputs (Onde a mágica começa) -->
+      <!-- Seção de Inputs -->
       <section class="control-panel" aria-labelledby="panel-title">
         <h2 id="panel-title" class="sr-only">Painel de Conversão Principal</h2>
 
@@ -73,39 +94,57 @@
             1 <span id="base-label">BRL</span> =
             <span id="rate-value">...</span> <span id="target-label">USD</span>
           </p>
-          <output id="primary-output" class="huge-amount" for="amount base-currency target-currency">Carregando...</output>
+          <output
+            id="primary-output"
+            class="huge-amount"
+            for="amount base-currency target-currency"
+            >Carregando...</output
+          >
           <span class="last-update"
             >Última atualização: <time id="update-time">--:--</time></span
           >
         </div>
       </section>
 
-      <!-- PAINEL DE COTAÇÕES EM TEMPO REAL (MÚLTIPLAS MOEDAS) -->
+      <!-- PAINEL DE COTAÇÕES EM TEMPO REAL -->
       <section class="market-board" aria-labelledby="market-title">
         <header class="market-header">
           <h2 id="market-title">Cotações Globais em Tempo Real</h2>
           <p>Valores convertidos automaticamente com base no valor digitado.</p>
         </header>
 
-        <!-- Grid estilo Home Broker onde os cartões das moedas vão aparecer via JS -->
         <div class="rates-grid" id="rates-grid">
           <!-- O JS vai gerar os cartões aqui -->
         </div>
       </section>
 
-      <!-- GRÁFICO DE DESEMPENHO (Preparação) -->
+      <!-- GRÁFICO DE DESEMPENHO -->
       <section class="chart-board" aria-labelledby="chart-title">
         <header class="chart-header">
           <h2 id="chart-title">Desempenho da Cotação</h2>
           <nav class="chart-controls" aria-label="Controles de período">
-            <button type="button" class="btn-timeframe active" aria-pressed="true">1D</button>
-            <button type="button" class="btn-timeframe" aria-pressed="false">5D</button>
-            <button type="button" class="btn-timeframe" aria-pressed="false">1M</button>
-            <button type="button" class="btn-timeframe" aria-pressed="false">6M</button>
-            <button type="button" class="btn-timeframe" aria-pressed="false">1A</button>
+            <button
+              type="button"
+              class="btn-timeframe active"
+              aria-pressed="true"
+            >
+              1D
+            </button>
+            <button type="button" class="btn-timeframe" aria-pressed="false">
+              5D
+            </button>
+            <button type="button" class="btn-timeframe" aria-pressed="false">
+              1M
+            </button>
+            <button type="button" class="btn-timeframe" aria-pressed="false">
+              6M
+            </button>
+            <button type="button" class="btn-timeframe" aria-pressed="false">
+              1A
+            </button>
           </nav>
         </header>
-        
+
         <div class="chart-container" id="history-chart">
           <p class="placeholder-text">Aguardando dados históricos...</p>
         </div>
