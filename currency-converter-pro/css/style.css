@@ -1,0 +1,574 @@
+/* =========================================================================
+   VARIÁVEIS DE TEMA (HOME BROKER STYLE) - REFATORADO SEM PX
+   ========================================================================= */
+:root {
+  /* Dark Theme (Default) */
+  --bg-primary: #0b0f19;
+  --bg-secondary: #151d30;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent: #2563eb;
+  --accent-light: #3b82f6;
+  --border-color: #1e293b;
+  --success: #10b981;
+  --danger: #ef4444;
+  --card-shadow: 0 0.75rem 1.5rem -0.25rem rgba(0, 0, 0, 0.4);
+  --transition-fast: 0.2s ease;
+
+  /* Variável utilitária para substituir 1px (1 / 16 = 0.0625rem) */
+  --hairline: 0.0625rem;
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --accent: #1d4ed8;
+  --accent-light: #2563eb;
+  --border-color: #e2e8f0;
+  --success: #059669;
+  --danger: #dc2626;
+  --card-shadow: 0 0.625rem 1.25rem -0.1875rem rgba(0, 0, 0, 0.05);
+}
+
+/* =========================================================================
+   RESETS E CONFIGURAÇÕES GERAIS (MOBILE FIRST)
+   ========================================================================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%; /* Respeita a preferência do navegador */
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Classe utilitária para acessibilidade */
+.sr-only {
+  position: absolute;
+  width: var(--hairline);
+  height: var(--hairline);
+  padding: 0;
+  margin: calc(var(--hairline) * -1);
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =========================================================================
+   CABEÇALHO (HEADER)
+   ========================================================================= */
+.broker-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 1.5rem;
+  background-color: var(--bg-secondary);
+  border-bottom: var(--hairline) solid var(--border-color);
+}
+
+.user-info h1 {
+  font-size: clamp(1.25rem, 3vw, 1.5rem); /* Fonte fluida */
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#edit-name-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.2rem;
+  transition: transform var(--transition-fast);
+}
+
+#edit-name-btn:hover {
+  transform: scale(1.15);
+}
+
+#user-location {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+
+.header-controls {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.btn-theme,
+.btn-back {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-theme {
+  background-color: var(--bg-primary);
+  border: var(--hairline) solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.btn-theme:hover {
+  border-color: var(--accent);
+}
+
+.btn-back {
+  background-color: var(--accent);
+  color: #ffffff;
+  border: none;
+}
+
+.btn-back:hover {
+  background-color: var(--accent-light);
+}
+
+/* =========================================================================
+   DASHBOARD PRINCIPAL
+   ========================================================================= */
+.broker-dashboard {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* 1. PAINEL DE CONTROLE (FORMULÁRIO) */
+.control-panel,
+.chart-board {
+  background-color: var(--bg-secondary);
+  border: var(--hairline) solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+}
+
+.exchange-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+}
+
+/* Caixa de Input de Valores */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currency-symbol {
+  position: absolute;
+  left: 1rem;
+  font-weight: 800;
+  color: var(--text-secondary);
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  background-color: var(--bg-primary);
+  border: var(--hairline) solid var(--border-color);
+  border-radius: 0.625rem;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+/* Remove setas do input number */
+.input-wrapper input::-webkit-outer-spin-button,
+.input-wrapper input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.input-wrapper input[type="number"] {
+  appearance: textfield;
+}
+
+.input-wrapper input:focus {
+  border-color: var(--accent);
+}
+
+/* Estilo dos Selects customizados com Bandeiras */
+.select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-primary);
+  border: var(--hairline) solid var(--border-color);
+  border-radius: 0.625rem;
+  padding: 0.2rem 0.8rem;
+}
+
+.select-wrapper:focus-within {
+  border-color: var(--accent);
+}
+
+.flag-icon {
+  width: 1.5rem; /* Era 24px */
+  height: 1.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.6rem;
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.select-wrapper select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.8rem 0;
+  outline: none;
+  cursor: pointer;
+  appearance: none; /* Remove seta nativa */
+}
+
+/* Botão de Inversão (Swap) */
+.btn-swap {
+  align-self: center;
+  background-color: var(--bg-primary);
+  border: var(--hairline) solid var(--border-color);
+  color: var(--text-primary);
+  width: 2.75rem; /* Era 44px */
+  height: 2.75rem;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.btn-swap:hover {
+  border-color: var(--accent);
+  transform: rotate(180deg);
+  background-color: var(--border-color);
+}
+
+/* 2. CARD DE RESULTADO PRINCIPAL */
+.primary-result-card {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: var(--hairline) dashed var(--border-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rate-info {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.huge-amount {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  word-break: break-all;
+}
+
+.last-update {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* =========================================================================
+   BOARD DE COTAÇÕES EM TEMPO REAL (MARKET BOARD)
+   ========================================================================= */
+.market-board {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.market-header h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.market-header p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+
+.rates-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.rate-card {
+  background-color: var(--bg-secondary);
+  border: var(--hairline) solid var(--border-color);
+  border-radius: 0.75rem; /* Era 12px */
+  padding: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--card-shadow);
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.rate-card:hover {
+  transform: translateY(-0.125rem);
+  border-color: var(--accent);
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.card-head img {
+  width: 2rem; /* Era 32px */
+  height: 2rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card-head h3 {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.card-head p {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.card-body {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.converted-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.trend {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.25rem;
+  display: inline-block;
+  align-self: flex-end;
+}
+
+.trend.up {
+  color: var(--success);
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.trend.down {
+  color: var(--danger);
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* =========================================================================
+   CHART BOARD (GRÁFICO)
+   ========================================================================= */
+.chart-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chart-header h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.chart-controls {
+  display: flex;
+  background-color: var(--bg-primary);
+  border-radius: 0.25rem;
+  padding: 0.125rem;
+  border: var(--hairline) solid var(--border-color);
+}
+
+.btn-timeframe {
+  background: transparent;
+  border: none;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-radius: 0.125rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-timeframe:hover {
+  color: var(--text-primary);
+}
+
+.btn-timeframe.active {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.chart-container {
+  height: 16rem;
+  background-color: var(--bg-primary);
+  border-radius: 0.5rem;
+  border: var(--hairline) dashed var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.placeholder-text {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* =========================================================================
+   MEDIA QUERIES (RESPONSIVIDADE SEM PX - base 16px = 1em)
+   ========================================================================= */
+
+/* Tablets / Celulares Grandes (min-width: 40em = 640px) */
+@media (min-width: 40em) {
+  .broker-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-controls {
+    flex: initial;
+    width: auto;
+  }
+
+  .btn-theme,
+  .btn-back {
+    flex: initial;
+    padding: 0.7rem 1.5rem;
+  }
+
+  .exchange-form {
+    flex-direction: row;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .amount-group {
+    flex: 2;
+    min-width: 11.25rem; /* 180px */
+  }
+
+  .exchange-form .input-group:not(.amount-group) {
+    flex: 1;
+    min-width: 8.75rem; /* 140px */
+  }
+
+  .btn-swap {
+    margin-bottom: 0.3rem;
+  }
+
+  .rates-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktops (min-width: 64em = 1024px) */
+@media (min-width: 64em) {
+  .broker-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "control market"
+      "chart market";
+    gap: 2.5rem;
+    max-width: 87.5rem; /* 1400px */
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .control-panel {
+    grid-area: control;
+  }
+  .market-board {
+    grid-area: market;
+  }
+  .chart-board {
+    grid-area: chart;
+  }
+
+  .rates-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Telas Super Ultra-wide (min-width: 80em = 1280px) */
+@media (min-width: 80em) {
+  .rates-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
