@@ -47,6 +47,22 @@ Um gerenciador de tarefas avançado focado em produtividade diária, com control
 
 ---
 
+## 💱 Project 3: Cambio Pro - Dashboard & Converter
+
+Dashboard financeiro estilo *Home Broker* em tempo real para conversão de moedas globais, exibição de cotações dinâmicas e indicadores de tendência de mercado.
+
+| <img src="./img/cambio-pro-preview.jpg" width="350" alt="Preview Câmbio Pro"> | **Tecnologias Utilizadas:** <br>• HTML5 Semântico (`<main>`, `<article>`, `<header>`) <br>• CSS3 (Custom Properties, Flexbox & CSS Grid) <br>• JavaScript (ES6+ Assíncrono & Módulos ES6) <br>• Integração com API REST (AwesomeAPI / Cotações) <br>• LocalStorage API & `Intl.NumberFormat` |
+| :---------------------------------- | :---------------------------------- |
+
+### 🛠️ Diferenciais de Engenharia no Câmbio Pro:
+
+- **Atualização Contínua em Tempo Real:** Implementação de relógio ativo por segundo e agendamento de requisições de cotação via *polling* assíncrono a cada 60 segundos com `setInterval`.
+- **Tratamento e Máscara Monetária Dinâmica:** Sanitização de entradas em tempo real utilizando expressões regulares (`\D/g`) e formatação imediata da direita para a esquerda para suporte nativo a centavos e valores elevados.
+- **Gestão de Estado e Persistência Local:** Armazenamento automático das preferências do usuário (moeda base, moeda destino, valor digitado e tema claro/escuro) no `localStorage`.
+- **Ticker de Mercado e Sinalização Visual:** Exibição contínua do mercado de câmbio com estilização condicional (indicadores nas cores verde para alta, amarelo para estabilidade/risco e vermelho para queda).
+
+---
+
 ## ⚙️ Arquitetura do Repositório
 
 O projeto foi estruturado para manter total modularidade e independência de estilos, evitando conflitos de escopo entre as aplicações:

@@ -13,7 +13,7 @@
     />
   </head>
   <body>
-    <!-- CABEÇALHO DO HOME BROKER (Integrado) -->
+    <!-- CABEÇALHO DO HOME BROKER (Integrated) -->
     <header class="broker-header">
       <div class="user-info">
         <h1>
@@ -28,6 +28,17 @@
         </h1>
         <p id="user-location">📍 Detectando localização...</p>
       </div>
+
+      <!-- FAIXA DE COTAÇÕES (TICKER) -->
+      <div
+        class="market-ticker-container"
+        aria-label="Ticker de cotações de mercado"
+      >
+        <div class="market-ticker-track" id="market-ticker">
+          <!-- Populado dinamicamente via JavaScript -->
+        </div>
+      </div>
+
       <div class="header-controls">
         <button id="theme-toggle" class="btn-theme">☀️ Modo Claro</button>
         <a href="../index.html" class="btn-back">Voltar ao Portfólio</a>

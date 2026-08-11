@@ -572,3 +572,95 @@ body {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* =========================================================================
+   CABEÇALHO DO HOME BROKER E FAIXA TICKER
+   ========================================================================= */
+
+/* Layout do Header em Flexbox */
+.broker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.user-info {
+  flex-shrink: 0;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+/* Faixa de Cotações Centralizada */
+.market-ticker-container {
+  flex: 1;
+  max-width: 32rem;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0.4rem 0;
+  position: relative;
+  box-shadow: inset 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+.market-ticker-track {
+  display: inline-flex;
+  gap: 1rem;
+  animation: ticker-scroll 30s linear infinite;
+  will-change: transform;
+}
+
+.market-ticker-container:hover .market-ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.3rem;
+  border: 1px solid var(--border-color);
+}
+
+.ticker-item .ticker-symbol {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* Animação Contínua em Loop */
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsividade para Telas Menores */
+@media (max-width: 64em) {
+  .broker-header {
+    flex-wrap: wrap;
+  }
+
+  .market-ticker-container {
+    order: 3;
+    max-width: 100%;
+    width: 100%;
+  }
+}

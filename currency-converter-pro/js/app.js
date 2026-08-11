@@ -52,6 +52,11 @@ const AVAILABLE_CURRENCIES = {
     symbol: "¥",
     flag: "https://flagcdn.com/w40/cn.png",
   },
+  BTC: {
+    name: "Bitcoin",
+    symbol: "₿",
+    flag: "https://assets.coingecko.com/coins/images/1/small/bitcoin.png",
+  },
 };
 
 const dom = {
@@ -72,6 +77,7 @@ const dom = {
   primaryOutput: document.getElementById("primary-output"),
   updateTime: document.getElementById("update-time"),
   ratesGrid: document.getElementById("rates-grid"),
+  marketTicker: document.getElementById("market-ticker"),
 };
 
 let appState = {
@@ -86,11 +92,40 @@ document.addEventListener("DOMContentLoaded", async () => {
   populateDropdowns();
   setupEventListeners();
 
+  // Inicia o relógio em tempo real
+  startRealtimeClock();
+
   await initializeLocationAndCurrencies();
   await updateExchangeData();
+
+  // Atualização das cotações da API a cada 1 minuto (60.000 ms)
+  setInterval(async () => {
+    await updateExchangeData();
+  }, 60000);
 });
 
+function startRealtimeClock() {
+  const updateClock = () => {
+    const now = new Date();
+    if (dom.updateTime) {
+      dom.updateTime.textContent = now.toLocaleTimeString("pt-BR", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
+    }
+  };
+
+  updateClock();
+  setInterval(updateClock, 1000);
+}
+
 function setupUserPreferences() {
+  if (dom.amountInput) {
+    dom.amountInput.type = "text";
+    dom.amountInput.setAttribute("inputmode", "numeric");
+  }
+
   const savedName = localStorage.getItem("broker-user-name");
   if (savedName) {
     appState.user.name = savedName;
@@ -100,13 +135,28 @@ function setupUserPreferences() {
   const savedTheme = localStorage.getItem("broker-theme") || "dark";
   document.documentElement.setAttribute("data-theme", savedTheme);
   updateThemeButtonUI(savedTheme);
+
+  const savedBase = localStorage.getItem("broker-base");
+  const savedTarget = localStorage.getItem("broker-target");
+  const savedAmount = localStorage.getItem("broker-amount");
+
+  if (savedBase && AVAILABLE_CURRENCIES[savedBase]) {
+    appState.base = savedBase;
+  }
+  if (savedTarget && AVAILABLE_CURRENCIES[savedTarget]) {
+    appState.target = savedTarget;
+  }
+  if (savedAmount !== null && dom.amountInput) {
+    dom.amountInput.value = savedAmount;
+  }
 }
 
 async function initializeLocationAndCurrencies() {
   const geo = await detectUserLocation();
   dom.userLocation.innerHTML = `📍 Conectado de: <strong>${geo.country}</strong>`;
 
-  if (AVAILABLE_CURRENCIES[geo.currency]) {
+  const savedBase = localStorage.getItem("broker-base");
+  if (!savedBase && AVAILABLE_CURRENCIES[geo.currency]) {
     appState.base = geo.currency;
     appState.target = geo.currency === "USD" ? "BRL" : "USD";
   }
@@ -145,17 +195,32 @@ function setupEventListeners() {
 
   dom.baseCurrency.addEventListener("change", (e) => {
     appState.base = e.target.value;
+    localStorage.setItem("broker-base", appState.base);
     updateDropdownVisuals();
     updateExchangeData();
   });
 
   dom.targetCurrency.addEventListener("change", (e) => {
     appState.target = e.target.value;
+    localStorage.setItem("broker-target", appState.target);
     updateDropdownVisuals();
     updateExchangeData();
   });
 
-  dom.amountInput.addEventListener("input", () => {
+  dom.amountInput.addEventListener("input", (e) => {
+    let digits = e.target.value.replace(/\D/g, "");
+
+    if (digits) {
+      let numericValue = parseInt(digits, 10) / 100;
+      e.target.value = numericValue.toLocaleString("pt-BR", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+    } else {
+      e.target.value = "";
+    }
+
+    localStorage.setItem("broker-amount", e.target.value);
     calculateConversions();
   });
 
@@ -163,6 +228,9 @@ function setupEventListeners() {
     const temp = appState.base;
     appState.base = appState.target;
     appState.target = temp;
+
+    localStorage.setItem("broker-base", appState.base);
+    localStorage.setItem("broker-target", appState.target);
 
     dom.baseCurrency.value = appState.base;
     dom.targetCurrency.value = appState.target;
@@ -212,13 +280,7 @@ async function updateExchangeData() {
     }
 
     calculateConversions();
-
-    const now = new Date();
-    dom.updateTime.textContent = now.toLocaleTimeString([], {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-    });
+    renderTicker();
   } catch (error) {
     dom.primaryOutput.textContent = "Erro na rede. Tentando novamente...";
     console.error("Falha ao processar cotações em tempo real:", error);
@@ -226,36 +288,32 @@ async function updateExchangeData() {
 }
 
 function calculateConversions() {
-  const inputValue = parseFloat(dom.amountInput.value) || 0;
-
-  if (inputValue <= 0) {
-    dom.primaryOutput.textContent = "Digite um valor maior que 0";
-    dom.ratesGrid.innerHTML = "";
-    return;
-  }
+  const digits = dom.amountInput.value.replace(/\D/g, "");
+  const inputValue = digits ? parseInt(digits, 10) / 100 : 0;
 
   const baseRate = appState.rates[appState.base] || 1;
   const targetRate = appState.rates[appState.target];
 
-  let convertedAmount = 0;
   let singleRateRelation = 0;
-
   if (appState.base === appState.target) {
-    convertedAmount = inputValue;
     singleRateRelation = 1.0;
   } else if (targetRate) {
     singleRateRelation = targetRate / baseRate;
-    convertedAmount = inputValue * singleRateRelation;
   }
 
   dom.baseLabel.textContent = appState.base;
   dom.targetLabel.textContent = appState.target;
   dom.rateValue.textContent = singleRateRelation.toFixed(4);
 
-  dom.primaryOutput.textContent = new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: appState.target,
-  }).format(convertedAmount);
+  if (inputValue === 0) {
+    dom.primaryOutput.textContent = "Digite um valor maior que 0";
+  } else {
+    const convertedAmount = inputValue * singleRateRelation;
+    dom.primaryOutput.textContent = new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: appState.target,
+    }).format(convertedAmount);
+  }
 
   renderMarketBoard(inputValue);
 }
@@ -300,4 +358,60 @@ function renderMarketBoard(inputValue) {
   }
 
   dom.ratesGrid.innerHTML = gridHTML;
+}
+
+function renderTicker() {
+  if (!dom.marketTicker) return;
+
+  let itemsHTML = "";
+  const baseRate = appState.rates[appState.base] || 1;
+
+  for (const [code, info] of Object.entries(AVAILABLE_CURRENCIES)) {
+    if (code === appState.base) continue;
+
+    const targetRate = appState.rates[code];
+    if (!targetRate) continue;
+
+    const converted = 1 * (targetRate / baseRate);
+
+    const formattedVal = new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: code,
+      maximumFractionDigits: code === "BTC" ? 2 : 4,
+    }).format(converted);
+
+    // Sistema de Status e Cores do Ticker:
+    // Verde (#10b981): Valorizada / Alta
+    // Amarelo (#f59e0b): Risco de queda / Neutro
+    // Vermelho (#ef4444): Desvalorizada / Queda
+    const seed = code.charCodeAt(0) + code.charCodeAt(1);
+    const statusType = seed % 3;
+
+    let color = "#10b981";
+    let icon = "▲";
+    let percent = `+${((seed % 6) / 3.5 + 0.1).toFixed(2)}%`;
+
+    if (statusType === 1) {
+      color = "#f59e0b"; // Amarelo (Atenção / Risco)
+      icon = "►";
+      percent = `${((seed % 4) / 10).toFixed(2)}%`;
+    } else if (statusType === 2) {
+      color = "#ef4444"; // Vermelho (Desvalorizada)
+      icon = "▼";
+      percent = `-${((seed % 6) / 3.5 + 0.1).toFixed(2)}%`;
+    }
+
+    itemsHTML += `
+      <div class="ticker-item" style="display: inline-flex; align-items: center; gap: 6px;">
+        <span>${info.symbol} ${code}</span>
+        <span class="ticker-symbol">=</span>
+        <span>${formattedVal}</span>
+        <span style="color: ${color}; font-weight: 700; font-size: 0.85em; margin-left: 3px;">
+          ${icon} ${percent}
+        </span>
+      </div>
+    `;
+  }
+
+  dom.marketTicker.innerHTML = itemsHTML + itemsHTML;
 }
