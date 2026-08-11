@@ -61,7 +61,7 @@ body {
   flex-direction: column;
 }
 
-/* Classe utilitária para acessibilidade */
+/* Classes utilitárias */
 .sr-only {
   position: absolute;
   width: var(--hairline);
@@ -82,15 +82,20 @@ body {
    ========================================================================= */
 .broker-header {
   display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  padding: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
   background-color: var(--bg-secondary);
   border-bottom: var(--hairline) solid var(--border-color);
 }
 
+.user-info {
+  flex-shrink: 0;
+}
+
 .user-info h1 {
-  font-size: clamp(1.25rem, 3vw, 1.5rem); /* Fonte fluida */
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
   font-weight: 800;
   display: flex;
   align-items: center;
@@ -118,12 +123,13 @@ body {
 
 .header-controls {
   display: flex;
+  align-items: center;
   gap: 0.8rem;
+  flex-shrink: 0;
 }
 
 .btn-theme,
 .btn-back {
-  flex: 1;
   padding: 0.7rem 1rem;
   border-radius: 0.5rem;
   font-size: 0.85rem;
@@ -152,6 +158,60 @@ body {
 
 .btn-back:hover {
   background-color: var(--accent-light);
+}
+
+/* =========================================================================
+   FAIXA TICKER DE COTAÇÕES
+   ========================================================================= */
+.market-ticker-container {
+  flex: 1;
+  max-width: 32rem;
+  background-color: var(--bg-primary);
+  border: var(--hairline) solid var(--border-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0.4rem 0;
+  position: relative;
+  box-shadow: inset 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+.market-ticker-track {
+  display: inline-flex;
+  gap: 1rem;
+  animation: ticker-scroll 30s linear infinite;
+  will-change: transform;
+}
+
+.market-ticker-container:hover .market-ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.3rem;
+  border: var(--hairline) solid var(--border-color);
+}
+
+.ticker-item .ticker-symbol {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* =========================================================================
@@ -251,7 +311,7 @@ body {
 }
 
 .flag-icon {
-  width: 1.5rem; /* Era 24px */
+  width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
   object-fit: cover;
@@ -269,7 +329,7 @@ body {
   padding: 0.8rem 0;
   outline: none;
   cursor: pointer;
-  appearance: none; /* Remove seta nativa */
+  appearance: none;
 }
 
 /* Botão de Inversão (Swap) */
@@ -278,7 +338,7 @@ body {
   background-color: var(--bg-primary);
   border: var(--hairline) solid var(--border-color);
   color: var(--text-primary);
-  width: 2.75rem; /* Era 44px */
+  width: 2.75rem;
   height: 2.75rem;
   border-radius: 50%;
   font-size: 1.2rem;
@@ -355,7 +415,7 @@ body {
 .rate-card {
   background-color: var(--bg-secondary);
   border: var(--hairline) solid var(--border-color);
-  border-radius: 0.75rem; /* Era 12px */
+  border-radius: 0.75rem;
   padding: 1.2rem;
   display: flex;
   align-items: center;
@@ -378,7 +438,7 @@ body {
 }
 
 .card-head img {
-  width: 2rem; /* Era 32px */
+  width: 2rem;
   height: 2rem;
   border-radius: 50%;
   object-fit: cover;
@@ -493,20 +553,8 @@ body {
 
 /* Tablets / Celulares Grandes (min-width: 40em = 640px) */
 @media (min-width: 40em) {
-  .broker-header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .header-controls {
-    flex: initial;
-    width: auto;
-  }
-
   .btn-theme,
   .btn-back {
-    flex: initial;
     padding: 0.7rem 1.5rem;
   }
 
@@ -519,12 +567,12 @@ body {
 
   .amount-group {
     flex: 2;
-    min-width: 11.25rem; /* 180px */
+    min-width: 11.25rem;
   }
 
   .exchange-form .input-group:not(.amount-group) {
     flex: 1;
-    min-width: 8.75rem; /* 140px */
+    min-width: 8.75rem;
   }
 
   .btn-swap {
@@ -533,6 +581,19 @@ body {
 
   .rates-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Ajustes de Layout do Header e Ticker para Telas Menores (até 1024px) */
+@media (max-width: 64em) {
+  .broker-header {
+    flex-wrap: wrap;
+  }
+
+  .market-ticker-container {
+    order: 3;
+    max-width: 100%;
+    width: 100%;
   }
 }
 
@@ -546,7 +607,7 @@ body {
       "control market"
       "chart market";
     gap: 2.5rem;
-    max-width: 87.5rem; /* 1400px */
+    max-width: 87.5rem;
     margin: 0 auto;
     width: 100%;
   }
@@ -570,97 +631,5 @@ body {
 @media (min-width: 80em) {
   .rates-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* =========================================================================
-   CABEÇALHO DO HOME BROKER E FAIXA TICKER
-   ========================================================================= */
-
-/* Layout do Header em Flexbox */
-.broker-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding: 1rem 1.5rem;
-  background-color: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-color);
-}
-
-.user-info {
-  flex-shrink: 0;
-}
-
-.header-controls {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-shrink: 0;
-}
-
-/* Faixa de Cotações Centralizada */
-.market-ticker-container {
-  flex: 1;
-  max-width: 32rem;
-  background-color: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 0.4rem 0;
-  position: relative;
-  box-shadow: inset 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
-}
-
-.market-ticker-track {
-  display: inline-flex;
-  gap: 1rem;
-  animation: ticker-scroll 30s linear infinite;
-  will-change: transform;
-}
-
-.market-ticker-container:hover .market-ticker-track {
-  animation-play-state: paused;
-}
-
-.ticker-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  background-color: var(--bg-secondary);
-  padding: 0.25rem 0.6rem;
-  border-radius: 0.3rem;
-  border: 1px solid var(--border-color);
-}
-
-.ticker-item .ticker-symbol {
-  color: var(--text-secondary);
-  font-weight: 600;
-}
-
-/* Animação Contínua em Loop */
-@keyframes ticker-scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* Responsividade para Telas Menores */
-@media (max-width: 64em) {
-  .broker-header {
-    flex-wrap: wrap;
-  }
-
-  .market-ticker-container {
-    order: 3;
-    max-width: 100%;
-    width: 100%;
   }
 }
