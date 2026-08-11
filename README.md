@@ -47,7 +47,7 @@ Um gerenciador de tarefas avançado focado em produtividade diária, com control
 
 ---
 
-## 💱 Project 3: Cambio Pro - Dashboard & Converter
+## 💱 Project 3: Conversor Global / homebroker Pro - Dashboard & Converter
 
 Dashboard financeiro estilo *Home Broker* em tempo real para conversão de moedas globais, exibição de cotações dinâmicas e indicadores de tendência de mercado.
 
