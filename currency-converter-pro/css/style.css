@@ -174,6 +174,7 @@ body {
   padding: 0.4rem 0;
   position: relative;
   box-shadow: inset 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  touch-action: pan-x;
 }
 
 .market-ticker-track {
@@ -183,7 +184,8 @@ body {
   will-change: transform;
 }
 
-.market-ticker-container:hover .market-ticker-track {
+.market-ticker-container:hover .market-ticker-track,
+.market-ticker-container:active .market-ticker-track {
   animation-play-state: paused;
 }
 
@@ -487,19 +489,21 @@ body {
 }
 
 /* =========================================================================
-   CHART BOARD (GRÁFICO)
+   CHART BOARD (GRÁFICO COM ALINHAMENTO CENTRAL)
    ========================================================================= */
 .chart-header {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: 1rem;
 }
 
 .chart-header h2 {
   font-size: 1.25rem;
   font-weight: 800;
+  text-align: center;
 }
 
 .chart-controls {
@@ -508,6 +512,7 @@ body {
   border-radius: 0.25rem;
   padding: 0.125rem;
   border: var(--hairline) solid var(--border-color);
+  align-self: center;
 }
 
 .btn-timeframe {
@@ -545,11 +550,44 @@ body {
 .placeholder-text {
   color: var(--text-secondary);
   font-size: 0.875rem;
+  text-align: center;
 }
 
 /* =========================================================================
    MEDIA QUERIES (RESPONSIVIDADE SEM PX - base 16px = 1em)
    ========================================================================= */
+
+/* Smartphones / Telas Menores (max-width: 40em = 640px) */
+@media (max-width: 40em) {
+  .broker-header {
+    padding: 0.75rem 1rem;
+    gap: 0.75rem;
+  }
+
+  .header-controls {
+    gap: 0.5rem;
+  }
+
+  .btn-theme,
+  .btn-back {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .huge-amount {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .broker-dashboard {
+    padding: 1rem;
+    gap: 1.25rem;
+  }
+
+  .control-panel,
+  .chart-board {
+    padding: 1rem;
+  }
+}
 
 /* Tablets / Celulares Grandes (min-width: 40em = 640px) */
 @media (min-width: 40em) {
