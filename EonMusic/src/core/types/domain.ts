@@ -29,6 +29,7 @@ export interface Track {
   artist: Artist;
   album: Album;
   audioUrl: string;
+  sourceType?: "local" | "remote";
   trackNumber?: number;
   isExplicit: boolean;
   isLiked?: boolean;

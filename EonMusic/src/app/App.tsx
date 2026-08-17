@@ -1,3 +1,6 @@
+import { DeviceLibrary } from "../features/local-music/DeviceLibrary";
+import { GlobalPlayer } from "../features/player/GlobalPlayer";
+
 import "../styles/theme.css";
 
 export function App() {
@@ -248,45 +251,9 @@ export function App() {
         </section>
 
         {/* =========================
-            MÚSICAS DO DISPOSITIVO
-        ========================== */}
-        <section
-          className="local-library"
-          id="dispositivo"
-          aria-labelledby="local-library-title"
-        >
-          <header className="section-heading">
-            <div>
-              <p className="section-heading__eyebrow">Sua biblioteca</p>
-
-              <h2 id="local-library-title">Músicas deste dispositivo</h2>
-            </div>
-          </header>
-
-          <article className="device-card">
-            <div className="device-card__content">
-              <span className="device-card__icon" aria-hidden="true">
-                ♪
-              </span>
-
-              <div>
-                <h3>Suas músicas. Um toque.</h3>
-
-                <p>
-                  Escolha músicas armazenadas no seu dispositivo e reproduza
-                  tudo diretamente no EON MUSIC.
-                </p>
-
-                <small>Seus arquivos permanecem no seu dispositivo.</small>
-              </div>
-            </div>
-
-            <button className="button button--primary" type="button">
-              <span aria-hidden="true">＋</span>
-              <span>Escolher músicas</span>
-            </button>
-          </article>
-        </section>
+    MÚSICAS DO DISPOSITIVO
+========================== */}
+        <DeviceLibrary />
 
         {/* =========================
             RECOMENDAÇÕES
@@ -472,92 +439,9 @@ export function App() {
       </main>
 
       {/* =========================
-          PLAYER GLOBAL
-      ========================== */}
-      <footer className="player" aria-label="Controles do player">
-        <section className="player__track" aria-label="Música atual">
-          <div className="player__cover" aria-hidden="true">
-            ♪
-          </div>
-
-          <div className="player__metadata">
-            <strong>Nenhuma música tocando</strong>
-            <span>Escolha algo para começar</span>
-          </div>
-
-          <button
-            className="player__favorite"
-            type="button"
-            aria-label="Adicionar música atual aos favoritos"
-            disabled
-          >
-            ♡
-          </button>
-        </section>
-
-        <section className="player__center" aria-label="Reprodução">
-          <div className="player__controls">
-            <button
-              type="button"
-              aria-label="Ativar reprodução aleatória"
-              disabled
-            >
-              ⤨
-            </button>
-
-            <button type="button" aria-label="Música anterior" disabled>
-              ◀
-            </button>
-
-            <button
-              className="player__play"
-              type="button"
-              aria-label="Reproduzir"
-              disabled
-            >
-              ▶
-            </button>
-
-            <button type="button" aria-label="Próxima música" disabled>
-              ▶
-            </button>
-
-            <button type="button" aria-label="Ativar repetição" disabled>
-              ↻
-            </button>
-          </div>
-
-          <div className="player__progress">
-            <span>0:00</span>
-
-            <input
-              type="range"
-              min="0"
-              max="100"
-              defaultValue="0"
-              aria-label="Progresso da música"
-              disabled
-            />
-
-            <span>0:00</span>
-          </div>
-        </section>
-
-        <section className="player__volume" aria-label="Volume">
-          <button type="button" aria-label="Silenciar" disabled>
-            ♪
-          </button>
-
-          <input
-            type="range"
-            min="0"
-            max="100"
-            defaultValue="70"
-            aria-label="Volume"
-            disabled
-          />
-        </section>
-      </footer>
+    PLAYER GLOBAL
+========================== */}
+      <GlobalPlayer />
 
       {/* =========================
           NAVEGAÇÃO MOBILE

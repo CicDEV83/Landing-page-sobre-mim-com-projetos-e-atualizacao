@@ -1,6 +1,8 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+
 import { App } from "./app/App";
+import { PlayerProvider } from "./features/player/PlayerContext";
 
 const rootElement = document.getElementById("root");
 
@@ -10,9 +12,10 @@ if (!rootElement) {
   );
 }
 
-// Inicialização segura usando a API concorrente do React 18+
 createRoot(rootElement).render(
   <StrictMode>
-    <App />
+    <PlayerProvider>
+      <App />
+    </PlayerProvider>
   </StrictMode>,
 );
