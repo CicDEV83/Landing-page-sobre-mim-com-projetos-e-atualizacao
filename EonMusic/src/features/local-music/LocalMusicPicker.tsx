@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, type ChangeEvent } from "react";
 
 import type { Track } from "../../core/types/domain";
 import { localMusicService } from "../../services/localMusicService";
@@ -14,22 +14,26 @@ export function LocalMusicPicker({ onTrackSelected }: LocalMusicPickerProps) {
     inputRef.current?.click();
   };
 
-  const handleFileSelected = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileSelected = async (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
 
     if (!files || files.length === 0) {
       return;
     }
 
-    const [track] = localMusicService.importFiles(files);
+    try {
+      const [track] = await localMusicService.importFiles(files);
 
-    if (!track) {
-      return;
+      if (!track) {
+        return;
+      }
+
+      onTrackSelected(track);
+    } catch (error) {
+      console.error("Não foi possível importar a música selecionada.", error);
+    } finally {
+      event.target.value = "";
     }
-
-    onTrackSelected(track);
-
-    event.target.value = "";
   };
 
   return (

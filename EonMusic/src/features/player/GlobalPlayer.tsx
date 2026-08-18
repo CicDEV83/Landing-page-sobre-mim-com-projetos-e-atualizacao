@@ -1,5 +1,7 @@
-import { usePlayerContext } from "./PlayerContext";
+import type { ChangeEvent } from "react";
+
 import { useAudioPlayer } from "../../hooks/useAudioPlayer";
+import { usePlayerContext } from "./PlayerContext";
 
 function formatTime(seconds: number): string {
   if (!Number.isFinite(seconds) || seconds < 0) {
@@ -27,6 +29,9 @@ export function GlobalPlayer() {
 
   const hasTrack = currentTrack !== null;
 
+  const coverUrl = currentTrack?.album.cover.medium ?? "";
+  const hasCover = coverUrl.length > 0;
+
   const handleTogglePlay = async () => {
     if (!hasTrack) {
       return;
@@ -35,37 +40,65 @@ export function GlobalPlayer() {
     try {
       await togglePlay();
     } catch (error) {
-      console.error("Não foi possível alterar o estado de reprodução.", error);
+      console.error(
+        "Não foi possível alterar o estado de reprodução.",
+        error,
+      );
     }
   };
 
-  const handleSeek = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSeek = (
+    event: ChangeEvent<HTMLInputElement>,
+  ) => {
     const newTime = Number(event.target.value);
 
     seek(newTime);
   };
 
-  const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleVolumeChange = (
+    event: ChangeEvent<HTMLInputElement>,
+  ) => {
     const newVolume = Number(event.target.value) / 100;
 
     setVolume(newVolume);
   };
 
   return (
-    <footer className="player" aria-label="Controles do player">
+    <footer
+      className="player"
+      aria-label="Controles do player"
+    >
       {/* =========================
           FAIXA ATUAL
       ========================== */}
-      <section className="player__track" aria-label="Música atual">
-        <div className="player__cover" aria-hidden="true">
-          ♪
+      <section
+        className="player__track"
+        aria-label="Música atual"
+      >
+        <div className="player__cover">
+          {hasCover ? (
+            <img
+              src={coverUrl}
+              alt={
+                currentTrack
+                  ? `Capa do álbum ${currentTrack.album.title}`
+                  : ""
+              }
+            />
+          ) : (
+            <span aria-hidden="true">♪</span>
+          )}
         </div>
 
         <div className="player__metadata">
-          <strong>{currentTrack?.title ?? "Nenhuma música tocando"}</strong>
+          <strong>
+            {currentTrack?.title ??
+              "Nenhuma música tocando"}
+          </strong>
 
           <span>
-            {currentTrack?.artist.name ?? "Escolha algo para começar"}
+            {currentTrack?.artist.name ??
+              "Escolha algo para começar"}
           </span>
         </div>
 
@@ -82,7 +115,10 @@ export function GlobalPlayer() {
       {/* =========================
           CONTROLES CENTRAIS
       ========================== */}
-      <section className="player__center" aria-label="Reprodução">
+      <section
+        className="player__center"
+        aria-label="Reprodução"
+      >
         <div className="player__controls">
           <button
             type="button"
@@ -92,25 +128,39 @@ export function GlobalPlayer() {
             ⤨
           </button>
 
-          <button type="button" aria-label="Música anterior" disabled>
+          <button
+            type="button"
+            aria-label="Música anterior"
+            disabled
+          >
             ◀
           </button>
 
           <button
             className="player__play"
             type="button"
-            aria-label={isPlaying ? "Pausar" : "Reproduzir"}
+            aria-label={
+              isPlaying ? "Pausar" : "Reproduzir"
+            }
             onClick={handleTogglePlay}
             disabled={!hasTrack}
           >
             {isPlaying ? "Ⅱ" : "▶"}
           </button>
 
-          <button type="button" aria-label="Próxima música" disabled>
+          <button
+            type="button"
+            aria-label="Próxima música"
+            disabled
+          >
             ▶
           </button>
 
-          <button type="button" aria-label="Ativar repetição" disabled>
+          <button
+            type="button"
+            aria-label="Ativar repetição"
+            disabled
+          >
             ↻
           </button>
         </div>
@@ -126,7 +176,10 @@ export function GlobalPlayer() {
             min="0"
             max={duration || 0}
             step="0.1"
-            value={Math.min(currentTime, duration || 0)}
+            value={Math.min(
+              currentTime,
+              duration || 0,
+            )}
             aria-label="Progresso da música"
             onChange={handleSeek}
             disabled={!hasTrack}
@@ -139,7 +192,10 @@ export function GlobalPlayer() {
       {/* =========================
           VOLUME
       ========================== */}
-      <section className="player__volume" aria-label="Volume">
+      <section
+        className="player__volume"
+        aria-label="Volume"
+      >
         <span aria-hidden="true">♪</span>
 
         <input
