@@ -4,26 +4,35 @@ import type { Track } from "../../core/types/domain";
 import { localMusicService } from "../../services/localMusicService";
 import { usePlayerContext } from "../player/PlayerContext";
 
-import { LocalMusicPicker } from "../local-music/LocalMusicPicker";
+import { LocalMusicPicker } from "./LocalMusicPicker";
 
 export function DeviceLibrary() {
-  const { playTrack } = usePlayerContext();
+  const { playQueue } = usePlayerContext();
 
-  const currentLocalTrackRef = useRef<Track | null>(null);
+  const currentLocalTracksRef = useRef<Track[]>([]);
 
-  const handleTrackSelected = async (track: Track) => {
-    const previousTrack = currentLocalTrackRef.current;
+  const handleTracksSelected = async (tracks: Track[]) => {
+    const previousTracks = currentLocalTracksRef.current;
 
-    currentLocalTrackRef.current = track;
+    currentLocalTracksRef.current = tracks;
 
-    if (previousTrack && previousTrack.audioUrl !== track.audioUrl) {
-      localMusicService.revokeTrackUrl(previousTrack);
-    }
+    previousTracks.forEach((previousTrack) => {
+      const isStillInCurrentSelection = tracks.some(
+        (track) => track.audioUrl === previousTrack.audioUrl,
+      );
+
+      if (!isStillInCurrentSelection) {
+        localMusicService.revokeTrackUrl(previousTrack);
+      }
+    });
 
     try {
-      await playTrack(track);
+      await playQueue(tracks);
     } catch (error) {
-      console.error("Não foi possível reproduzir a música selecionada.", error);
+      console.error(
+        "Não foi possível iniciar a fila de músicas selecionadas.",
+        error,
+      );
     }
   };
 
@@ -51,15 +60,15 @@ export function DeviceLibrary() {
             <h3>Suas músicas. Um toque.</h3>
 
             <p>
-              Escolha uma música armazenada no seu dispositivo e reproduza
-              diretamente no EON MUSIC.
+              Escolha uma ou várias músicas armazenadas no seu dispositivo e
+              reproduza diretamente no EON MUSIC.
             </p>
 
-            <small>O arquivo permanece somente no seu dispositivo.</small>
+            <small>Os arquivos permanecem somente no seu dispositivo.</small>
           </div>
         </div>
 
-        <LocalMusicPicker onTrackSelected={handleTrackSelected} />
+        <LocalMusicPicker onTracksSelected={handleTracksSelected} />
       </article>
     </section>
   );

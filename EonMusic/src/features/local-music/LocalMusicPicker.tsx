@@ -4,17 +4,17 @@ import type { Track } from "../../core/types/domain";
 import { localMusicService } from "../../services/localMusicService";
 
 interface LocalMusicPickerProps {
-  onTrackSelected: (track: Track) => void;
+  onTracksSelected: (tracks: Track[]) => void;
 }
 
-export function LocalMusicPicker({ onTrackSelected }: LocalMusicPickerProps) {
+export function LocalMusicPicker({ onTracksSelected }: LocalMusicPickerProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const openFilePicker = () => {
     inputRef.current?.click();
   };
 
-  const handleFileSelected = async (event: ChangeEvent<HTMLInputElement>) => {
+  const handleFilesSelected = async (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
 
     if (!files || files.length === 0) {
@@ -22,15 +22,18 @@ export function LocalMusicPicker({ onTrackSelected }: LocalMusicPickerProps) {
     }
 
     try {
-      const [track] = await localMusicService.importFiles(files);
+      const tracks = await localMusicService.importFiles(files);
 
-      if (!track) {
+      if (tracks.length === 0) {
         return;
       }
 
-      onTrackSelected(track);
+      onTracksSelected(tracks);
     } catch (error) {
-      console.error("Não foi possível importar a música selecionada.", error);
+      console.error(
+        "Não foi possível importar as músicas selecionadas.",
+        error,
+      );
     } finally {
       event.target.value = "";
     }
@@ -43,7 +46,8 @@ export function LocalMusicPicker({ onTrackSelected }: LocalMusicPickerProps) {
         className="sr-only"
         type="file"
         accept="audio/*"
-        onChange={handleFileSelected}
+        multiple
+        onChange={handleFilesSelected}
       />
 
       <button
@@ -52,7 +56,7 @@ export function LocalMusicPicker({ onTrackSelected }: LocalMusicPickerProps) {
         onClick={openFilePicker}
       >
         <span aria-hidden="true">＋</span>
-        <span>Escolher música</span>
+        <span>Escolher músicas</span>
       </button>
     </>
   );
