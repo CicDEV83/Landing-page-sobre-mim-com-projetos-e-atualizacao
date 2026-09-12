@@ -1,0 +1,143 @@
+/* =========================
+   ENTRADA — FADE
+========================== */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================
+   ENTRADA — SUBINDO
+========================== */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   ENTRADA — ESCALA
+========================== */
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   GRADIENTE EM MOVIMENTO
+========================== */
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* =========================
+   FLUTUAÇÃO
+========================== */
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-0.75rem);
+  }
+}
+
+/* =========================
+   PULSO DE LUZ
+========================== */
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+}
+
+/* =========================
+   CLASSES REUTILIZÁVEIS
+========================== */
+
+.animate-fade-in {
+  animation: fade-in var(--transition-slow) both;
+}
+
+.animate-fade-up {
+  animation: fade-up 700ms ease both;
+}
+
+.animate-scale-in {
+  animation: scale-in 600ms ease both;
+}
+
+/* =========================
+   DELAYS
+========================== */
+
+.animation-delay-1 {
+  animation-delay: 100ms;
+}
+
+.animation-delay-2 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-3 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-4 {
+  animation-delay: 400ms;
+}
+
+/* =========================
+   ACESSIBILIDADE
+========================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-fade-up,
+  .animate-scale-in {
+    animation: none;
+  }
+}
