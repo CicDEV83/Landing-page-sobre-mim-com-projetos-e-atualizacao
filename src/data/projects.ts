@@ -3,6 +3,14 @@ import type { Project } from "../types";
 import appClimaHome from "../assets/images/projects/app-clima-home.png";
 import appClimaResultado from "../assets/images/projects/app-clima-resultado.png";
 
+import taskManagerHome from "../assets/images/projects/task-manager-home.png";
+import taskManagerTask from "../assets/images/projects/task-manager-task.png";
+
+import conversorHome from "../assets/images/projects/conversor-home.png";
+import conversorHomeC from "../assets/images/projects/conversor-homec.png";
+import conversorUsdBrl from "../assets/images/projects/conversor-usd-brl.png";
+import conversorBrlUsd from "../assets/images/projects/conversor-brl-usd.png";
+
 export const projects: Project[] = [
   {
     id: "app-clima-global",
@@ -47,6 +55,8 @@ export const projects: Project[] = [
 
     projectUrl: "task-manager-pro/index.html",
 
+    images: [taskManagerHome, taskManagerTask],
+
     featured: false,
   },
 
@@ -72,6 +82,8 @@ export const projects: Project[] = [
     ],
 
     projectUrl: "currency-converter-pro/index.html",
+
+    images: [conversorHome, conversorHomeC, conversorUsdBrl, conversorBrlUsd],
 
     featured: true,
   },
