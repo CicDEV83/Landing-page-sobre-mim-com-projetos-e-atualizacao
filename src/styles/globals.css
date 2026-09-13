@@ -740,7 +740,7 @@ p {
 
   padding: 0.11rem;
 
-  border-radius: calc(var(--radius-xl) + 0.0625rem);
+  border-radius: inherit;
 
   pointer-events: none;
 
@@ -2009,7 +2009,6 @@ p {
 
   .hero__code-card::before {
     animation: none;
-
     --neon-angle: 340deg;
   }
 }
