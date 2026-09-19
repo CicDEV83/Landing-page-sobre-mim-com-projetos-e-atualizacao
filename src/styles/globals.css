@@ -1329,7 +1329,7 @@ p {
 ========================== */
 
 .projects__header.reveal .projects__eyebrow,
-.projects__header.reveal .projects__header h2,
+.projects__header.reveal h2,
 .projects__header.reveal .projects__introduction {
   opacity: 0;
 
@@ -3446,15 +3446,15 @@ p {
 
 @media (max-width: 36rem) {
   .about {
-    padding-block: 3.5rem;
+    padding-block: 3rem;
   }
 
   .about__container {
-    gap: var(--space-10);
+    gap: var(--space-8);
   }
 
   .about__header {
-    gap: var(--space-4);
+    gap: var(--space-3);
   }
 
   .about__eyebrow {
@@ -3464,11 +3464,11 @@ p {
   .about__header h2 {
     max-width: none;
 
-    font-size: clamp(1.9rem, 9vw, 2.6rem);
+    font-size: clamp(1.8rem, 8vw, 2.3rem);
   }
 
   .about__content {
-    gap: var(--space-8);
+    gap: var(--space-6);
   }
 
   .about__lead {
@@ -3498,7 +3498,7 @@ p {
 
 @media (max-width: 24rem) {
   .about {
-    padding-block: 3rem;
+    padding-block: 2.75rem;
   }
 
   .about__principle {
@@ -3536,19 +3536,19 @@ p {
   }
 
   .projects {
-    padding-block: 3.5rem;
+    padding-block: 3rem;
   }
 
   .projects__header {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .project-card {
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .project-card__content {
-    gap: 1.25rem;
+    gap: 1rem;
   }
 
   .project-media {
