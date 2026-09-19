@@ -2,32 +2,61 @@ import profileImage from "../assets/images/profile.png";
 
 export function HeroSection() {
   return (
-    <section className="hero" id="inicio" aria-labelledby="hero-title">
+    <section
+      className="hero"
+      id="inicio"
+      aria-labelledby="hero-title"
+    >
       <div className="container hero__container">
         <div className="hero__content">
-          <p className="hero__eyebrow animate-fade-up">
-            <span className="hero__status-dot" aria-hidden="true" />
-            Disponível para novas oportunidades
-          </p>
+          <div className="hero__introduction">
+            <p className="hero__welcome">
+              <span
+                className="hero__welcome-line"
+                aria-hidden="true"
+              />
+
+              Bem-vindo ao meu portfólio
+            </p>
+
+            <p className="hero__eyebrow">
+              <span
+                className="hero__status-dot"
+                aria-hidden="true"
+              />
+
+              Disponível para novas oportunidades
+            </p>
+          </div>
 
           <h1
-            className="hero__title animate-fade-up animation-delay-1"
+            className="hero__title"
             id="hero-title"
           >
-            Transformando ideias em{" "}
-            <span className="hero__title-highlight">
+            <span className="hero__title-line hero__title-line--first">
+              Transformando
+            </span>
+
+            <span className="hero__title-line hero__title-line--second">
+              ideias em
+            </span>
+
+            <span className="hero__title-line hero__title-line--highlight">
               experiências digitais.
             </span>
           </h1>
 
-          <p className="hero__description animate-fade-up animation-delay-2">
+          <p className="hero__description">
             Full Stack Developer focado na construção de aplicações modernas,
             responsivas e escaláveis, unindo engenharia, experiência do usuário
             e código bem estruturado.
           </p>
 
-          <div className="hero__actions animate-fade-up animation-delay-3">
-            <a className="button button--primary" href="#projetos">
+          <div className="hero__actions">
+            <a
+              className="button button--primary"
+              href="#projetos"
+            >
               Explorar projetos
               <span aria-hidden="true">→</span>
             </a>
@@ -45,11 +74,17 @@ export function HeroSection() {
         </div>
 
         <div className="hero__visual">
-          <div className="hero__orb hero__orb--primary" aria-hidden="true" />
+          <div
+            className="hero__orb hero__orb--primary"
+            aria-hidden="true"
+          />
 
-          <div className="hero__orb hero__orb--secondary" aria-hidden="true" />
+          <div
+            className="hero__orb hero__orb--secondary"
+            aria-hidden="true"
+          />
 
-          <figure className="hero__profile animate-scale-in animation-delay-1">
+          <figure className="hero__profile">
             <div className="hero__profile-frame">
               <img
                 className="hero__profile-image"
@@ -59,8 +94,10 @@ export function HeroSection() {
             </div>
           </figure>
 
-          <div className="hero__code-card animate-scale-in animation-delay-2">
-            <span className="hero__code-label">developer.profile</span>
+          <div className="hero__code-card">
+            <span className="hero__code-label">
+              developer.profile
+            </span>
 
             <div className="hero__code">
               <span>

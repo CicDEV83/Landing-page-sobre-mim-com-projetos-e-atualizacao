@@ -1,10 +1,14 @@
 import { useState } from "react";
 
 import { projects } from "../../data/projects";
+import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { ProjectCard } from "./ProjectCard";
 
 export function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const { elementRef: headerRef, isVisible: isHeaderVisible } =
+    useScrollReveal<HTMLElement>();
 
   const totalProjects = projects.length;
 
@@ -12,17 +16,13 @@ export function Carousel() {
 
   const goToPreviousProject = () => {
     setCurrentIndex((currentIndex) =>
-      currentIndex === 0
-        ? totalProjects - 1
-        : currentIndex - 1,
+      currentIndex === 0 ? totalProjects - 1 : currentIndex - 1,
     );
   };
 
   const goToNextProject = () => {
     setCurrentIndex((currentIndex) =>
-      currentIndex === totalProjects - 1
-        ? 0
-        : currentIndex + 1,
+      currentIndex === totalProjects - 1 ? 0 : currentIndex + 1,
     );
   };
 
@@ -41,11 +41,14 @@ export function Carousel() {
       aria-labelledby="projects-title"
     >
       <div className="container projects__container">
-        <header className="projects__header">
-          <div>
-            <p className="projects__eyebrow">
-              Projetos selecionados
-            </p>
+        <header
+          ref={headerRef}
+          className={`projects__header reveal ${
+            isHeaderVisible ? "reveal--visible" : ""
+          }`}
+        >
+          <div className="projects__heading">
+            <p className="projects__eyebrow">Projetos selecionados</p>
 
             <h2 id="projects-title">
               Construindo soluções que vão além da interface.
@@ -53,16 +56,13 @@ export function Carousel() {
           </div>
 
           <p className="projects__introduction">
-            Uma seleção de projetos desenvolvidos para explorar
-            experiência do usuário, arquitetura, integração com APIs
-            e construção de aplicações modernas.
+            Uma seleção de projetos desenvolvidos para explorar experiência do
+            usuário, arquitetura, integração com APIs e construção de aplicações
+            modernas.
           </p>
         </header>
 
-        <div
-          className="projects__carousel"
-          aria-live="polite"
-        >
+        <div className="projects__carousel" aria-live="polite">
           <div className="projects__stage">
             <ProjectCard project={currentProject} />
           </div>
@@ -105,18 +105,14 @@ export function Carousel() {
                   <button
                     key={project.id}
                     className={`projects__pagination-button ${
-                      isActive
-                        ? "projects__pagination-button--active"
-                        : ""
+                      isActive ? "projects__pagination-button--active" : ""
                     }`}
                     type="button"
                     onClick={() => goToProject(index)}
                     aria-label={`Mostrar projeto ${index + 1}: ${project.title}`}
                     aria-current={isActive ? "true" : undefined}
                   >
-                    <span className="sr-only">
-                      {project.title}
-                    </span>
+                    <span className="sr-only">{project.title}</span>
                   </button>
                 );
               })}
