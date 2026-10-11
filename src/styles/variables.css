@@ -1,49 +1,101 @@
 :root {
-  /* =========================
-     CORES — TEMA ESCURO
-  ========================== */
+  /* ========================================
+     DESIGN SYSTEM — CYBERPUNK NEON
+     TEMA ESCURO
+  ======================================== */
 
-  --color-bg: #050816;
-  --color-bg-soft: #0b1020;
-  --color-surface: rgba(15, 23, 42, 0.72);
-  --color-surface-strong: rgba(15, 23, 42, 0.92);
+  /* BACKGROUNDS */
 
-  --color-text: #f8fafc;
-  --color-text-soft: #cbd5e1;
-  --color-text-muted: #94a3b8;
+  --color-bg: #08051b;
+  --color-bg-soft: #0c0926;
+  --color-bg-deep: #03020d;
 
-  --color-primary: #7c3aed;
-  --color-primary-strong: #6d28d9;
+  /* SUPERFÍCIES */
 
-  --color-secondary: #06b6d4;
-  --color-accent: #22d3ee;
+  --color-surface: rgba(13, 10, 38, 0.78);
+  --color-surface-strong: rgba(10, 8, 30, 0.94);
+
+  --color-glass: rgba(17, 13, 48, 0.58);
+  --color-glass-strong: rgba(17, 13, 48, 0.82);
+
+  /* TEXTOS */
+
+  --color-text: #f8f7ff;
+  --color-text-soft: #d5d1ed;
+  --color-text-muted: #9993bc;
+
+  /* CORES NEON */
+
+  --color-primary: #9d00ff;
+  --color-primary-strong: #7900d4;
+
+  --color-secondary: #00e5ff;
+  --color-accent: #ff00e5;
+
+  --color-neon-purple: #9d00ff;
+  --color-neon-magenta: #ff00e5;
+  --color-neon-cyan: #00e5ff;
+  --color-neon-blue: #236bff;
+
+  /* CORES DE ESTADO */
 
   --color-success: #22c55e;
   --color-warning: #f59e0b;
   --color-danger: #ef4444;
 
-  --color-border: rgba(148, 163, 184, 0.16);
-  --color-border-strong: rgba(148, 163, 184, 0.28);
+  /* BORDAS */
 
-  /* =========================
+  --color-border: rgba(157, 0, 255, 0.22);
+  --color-border-strong: rgba(0, 229, 255, 0.42);
+
+  --color-border-neon: rgba(157, 0, 255, 0.75);
+
+  /* ========================================
      GRADIENTES
-  ========================== */
+  ======================================== */
 
   --gradient-primary: linear-gradient(
     135deg,
-    var(--color-primary),
-    var(--color-secondary)
+    var(--color-neon-purple),
+    var(--color-neon-magenta)
+  );
+
+  --gradient-neon: linear-gradient(
+    120deg,
+    var(--color-neon-purple),
+    var(--color-neon-magenta),
+    var(--color-neon-cyan)
+  );
+
+  --gradient-cyber: linear-gradient(
+    135deg,
+    var(--color-neon-blue),
+    var(--color-neon-purple),
+    var(--color-neon-magenta)
   );
 
   --gradient-surface: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.04),
-    rgba(255, 255, 255, 0.01)
+    rgba(157, 0, 255, 0.08),
+    rgba(0, 229, 255, 0.02)
   );
 
-  /* =========================
+  --gradient-background:
+    radial-gradient(
+      ellipse at 15% 20%,
+      rgba(157, 0, 255, 0.12),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 85% 30%,
+      rgba(0, 229, 255, 0.1),
+      transparent 50%
+    ),
+    var(--color-bg);
+
+  /* ========================================
      TIPOGRAFIA
-  ========================== */
+  ======================================== */
 
   --font-family-base:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
@@ -56,6 +108,7 @@
   --font-size-xl: 1.25rem;
   --font-size-2xl: 1.5rem;
   --font-size-3xl: 2rem;
+
   --font-size-4xl: clamp(2.5rem, 5vw, 4.5rem);
 
   --font-weight-regular: 400;
@@ -67,9 +120,9 @@
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.7;
 
-  /* =========================
-     ESPAÇAMENTO
-  ========================== */
+  /* ========================================
+     ESPAÇAMENTOS
+  ======================================== */
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -84,17 +137,18 @@
   --space-20: 5rem;
   --space-24: 6rem;
 
-  /* =========================
+  /* ========================================
      LAYOUT
-  ========================== */
+  ======================================== */
 
   --container-width: 76rem;
   --content-width: 58rem;
+
   --page-padding: clamp(1rem, 3vw, 2rem);
 
-  /* =========================
-     BORDAS
-  ========================== */
+  /* ========================================
+     BORDER RADIUS
+  ======================================== */
 
   --radius-sm: 0.5rem;
   --radius-md: 0.875rem;
@@ -102,29 +156,46 @@
   --radius-xl: 1.75rem;
   --radius-pill: 999rem;
 
-  /* =========================
-     SOMBRAS E GLOW
-  ========================== */
+  /* ========================================
+     SOMBRAS
+  ======================================== */
 
-  --shadow-soft: 0 1rem 3rem rgba(0, 0, 0, 0.22);
+  --shadow-soft: 0 1rem 3rem rgba(0, 0, 0, 0.35);
 
-  --shadow-card: 0 1.5rem 4rem rgba(0, 0, 0, 0.28);
+  --shadow-card: 0 1.5rem 4rem rgba(0, 0, 0, 0.48);
 
-  --glow-primary: 0 0 3rem rgba(124, 58, 237, 0.22);
+  /* ========================================
+     NEON GLOW
+  ======================================== */
 
-  --glow-secondary: 0 0 3rem rgba(6, 182, 212, 0.18);
+  --glow-primary:
+    0 0 1rem rgba(157, 0, 255, 0.38), 0 0 3rem rgba(157, 0, 255, 0.2);
 
-  /* =========================
-     TRANSIÇÕES
-  ========================== */
+  --glow-secondary:
+    0 0 1rem rgba(0, 229, 255, 0.34), 0 0 3rem rgba(0, 229, 255, 0.16);
+
+  --glow-magenta:
+    0 0 1rem rgba(255, 0, 229, 0.4), 0 0 3rem rgba(255, 0, 229, 0.18);
+
+  --glow-neon-strong:
+    0 0 0.5rem rgba(157, 0, 255, 0.7), 0 0 1.5rem rgba(157, 0, 255, 0.45),
+    0 0 3rem rgba(157, 0, 255, 0.25);
+
+  /* ========================================
+     ANIMAÇÕES — TOKENS
+  ======================================== */
+
+  --neon-pulse-duration: 2.8s;
+  --neon-flow-duration: 6s;
+  --neon-float-duration: 8s;
 
   --transition-fast: 160ms ease;
   --transition-base: 260ms ease;
   --transition-slow: 420ms ease;
 
-  /* =========================
+  /* ========================================
      Z-INDEX
-  ========================== */
+  ======================================== */
 
   --z-base: 1;
   --z-header: 10;
@@ -132,23 +203,56 @@
   --z-modal: 30;
 }
 
+/* ========================================
+   TEMA CLARO — COMPATIBILIDADE
+======================================== */
+
 body[data-theme="light"] {
-  --color-bg: #f8fafc;
-  --color-bg-soft: #eef2ff;
+  --color-bg: #f8f7ff;
+  --color-bg-soft: #eeebff;
+  --color-bg-deep: #e8e4fa;
 
-  --color-surface: rgba(255, 255, 255, 0.72);
-  --color-surface-strong: rgba(255, 255, 255, 0.94);
+  --color-surface: rgba(255, 255, 255, 0.78);
+  --color-surface-strong: rgba(255, 255, 255, 0.95);
 
-  --color-text: #0f172a;
-  --color-text-soft: #334155;
-  --color-text-muted: #64748b;
+  --color-glass: rgba(255, 255, 255, 0.64);
+  --color-glass-strong: rgba(255, 255, 255, 0.88);
 
-  --color-border: rgba(15, 23, 42, 0.1);
-  --color-border-strong: rgba(15, 23, 42, 0.2);
+  --color-text: #15102e;
+  --color-text-soft: #393252;
+  --color-text-muted: #6f688c;
 
-  --shadow-soft:
-    0 1rem 3rem rgba(15, 23, 42, 0.08);
+  --color-border: rgba(110, 42, 185, 0.18);
+  --color-border-strong: rgba(89, 57, 185, 0.35);
 
-  --shadow-card:
-    0 1.5rem 4rem rgba(15, 23, 42, 0.12);
+  --color-border-neon: rgba(157, 0, 255, 0.45);
+
+  --gradient-surface: linear-gradient(
+    180deg,
+    rgba(157, 0, 255, 0.045),
+    rgba(0, 229, 255, 0.015)
+  );
+
+  --gradient-background:
+    radial-gradient(
+      ellipse at 15% 20%,
+      rgba(157, 0, 255, 0.06),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 85% 30%,
+      rgba(0, 229, 255, 0.045),
+      transparent 50%
+    ),
+    var(--color-bg);
+
+  --shadow-soft: 0 1rem 3rem rgba(28, 16, 62, 0.1);
+
+  --shadow-card: 0 1.5rem 4rem rgba(28, 16, 62, 0.15);
+
+  --glow-primary:
+    0 0 1rem rgba(157, 0, 255, 0.16), 0 0 3rem rgba(157, 0, 255, 0.08);
+
+  --glow-secondary:
+    0 0 1rem rgba(0, 175, 210, 0.14), 0 0 3rem rgba(0, 175, 210, 0.07);
 }
