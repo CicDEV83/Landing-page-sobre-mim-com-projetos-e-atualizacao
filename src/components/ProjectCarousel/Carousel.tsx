@@ -1,42 +1,62 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import { projects } from "../../data/projects";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { ProjectCard } from "./ProjectCard";
 
+type ProjectFilter = "Todos" | "Frontend" | "Fullstack" | "Apps" | "Em breve";
+
+const filters: ProjectFilter[] = [
+  "Todos",
+  "Frontend",
+  "Fullstack",
+  "Apps",
+  "Em breve",
+];
+
+/**
+ * Categorias conservadoras, baseadas no cadastro atual dos projetos.
+ * Não classificamos um projeto como Fullstack sem evidência de backend.
+ */
+function matchesFilter(project: (typeof projects)[number], filter: ProjectFilter) {
+  if (filter === "Todos") return true;
+  if (filter === "Em breve") return project.status === "Em desenvolvimento";
+  if (filter === "Fullstack") return false;
+  if (filter === "Frontend") {
+    return project.status !== "Em desenvolvimento";
+  }
+  return ["app-clima-global", "task-manager-pro", "conversor-global-pro"].includes(
+    project.id,
+  );
+}
+
 export function Carousel() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeFilter, setActiveFilter] = useState<ProjectFilter>("Todos");
+  const [showAll, setShowAll] = useState(false);
 
   const { elementRef: headerRef, isVisible: isHeaderVisible } =
     useScrollReveal<HTMLElement>();
 
-  const totalProjects = projects.length;
+  const filteredProjects = useMemo(
+    () => projects.filter((project) => matchesFilter(project, activeFilter)),
+    [activeFilter],
+  );
 
-  const currentProject = projects[currentIndex];
+  const visibleProjects =
+    activeFilter === "Todos" && !showAll
+      ? filteredProjects.slice(0, 3)
+      : filteredProjects;
 
-  const goToPreviousProject = () => {
-    setCurrentIndex((currentIndex) =>
-      currentIndex === 0 ? totalProjects - 1 : currentIndex - 1,
-    );
+  const hasMoreProjects = activeFilter === "Todos" && filteredProjects.length > 3;
+
+  const changeFilter = (filter: ProjectFilter) => {
+    setActiveFilter(filter);
+    setShowAll(false);
   };
-
-  const goToNextProject = () => {
-    setCurrentIndex((currentIndex) =>
-      currentIndex === totalProjects - 1 ? 0 : currentIndex + 1,
-    );
-  };
-
-  const goToProject = (index: number) => {
-    setCurrentIndex(index);
-  };
-
-  if (!currentProject) {
-    return null;
-  }
 
   return (
     <section
-      className="projects"
+      className="projects projects--neon"
       id="projetos"
       aria-labelledby="projects-title"
     >
@@ -48,77 +68,70 @@ export function Carousel() {
           }`}
         >
           <div className="projects__heading">
-            <p className="projects__eyebrow">Projetos selecionados</p>
-
+            <p className="projects__eyebrow">✦ MEUS PROJETOS</p>
             <h2 id="projects-title">
-              Construindo soluções que vão além da interface.
+              Projetos que transformam <span>ideias em realidade.</span>
             </h2>
           </div>
 
           <p className="projects__introduction">
-            Uma seleção de projetos desenvolvidos para explorar experiência do
-            usuário, arquitetura, integração com APIs e construção de aplicações
-            modernas.
+            Aplicações reais, interfaces modernas e experiências construídas
+            com atenção aos detalhes.
           </p>
         </header>
 
-        <div className="projects__carousel" aria-live="polite">
-          <div className="projects__stage">
-            <ProjectCard project={currentProject} />
+        <div className="projects__toolbar">
+          <div className="projects__filters" role="group" aria-label="Filtrar projetos">
+            {filters.map((filter) => (
+              <button
+                key={filter}
+                className={`projects__filter ${
+                  activeFilter === filter ? "projects__filter--active" : ""
+                }`}
+                type="button"
+                aria-pressed={activeFilter === filter}
+                onClick={() => changeFilter(filter)}
+              >
+                {filter}
+              </button>
+            ))}
           </div>
 
-          <div className="projects__controls">
-            <div className="projects__navigation">
-              <button
-                className="projects__arrow"
-                type="button"
-                onClick={goToPreviousProject}
-                aria-label="Mostrar projeto anterior"
-              >
-                <span aria-hidden="true">←</span>
-              </button>
-
-              <span className="projects__counter">
-                {String(currentIndex + 1).padStart(2, "0")}
-                <span aria-hidden="true"> / </span>
-                {String(totalProjects).padStart(2, "0")}
-              </span>
-
-              <button
-                className="projects__arrow"
-                type="button"
-                onClick={goToNextProject}
-                aria-label="Mostrar próximo projeto"
-              >
-                <span aria-hidden="true">→</span>
-              </button>
-            </div>
-
-            <div
-              className="projects__pagination"
-              aria-label="Selecionar projeto"
+          {hasMoreProjects && (
+            <button
+              className="projects__view-all"
+              type="button"
+              onClick={() => {
+                setActiveFilter("Todos");
+                setShowAll((current) => !current);
+              }}
+              aria-expanded={showAll}
             >
-              {projects.map((project, index) => {
-                const isActive = index === currentIndex;
-
-                return (
-                  <button
-                    key={project.id}
-                    className={`projects__pagination-button ${
-                      isActive ? "projects__pagination-button--active" : ""
-                    }`}
-                    type="button"
-                    onClick={() => goToProject(index)}
-                    aria-label={`Mostrar projeto ${index + 1}: ${project.title}`}
-                    aria-current={isActive ? "true" : undefined}
-                  >
-                    <span className="sr-only">{project.title}</span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+              {showAll ? "Mostrar destaques" : "Ver todos os projetos"}
+              <span aria-hidden="true">{showAll ? "↑" : "→"}</span>
+            </button>
+          )}
         </div>
+
+        {visibleProjects.length > 0 ? (
+          <div className="projects__grid" aria-live="polite">
+            {visibleProjects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        ) : (
+          <div className="projects__empty" role="status">
+            <span aria-hidden="true">⌘</span>
+            <h3>Nenhum projeto nesta categoria por enquanto.</h3>
+            <p>
+              Os projetos aparecerão aqui quando estiverem cadastrados com
+              essa especialidade.
+            </p>
+            <button type="button" onClick={() => changeFilter("Todos")}>
+              Ver todos os projetos →
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

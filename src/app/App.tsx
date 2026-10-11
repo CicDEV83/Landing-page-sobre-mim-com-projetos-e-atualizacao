@@ -13,8 +13,8 @@ export function App() {
 
       <main>
         <HeroSection />
-        <Carousel />
         <AboutSection />
+        <Carousel />
         <ContactSection />
       </main>
 
