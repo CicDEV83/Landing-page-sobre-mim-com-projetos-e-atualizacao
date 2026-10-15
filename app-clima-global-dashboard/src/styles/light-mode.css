@@ -1,0 +1,442 @@
+/* =====================================================
+   APP CLIMA GLOBAL — SPRINT 10
+   LIGHT MODE PREMIUM
+
+   Objetivo:
+   - Corrigir contraste e legibilidade
+   - Preservar integralmente o Dark Mode
+   - Manter cenários climáticos dinâmicos
+   - Não modificar dimensões do layout
+   ===================================================== */
+
+/* =====================================================
+   1. PALETA DO TEMA CLARO
+   ===================================================== */
+
+.clima-page[data-theme="light"] {
+  --clima-bg: #edf3ff;
+  --clima-panel: #f8faff;
+  --clima-card: #eaf0ff;
+  --clima-text: #162144;
+  --clima-muted: #4f5f80;
+  --clima-border: rgba(101, 82, 184, 0.34);
+
+  color: var(--clima-text);
+}
+
+.clima-page[data-theme="light"] :focus-visible {
+  outline-color: #5535c7;
+}
+
+/* =====================================================
+   2. ESTRUTURA PRINCIPAL
+   ===================================================== */
+
+.clima-page[data-theme="light"] .dashboard-shell {
+  background: #f9fbff;
+  border-color: #a889f1;
+  box-shadow:
+    0 0 0 1px rgba(91, 82, 185, 0.08),
+    0 14px 38px rgba(73, 60, 140, 0.12);
+}
+
+.clima-page[data-theme="light"] .dashboard-main {
+  color: #172345;
+}
+
+.clima-page[data-theme="light"] .dashboard-heading__tags span {
+  color: #30205e;
+  background: rgba(113, 75, 223, 0.1);
+  border-color: rgba(113, 75, 223, 0.3);
+}
+
+/* =====================================================
+   3. SIDEBAR
+   ===================================================== */
+
+.clima-page[data-theme="light"] .sidebar {
+  background: linear-gradient(180deg, #e9eaff, #e0e8fb);
+  border-right-color: #ccd0ec;
+}
+
+.clima-page[data-theme="light"] .sidebar__brand-copy strong {
+  color: #182249;
+}
+
+.clima-page[data-theme="light"] .sidebar__brand-copy strong span {
+  color: #a62fb0;
+}
+
+.clima-page[data-theme="light"] .sidebar__brand-copy small {
+  color: #516083;
+}
+
+.clima-page[data-theme="light"] .sidebar__link {
+  color: #374b76;
+}
+
+.clima-page[data-theme="light"] .sidebar__link:hover,
+.clima-page[data-theme="light"] .sidebar__link--active {
+  color: #ffffff;
+  background: linear-gradient(100deg, #752acb, #34217e);
+  border-color: #a165f2;
+}
+
+.clima-page[data-theme="light"] .sidebar__premium {
+  background: linear-gradient(145deg, #ede2ff, #dddafa);
+  border-color: #af83dd;
+}
+
+.clima-page[data-theme="light"] .sidebar__premium-heading {
+  color: #8426a0;
+}
+
+.clima-page[data-theme="light"] .sidebar__premium p {
+  color: #465374;
+}
+
+.clima-page[data-theme="light"] .sidebar__premium button {
+  background: #f0e4ff;
+  border-color: #8f42c7;
+  color: #542081;
+}
+
+/* =====================================================
+   4. TOPBAR E PESQUISA
+   ===================================================== */
+
+.clima-page[data-theme="light"] .topbar__search {
+  background: #ffffff;
+  border-color: #acb7e8;
+}
+
+.clima-page[data-theme="light"] .topbar__search-icon {
+  color: #644bc8;
+}
+
+.clima-page[data-theme="light"]
+  .dashboard-main
+  .topbar__search
+  input[type="search"],
+.clima-page[data-theme="light"]
+  .dashboard-main
+  .topbar__search
+  input[type="text"] {
+  background: transparent;
+  color: #172345;
+  -webkit-text-fill-color: #172345;
+  caret-color: #5431bc;
+}
+
+.clima-page[data-theme="light"] .topbar__search input::placeholder {
+  color: #65718d;
+  opacity: 1;
+}
+
+/* Corrige o preenchimento automático do Chrome */
+
+.clima-page[data-theme="light"]
+  .dashboard-main
+  .topbar__search
+  input:-webkit-autofill,
+.clima-page[data-theme="light"]
+  .dashboard-main
+  .topbar__search
+  input:-webkit-autofill:hover,
+.clima-page[data-theme="light"]
+  .dashboard-main
+  .topbar__search
+  input:-webkit-autofill:focus,
+.clima-page[data-theme="light"]
+  .dashboard-main
+  .topbar__search
+  input:-webkit-autofill:active {
+  -webkit-text-fill-color: #172345 !important;
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+  box-shadow: 0 0 0 1000px #ffffff inset !important;
+  caret-color: #5431bc !important;
+}
+
+.clima-page[data-theme="light"] .topbar__location {
+  color: #075b85;
+  background: #e7f7ff;
+  border-color: #1884b9;
+}
+
+.clima-page[data-theme="light"] .topbar__avatar {
+  color: #ffffff;
+}
+
+.clima-page[data-theme="light"] .topbar__theme {
+  background: #32245d;
+  color: #ffffff;
+}
+
+/* =====================================================
+   5. PAINEL CLIMÁTICO DINÂMICO
+
+   O fundo continua escuro para preservar os
+   cenários de dia, noite, chuva, neve e tempestade.
+   ===================================================== */
+
+.clima-page[data-theme="light"] .weather-hero {
+  color: #ffffff;
+}
+
+.clima-page[data-theme="light"] .weather-hero h2 {
+  color: #ffffff;
+}
+
+.clima-page[data-theme="light"] .weather-hero__location {
+  color: #edcfff;
+}
+
+.clima-page[data-theme="light"] .weather-hero__date,
+.clima-page[data-theme="light"] .weather-hero__feels {
+  color: #e1e6ff;
+}
+
+.clima-page[data-theme="light"] .weather-hero__temperature {
+  color: #ffffff;
+}
+
+.clima-page[data-theme="light"] .weather-hero__temperature span {
+  color: #bf78ff;
+}
+
+.clima-page[data-theme="light"] .weather-hero__condition {
+  color: #ffffff;
+}
+
+.clima-page[data-theme="light"] .weather-hero__greeting {
+  background: rgba(16, 28, 87, 0.95);
+  color: #ffffff;
+}
+
+.clima-page[data-theme="light"] .weather-hero__greeting strong {
+  color: #ffffff;
+}
+
+.clima-page[data-theme="light"] .weather-hero__greeting small {
+  color: #d8e1ff;
+}
+
+.clima-page[data-theme="light"] .weather-hero__floating-cards > div {
+  color: #ffffff;
+  background: rgba(16, 26, 69, 0.96);
+}
+
+.clima-page[data-theme="light"] .weather-hero__floating-cards small {
+  color: #d9e3ff;
+}
+
+.clima-page[data-theme="light"] .weather-hero__floating-cards strong {
+  color: #80f6c5;
+}
+
+.clima-page[data-theme="light"] .weather-hero__favorite-button {
+  color: #ffffff;
+  background: rgba(37, 17, 82, 0.92);
+}
+
+/* =====================================================
+   6. INDICADORES METEOROLÓGICOS
+   ===================================================== */
+
+.clima-page[data-theme="light"] .metric-card {
+  background: #e8efff;
+  border-color: #94a7e6;
+}
+
+.clima-page[data-theme="light"] .metric-card h3 {
+  color: #48577b;
+}
+
+.clima-page[data-theme="light"] .metric-card strong {
+  color: #142247;
+}
+
+.clima-page[data-theme="light"] .metric-card__icon {
+  color: #008cb8;
+}
+
+/* =====================================================
+   7. PREVISÃO DE CINCO DIAS
+   ===================================================== */
+
+.clima-page[data-theme="light"] .forecast-panel {
+  background: #f8faff;
+  border-color: #c8bbeb;
+}
+
+.clima-page[data-theme="light"] .panel-heading h2 {
+  color: #182344;
+}
+
+.clima-page[data-theme="light"] .panel-heading p {
+  color: #4c5e7f;
+}
+
+.clima-page[data-theme="light"] .panel-heading__pending {
+  color: #7145ad;
+}
+
+.clima-page[data-theme="light"] .forecast-card {
+  background: #e8efff;
+  border-color: #889bd6;
+}
+
+.clima-page[data-theme="light"] .forecast-card h3 {
+  color: #172345;
+  font-weight: 700;
+}
+
+.clima-page[data-theme="light"] .forecast-card strong {
+  color: #b52a9c;
+}
+
+.clima-page[data-theme="light"] .forecast-card__minimum {
+  color: #45577c;
+}
+
+.clima-page[data-theme="light"] .forecast-card small,
+.clima-page[data-theme="light"] .forecast-card__rain {
+  color: #344b73;
+}
+
+.clima-page[data-theme="light"] .forecast-empty {
+  color: #4c5e7f;
+}
+
+/* =====================================================
+   8. CIDADES FAVORITAS
+   ===================================================== */
+
+.clima-page[data-theme="light"] .saved-cities {
+  background: #f8faff;
+  border-color: #c8bbeb;
+}
+
+.clima-page[data-theme="light"] .saved-cities__empty {
+  color: #4e5e83;
+}
+
+.clima-page[data-theme="light"] .saved-cities__item {
+  background: #e9efff;
+  border-color: #adb8df;
+}
+
+.clima-page[data-theme="light"] .saved-cities__city-button {
+  color: #172345;
+}
+
+.clima-page[data-theme="light"] .saved-cities__city-info small {
+  color: #53658a;
+}
+
+.clima-page[data-theme="light"] .saved-cities__temperature {
+  color: #a329a5;
+}
+
+.clima-page[data-theme="light"] .saved-cities__remove {
+  color: #713d88;
+}
+
+.clima-page[data-theme="light"] .saved-cities__notice {
+  color: #53658a;
+}
+
+/* =====================================================
+   9. MAPA CLIMÁTICO
+
+   Não altera tiles, zoom nem cores internas
+   do Leaflet.
+   ===================================================== */
+
+.clima-page[data-theme="light"] .weather-map {
+  background: #f8faff;
+  border-color: #c8bbeb;
+}
+
+.clima-page[data-theme="light"] .weather-map h2 {
+  color: #172345;
+}
+
+.clima-page[data-theme="light"] .weather-map p {
+  color: #4e6082;
+}
+
+.clima-page[data-theme="light"] .weather-map__icon {
+  color: #087da6;
+}
+
+.clima-page[data-theme="light"] .weather-map__pending {
+  color: #075e87;
+  border-color: #1686bd;
+  background: rgba(20, 154, 212, 0.05);
+}
+
+/* =====================================================
+   10. RELÓGIO DO RODAPÉ
+   ===================================================== */
+
+.clima-page[data-theme="light"] .dashboard-clock {
+  background: #f8faff;
+  border-color: #8da3e8;
+}
+
+.clima-page[data-theme="light"] .dashboard-clock__time {
+  color: #142247;
+}
+
+.clima-page[data-theme="light"] .dashboard-clock__date {
+  color: #4b5c7d;
+}
+
+.clima-page[data-theme="light"] .dashboard-clock__city {
+  color: #11618e;
+}
+
+.clima-page[data-theme="light"] .dashboard-clock__icon {
+  color: #0087b3;
+  background: #d9f4ff;
+  border-color: #8ed3ec;
+  text-shadow: none;
+}
+
+/* =====================================================
+   11. DESTAQUES CLIMÁTICOS
+   ===================================================== */
+
+.clima-page[data-theme="light"] .dashboard-highlights {
+  background: #f8faff;
+  border-color: #b29ddd;
+}
+
+.clima-page[data-theme="light"] .dashboard-highlights h2 {
+  color: #075e89;
+}
+
+.clima-page[data-theme="light"] .dashboard-highlight {
+  color: #172345;
+}
+
+.clima-page[data-theme="light"] .dashboard-highlight strong {
+  color: #172345;
+}
+
+.clima-page[data-theme="light"] .dashboard-highlight small {
+  color: #4b5d80;
+}
+
+.clima-page[data-theme="light"] .dashboard-highlight__icon {
+  color: #0a80ac;
+}
+
+/* =====================================================
+   12. STATUS
+   ===================================================== */
+
+.clima-page[data-theme="light"] .dashboard-status {
+  color: #405575;
+}

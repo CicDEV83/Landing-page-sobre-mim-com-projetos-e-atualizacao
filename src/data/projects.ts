@@ -1,7 +1,8 @@
 import type { Project } from "../types";
 
-import appClimaHome from "../assets/images/projects/app-clima-home.png";
-import appClimaResultado from "../assets/images/projects/app-clima-resultado.png";
+import appClimaGlobal from "../assets/images/projects/app-clima-global.png";
+import favoritosPesquisa from "../assets/images/projects/favoritos-pesquisa.png";
+import mapaEInfo from "../assets/images/projects/mapa-e-info.png";
 
 import taskManagerHome from "../assets/images/projects/task-manager-home.png";
 import taskManagerTask from "../assets/images/projects/task-manager-task.png";
@@ -25,16 +26,19 @@ export const projects: Project[] = [
     status: "Concluído",
 
     technologies: [
-      "HTML5",
+      "React",
+      "TypeScript",
+      "Vite",
       "CSS3",
-      "JavaScript",
-      "OpenWeather API",
+      "OpenWeatherMap",
+      "Open-Meteo",
+      "React Leaflet",
       "LocalStorage",
     ],
 
-    projectUrl: "projeto1-app-clima/index.html",
+    projectUrl: "app-clima-global/",
 
-    images: [appClimaHome, appClimaResultado],
+    images: [appClimaGlobal, favoritosPesquisa, mapaEInfo],
 
     featured: true,
   },

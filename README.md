@@ -4,15 +4,15 @@
 
 Portfólio profissional desenvolvido para apresentar minha trajetória na programação, minhas habilidades técnicas, projetos e evolução na área de desenvolvimento de software.
 
-Construído com **React 19, TypeScript 6 e Vite 8**, o projeto utiliza uma identidade visual **Cyberpunk Neon**, com efeitos holográficos, interface responsiva, componentes reutilizáveis e interações desenvolvidas com tecnologias web.
+Construído com **React 19, TypeScript 6 e Vite 8**, o portfólio utiliza uma identidade visual **Cyberpunk Neon**, com efeitos holográficos, interface responsiva, componentes reutilizáveis e interações desenvolvidas com tecnologias web.
 
-Além de apresentar projetos, este portfólio funciona como um ambiente de estudo e aplicação prática de engenharia de software, arquitetura frontend, acessibilidade e experiência do usuário.
+Além da apresentação profissional, este repositório funciona como um ambiente de estudo e aplicação prática de arquitetura frontend, engenharia de software, acessibilidade, integração com APIs e experiência do usuário.
 
 ### 🌐 Portfólio online
 
 **[Acessar meu portfólio](https://cicdev83.github.io/Landing-page-sobre-mim-com-projetos-e-atualizacao/)**
 
-> O projeto está em evolução contínua. Algumas funcionalidades e refinamentos de responsividade ainda passam por testes e melhorias.
+> **Status:** desenvolvimento contínuo. A nova versão React do App Clima Global já foi desenvolvida e validada localmente, mas sua publicação no GitHub Pages ainda está em preparação.
 
 ---
 
@@ -20,14 +20,13 @@ Além de apresentar projetos, este portfólio funciona como um ambiente de estud
 
 O portfólio foi reconstruído com uma arquitetura baseada em componentes React, utilizando TypeScript para melhorar a organização, a segurança de tipos e a manutenção do código.
 
-O objetivo é desenvolver uma aplicação que demonstre, na prática, conhecimentos em:
+O desenvolvimento demonstra conhecimentos práticos em:
 
 - Componentização e arquitetura React
 - TypeScript e JavaScript moderno
 - HTML semântico
 - CSS responsivo
-- Experiência do usuário (UX)
-- Design de interfaces (UI)
+- UI/UX e design de interfaces
 - Gerenciamento de estado
 - Custom Hooks
 - Integração com APIs REST
@@ -35,22 +34,22 @@ O objetivo é desenvolver uma aplicação que demonstre, na prática, conhecimen
 - Acessibilidade digital
 - Animações e interatividade
 - Clean Code
-- Versionamento com Git
+- Git e GitHub
 - Build e publicação de aplicações frontend
 
-A aplicação foi desenvolvida progressivamente, com testes técnicos, revisões visuais e melhorias incrementais.
+O projeto evolui em etapas incrementais, com análise técnica, revisão visual, testes funcionais e refatorações controladas.
 
 ---
 
 ## 🛠️ Tecnologias utilizadas
 
-### Frontend
+### Frontend do portfólio
 
 - **React 19** — construção da interface por componentes
 - **TypeScript 6** — tipagem estática e organização do código
 - **Vite 8** — ambiente de desenvolvimento e build
 - **HTML5** — estrutura semântica
-- **CSS3** — estilos, layouts, animações e responsividade
+- **CSS3** — estilos, layouts e animações
 - **JavaScript ES6+** — lógica e interatividade
 
 ### Recursos e APIs do navegador
@@ -67,41 +66,40 @@ A aplicação foi desenvolvida progressivamente, com testes técnicos, revisões
 
 - Git
 - GitHub
-- VS Code
+- Visual Studio Code
 - ESLint
 - TypeScript Compiler
 - GitHub Pages
 
-O projeto também está preparado para integrar seu processo de publicação ao GitHub Actions.
+O repositório também está preparado para utilizar GitHub Actions em seu processo de publicação, sujeito à conferência da configuração ativa.
 
 ---
 
 ## 🎨 Identidade visual — Cyberpunk Neon
 
-A interface possui uma proposta visual futurista, inspirada em ambientes tecnológicos, interfaces holográficas e elementos de ficção científica.
+A interface possui uma proposta visual futurista, inspirada em ambientes tecnológicos e elementos de ficção científica.
 
 ### Recursos visuais
 
 - Paleta neon em ciano, violeta e magenta
-- Efeitos Glassmorphism
+- Glassmorphism
 - Gradientes e iluminação dinâmica
 - Fundo com atmosfera espacial
 - Planeta estilizado em CSS
 - Estrelas e elementos luminosos
 - Painéis holográficos
 - Animações de digitação
-- Destaques tecnológicos
 - Cartões com efeito de vidro
 - Ilustrações SVG
-- Tema claro e escuro
+- Temas claro e escuro
 
-A composição visual utiliza principalmente **React, CSS e SVG**, sem depender de bibliotecas de animação ou frameworks de componentes visuais.
+A composição utiliza principalmente **React, CSS e SVG**, sem depender de bibliotecas de animação ou frameworks visuais para seus principais elementos decorativos.
 
 ---
 
 ## 🧭 Header e navegação
 
-O cabeçalho apresenta a identidade profissional e quatro links principais:
+O cabeçalho apresenta quatro links principais:
 
 1. Início
 2. Sobre / Habilidades
@@ -113,28 +111,28 @@ O cabeçalho apresenta a identidade profissional e quatro links principais:
 - Navegação por âncoras
 - Menu responsivo
 - Destaque automático da seção ativa
-- Identificação da seção atual durante a rolagem
-- Botão de alternância de tema
+- Identificação da seção durante a rolagem
+- Alternância de tema
 - Fechamento do menu móvel pela tecla `Escape`
 - Gerenciamento de foco do botão de menu
 - Atributos ARIA para navegação acessível
 
-O currículo permanece identificado como **em preparação**, sem oferecer um download inexistente.
+O currículo permanece identificado como **em preparação**, sem disponibilizar um download inexistente.
 
 ---
 
-## 🌌 Hero — apresentação principal
+## 🌌 Hero — Apresentação principal
 
 A primeira seção apresenta minha identidade profissional por meio de uma composição visual futurista.
 
 ### Elementos
 
 - Apresentação e nome profissional
-- Identificação como Full Stack Developer
+- Identificação como Full Stack Developer em formação
 - Mensagem de disponibilidade para oportunidades
 - Descrição profissional
 - Tecnologias em destaque
-- Botões de navegação para Projetos e Contato
+- Botões para Projetos e Contato
 - Retrato profissional
 - Planeta e atmosfera espacial
 - Painéis holográficos
@@ -148,41 +146,34 @@ A primeira seção apresenta minha identidade profissional por meio de uma compo
 - UI/UX Premium
 - Integração com Inteligência Artificial
 
-O Hero possui um título principal `h1`, links de navegação semânticos e descrições acessíveis para elementos relevantes.
+O Hero utiliza um título principal `h1`, links semânticos e descrições acessíveis para elementos relevantes.
 
 ---
 
 ## 👨‍💻 Sobre mim
 
-A seção Sobre apresenta minha trajetória como desenvolvedor Fullstack em formação, com foco em aprendizado contínuo, inovação e construção de soluções reais.
+A seção Sobre apresenta minha trajetória como desenvolvedor Full Stack em formação, com foco em aprendizado contínuo, inovação e construção de soluções reais.
 
 ### Recursos da seção
 
 - Biografia profissional
 - Estatísticas de projetos e tecnologias
 - Lista de tecnologias e ferramentas
-- Botão para visualizar informações adicionais sobre habilidades
+- Informações adicionais sobre habilidades
 - Animações de entrada durante a rolagem
 - Cenário futurista de desenvolvimento
 
 ### Tecnologias apresentadas
 
-- HTML5
-- CSS3
-- JavaScript
-- React
-- TypeScript
-- Node.js
-- Git
-- MySQL
+HTML5, CSS3, JavaScript, React, TypeScript, Node.js, Git e MySQL.
 
-As tecnologias representam conhecimentos e ferramentas apresentados no meu processo de evolução, incluindo competências ainda em desenvolvimento.
+As tecnologias representam conhecimentos e ferramentas apresentados ao longo da minha formação, incluindo competências ainda em desenvolvimento.
 
 ---
 
 ## 🖥️ Developer Workspace
 
-Um dos elementos visuais da seção Sobre é o **Developer Workspace**, um cenário tecnológico construído com HTML, CSS e React.
+O **Developer Workspace** é um cenário tecnológico construído com HTML, CSS e React, integrado à seção Sobre.
 
 A composição inclui:
 
@@ -195,9 +186,9 @@ A composição inclui:
 - Iluminação ambiente neon
 - Personagem estilizado
 
-A animação de digitação é implementada por meio de estado React e atualização progressiva dos caracteres.
+A animação de digitação utiliza estado React e atualização progressiva dos caracteres.
 
-O componente possui uma descrição acessível da ilustração e tratamento inicial para a preferência de movimento reduzido.
+O componente possui uma descrição acessível da ilustração e tratamento inicial para a preferência por movimento reduzido.
 
 ---
 
@@ -213,46 +204,440 @@ A seção Projetos utiliza uma **grade de cards com filtros interativos**.
 - Apps
 - Em breve
 
-A classificação atual é conservadora: projetos não são apresentados como Fullstack sem evidência de implementação de backend.
+A classificação dos projetos é conservadora: aplicações sem backend implementado não são apresentadas como Fullstack.
 
-### Funcionalidades
+### Funcionalidades da galeria
 
 - Filtragem dinâmica
-- Destaques iniciais
+- Projetos em destaque
 - Opção para exibir todos os projetos
 - Cards individuais
-- Informações de tecnologias
-- Identificação do status de desenvolvimento
+- Tecnologias utilizadas
+- Status de desenvolvimento
 - Links para projetos e repositórios, quando disponíveis
 - Mensagens para categorias sem resultados
 - Rotação automática de imagens
-- Indicadores visuais de apresentação
+- Indicadores visuais
 - Pausa da rotação ao posicionar o mouse sobre as imagens
 
-A acessibilidade da rotação automática e a categorização dos projetos estão entre os refinamentos planejados.
+A acessibilidade da rotação automática e a categorização dos projetos continuam entre os refinamentos planejados.
 
-### 🌦️ App Clima Global
+---
 
-Aplicação meteorológica desenvolvida para consulta de informações climáticas.
+# 🌦️ App Clima Global — Nova versão React
 
-**Recursos desenvolvidos:**
+## Visão geral
 
-- Consulta meteorológica
-- Integração com API de clima
-- Geolocalização
-- Relógio
-- Saudação dinâmica
-- Tema automático e manual
-- Persistência de preferência
-- Interface responsiva
+O **App Clima Global** evoluiu de uma aplicação inicial criada com HTML, CSS e JavaScript para um dashboard meteorológico desenvolvido com **React, TypeScript e Vite**.
 
-**Tecnologias:** HTML5, CSS3, JavaScript e integração com API meteorológica.
+A nova versão foi concebida para oferecer uma experiência climática interativa, com informações em tempo real, visualização cartográfica, indicadores ambientais e interface futurista Cyberpunk Neon.
 
-### ✅ Task Manager Pro
+O aplicativo combina dados de serviços meteorológicos externos com recursos nativos do navegador, gerenciamento de estado React e persistência local.
+
+**Status de desenvolvimento:** funcionalidades principais implementadas, com testes locais e revisões técnicas realizados.
+
+**Status de publicação:** integração à versão pública do portfólio ainda pendente.
+
+## Tecnologias do App Clima Global
+
+| Tecnologia | Aplicação |
+|---|---|
+| React | Componentização da interface |
+| TypeScript | Contratos de dados e tipagem |
+| Vite | Desenvolvimento e build de produção |
+| HTML5 | Estrutura semântica |
+| CSS3 | Design, responsividade e cenários climáticos |
+| OpenWeatherMap | Clima atual e previsão meteorológica |
+| Open-Meteo | Qualidade do ar e índice UV |
+| React Leaflet | Mapa climático interativo |
+| Leaflet | Recursos de navegação cartográfica |
+| OpenStreetMap | Cartografia de base |
+| LocalStorage | Persistência de favoritos e tema |
+| Geolocation API | Consulta por localização do dispositivo |
+
+## Funcionalidades implementadas
+
+### 🔎 Busca meteorológica
+
+- Pesquisa pelo nome da cidade
+- Consulta de dados meteorológicos reais
+- Exibição de cidade e país
+- Temperatura atual
+- Sensação térmica
+- Descrição das condições meteorológicas
+- Indicadores complementares
+- Mensagens de carregamento
+- Tratamento de erros de consulta
+- Proteção contra atualização da interface por respostas de pesquisas antigas
+
+### 📍 Geolocalização
+
+O aplicativo permite solicitar a localização do dispositivo por meio da API nativa do navegador.
+
+O recurso contempla:
+
+- Solicitação de permissão
+- Consulta pelas coordenadas geográficas
+- Validação dos dados de localização
+- Tratamento de permissão negada
+- Tratamento de tempo esgotado
+- Alternativa de busca manual
+
+A geolocalização depende das permissões do navegador e do contexto de segurança disponível.
+
+### 🌡️ Indicadores meteorológicos
+
+O dashboard apresenta seis indicadores principais:
+
+1. Umidade relativa do ar
+2. Velocidade do vento em km/h
+3. Pressão atmosférica em hPa
+4. Índice UV
+5. Horário do nascer do sol
+6. Horário do pôr do sol
+
+Os horários são calculados considerando o deslocamento de fuso horário informado pela API meteorológica.
+
+### 📆 Previsão de cinco dias
+
+O aplicativo apresenta uma previsão organizada em cartões por dia, incluindo:
+
+- Dia da semana
+- Ícone meteorológico
+- Temperatura mínima estimada
+- Temperatura máxima estimada
+- Descrição do tempo
+- Probabilidade de precipitação
+- Estados de carregamento e ausência de dados
+
+A previsão utiliza dados da OpenWeatherMap disponibilizados em intervalos de três horas, agrupados conforme a data local da cidade.
+
+No celular, a visualização utiliza cartões horizontais com rolagem.
+
+### 🍃 Qualidade do ar e índice UV
+
+O aplicativo utiliza a **Open-Meteo Air Quality API** para consultar:
+
+- Índice de qualidade do ar na escala US AQI
+- Classificação descritiva da qualidade do ar
+- Índice ultravioleta
+
+A classificação US AQI contempla categorias como boa, moderada, ruim para pessoas sensíveis, ruim, muito ruim e perigosa.
+
+A integração possui tratamento de falhas: se os dados ambientais não estiverem disponíveis, a consulta meteorológica principal ainda poderá ser apresentada.
+
+### 🗺️ Mapa climático interativo
+
+O dashboard integra **React Leaflet**, **Leaflet** e **OpenStreetMap**.
+
+Entre os recursos implementados estão:
+
+- Visualização cartográfica
+- Navegação e zoom
+- Marcador da localização consultada
+- Atualização da região exibida conforme a busca
+- Seleção de camadas meteorológicas
+- Integração com informações climáticas
+
+O carregamento do mapa e de determinadas camadas depende da disponibilidade dos serviços externos.
+
+### ♡ Cidades favoritas
+
+O aplicativo permite:
+
+- Salvar cidades favoritas
+- Remover cidades salvas
+- Consultar novamente o clima de uma cidade favorita
+- Exibir a última temperatura conhecida
+- Atualizar informações de favoritos consultados
+- Mostrar contador de cidades salvas
+- Preservar a lista por meio do `localStorage`
+
+A implementação também valida os registros recuperados do armazenamento local e evita duplicações por identificador de cidade e país.
+
+### 🌓 Temas claro e escuro
+
+O aplicativo oferece alternância manual entre os dois temas.
+
+A escolha do usuário é preservada em `localStorage`.
+
+A interface mantém estilos específicos para cartões, textos, painéis, navegação e elementos decorativos em ambos os modos.
+
+### 🌤️ Cenários meteorológicos dinâmicos
+
+O painel principal altera a apresentação conforme as condições recebidas.
+
+Os cenários implementados contemplam:
+
+- Céu limpo
+- Céu com nuvens
+- Chuva
+- Tempestade
+- Neve
+- Névoa
+- Período diurno
+- Período noturno
+
+Os cenários utilizam CSS, gradientes, transparências, elementos decorativos e animações.
+
+O tema noturno possui representação visual própria, incluindo lua e atmosfera de baixa iluminação.
+
+### 💬 Saudações dinâmicas
+
+O painel apresenta mensagens relacionadas ao clima consultado, considerando as condições meteorológicas e o período do dia.
+
+Entre os exemplos estão mensagens para céu limpo, chuva, tempestade, neve, névoa e período noturno.
+
+### 🕒 Relógio em tempo real
+
+O aplicativo possui um relógio integrado ao rodapé do dashboard.
+
+Se uma cidade foi consultada, o relógio apresenta o horário correspondente ao fuso retornado pela API.
+
+Na ausência de uma consulta, utiliza o horário local do dispositivo.
+
+O componente também apresenta a data e a localização associada.
+
+### 💡 Recomendações climáticas inteligentes
+
+O aplicativo utiliza regras meteorológicas para gerar quatro destaques:
+
+1. Condições climáticas atuais
+2. Chuva e precipitação
+3. Qualidade do ar
+4. Atividades ao ar livre
+
+As recomendações consideram informações como:
+
+- Sensação térmica
+- Tipo de condição meteorológica
+- Previsão de chuva
+- Qualidade do ar
+- Velocidade do vento
+- Índice UV
+- Período do dia
+
+São recomendações baseadas em regras programadas, e não em inferência de um modelo de inteligência artificial.
+
+---
+
+## 📱 Experiência mobile do App Clima Global
+
+A versão mobile possui uma interface própria para facilitar a navegação em telas menores.
+
+### Recursos implementados
+
+- Cabeçalho adaptado
+- Botão superior de menu
+- Barra inferior de navegação
+- Acesso rápido a Início, Buscar, Salvos, Mapas e Mais
+- Menu expandido com opções complementares
+- Botão específico de localização
+- Indicadores meteorológicos em grade
+- Previsão horizontal com rolagem
+- Adaptação dos painéis e do rodapé
+- Estilos para tema claro e escuro
+
+### Acessibilidade da navegação
+
+A navegação mobile foi revisada com:
+
+- `aria-expanded`
+- Identificação dos controles e regiões
+- Fechamento pela tecla `Escape`
+- Retorno do foco ao botão de abertura
+- Identificação de destinos ativos
+- Preservação da navegação por teclado
+
+A contenção completa de foco em um eventual diálogo modal permanece como possível melhoria futura.
+
+### Validação mobile pendente
+
+Embora existam estilos responsivos implementados, **os testes práticos em smartphone físico ainda não foram concluídos**.
+
+A revisão futura verificará especialmente um possível recorte horizontal observado em testes de emulação, além de áreas de toque, legibilidade e comportamento da navegação.
+
+---
+
+## 🧱 Arquitetura do App Clima Global
+
+A nova versão utiliza uma organização por responsabilidades.
+
+```text
+app-clima-global-dashboard/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── dashboard/
+│   │   │   └── ClimateMap.tsx
+│   │   ├── layout/
+│   │   │   ├── Sidebar.tsx
+│   │   │   └── Topbar.tsx
+│   │   └── weather/
+│   │       └── WeatherHero.tsx
+│   ├── data/
+│   ├── hooks/
+│   ├── services/
+│   │   └── weatherService.ts
+│   ├── styles/
+│   │   ├── climate-map.css
+│   │   ├── layout.css
+│   │   ├── light-mode.css
+│   │   ├── mobile-dashboard.css
+│   │   ├── mobile-navigation.css
+│   │   └── variables.css
+│   ├── types/
+│   ├── utils/
+│   │   └── weatherHighlights.ts
+│   ├── App.tsx
+│   └── main.tsx
+├── .env.local
+├── package.json
+└── vite.config.ts
+```
+
+O arquivo `.env.local` é destinado à configuração local e não deve ser publicado no Git.
+
+### Principais responsabilidades
+
+**`App.tsx`**
+
+Coordena estado meteorológico, pesquisas, favoritos, tema, navegação e composição do dashboard.
+
+**`WeatherHero.tsx`**
+
+Apresenta o painel climático principal, incluindo temperatura, saudação, cenário meteorológico e interação com favoritos.
+
+**`ClimateMap.tsx`**
+
+Responsável pela interface cartográfica e interação com o mapa climático.
+
+**`Sidebar.tsx`**
+
+Implementa navegação lateral e controles de navegação mobile.
+
+**`Topbar.tsx`**
+
+Implementa busca meteorológica e controles do cabeçalho.
+
+**`weatherService.ts`**
+
+Centraliza comunicação com os serviços meteorológicos, normalização dos dados, validações e previsão.
+
+**`weatherHighlights.ts`**
+
+Contém as regras responsáveis pelas recomendações climáticas inteligentes.
+
+---
+
+## 🧹 Clean Code e refatorações do App Clima Global
+
+Durante a Sprint 12 foram realizadas revisões técnicas incrementais.
+
+### Melhorias implementadas
+
+- Separação das recomendações climáticas em `weatherHighlights.ts`
+- Extração do componente `WeatherHero.tsx`
+- Remoção de propriedades redundantes dos indicadores meteorológicos
+- Organização das responsabilidades do componente principal
+- Limpeza inicial de regras CSS duplicadas
+- Revisão do gerenciamento de favoritos
+- Melhorias de acessibilidade na navegação mobile
+- Preservação de comentários técnicos e organizacionais
+- Ajuste visual do relógio no rodapé
+
+### Auditorias realizadas
+
+- Tipagem React e TypeScript
+- Gerenciamento de estados
+- Persistência em `localStorage`
+- Tratamento de erros
+- Componentização
+- Semântica JSX
+- Responsividade
+- Navegação e acessibilidade
+- Integrações meteorológicas
+- Segurança de configuração da API
+- Organização de estilos
+
+O princípio adotado durante as refatorações foi **separar responsabilidades quando existe benefício real**, evitando a criação de arquivos desnecessários.
+
+### Validação técnica
+
+Nas verificações locais realizadas durante o desenvolvimento:
+
+- ESLint aprovado
+- Compilação TypeScript aprovada
+- Build de produção aprovado
+- Testes visuais e funcionais executados no navegador
+- Busca, favoritos, temas e painel climático verificados
+
+Os resultados não substituem testes automatizados abrangentes nem uma auditoria completa de acessibilidade e segurança.
+
+---
+
+## 🖼️ Galeria premium do App Clima Global
+
+A apresentação do projeto no portfólio recebeu três novas imagens, preparadas para evidenciar a interface do dashboard.
+
+### Imagens integradas
+
+```text
+src/assets/images/projects/
+├── app-clima-global.png
+├── favoritos-pesquisa.png
+└── mapa-e-info.png
+```
+
+### Apresentações
+
+**Visão geral do dashboard**
+
+Exibe a interface Cyberpunk Neon, o painel climático principal e a organização dos componentes.
+
+**Favoritos e pesquisa**
+
+Destaca a consulta meteorológica e o sistema de cidades salvas.
+
+**Mapa e informações**
+
+Apresenta a previsão meteorológica, o mapa interativo e os indicadores complementares.
+
+As imagens foram integradas à configuração de projetos em `src/data/projects.ts`.
+
+O build local do portfólio confirmou a resolução dos caminhos dos três arquivos.
+
+### Próxima atualização visual
+
+Está planejada a inclusão de demonstrações realizadas em smartphone físico, permitindo apresentar também a experiência mobile do aplicativo.
+
+---
+
+## ⚠️ Segurança da API meteorológica
+
+Durante o desenvolvimento local, o App Clima Global utiliza uma variável de ambiente com prefixo `VITE_` para configurar a chave da OpenWeatherMap.
+
+Em projetos Vite, essas variáveis são incorporadas ao código executado no navegador.
+
+Consequentemente, **o arquivo `.env.local` não ser enviado ao Git não significa que a chave ficará secreta após a publicação de uma aplicação frontend estática**.
+
+Antes da disponibilização pública, é necessário avaliar medidas como:
+
+- Monitoramento do consumo da API
+- Limites de utilização
+- Configuração das permissões e restrições oferecidas pelo provedor
+- Rotação de chaves eventualmente expostas
+- Uso de um backend ou proxy intermediário quando for necessário manter credenciais privadas
+
+O GitHub Pages fornece hospedagem estática e não executa um backend responsável por proteger credenciais.
+
+---
+
+## ✅ Task Manager Pro
 
 Aplicação de gerenciamento de tarefas e produtividade, desenvolvida com foco em organização e interação com a interface.
 
-**Principais objetivos:**
+### Principais objetivos
 
 - Gerenciamento de tarefas
 - Interface intuitiva
@@ -262,11 +647,13 @@ Aplicação de gerenciamento de tarefas e produtividade, desenvolvida com foco e
 
 **Tecnologias:** HTML5, CSS3 e JavaScript.
 
-### 💱 Conversor Global Pro
+---
+
+## 💱 Conversor Global Pro
 
 Aplicação de conversão de moedas com interface inspirada em plataformas financeiras.
 
-**Recursos:**
+### Recursos
 
 - Conversão entre moedas
 - Consulta de cotações
@@ -277,13 +664,15 @@ Aplicação de conversão de moedas com interface inspirada em plataformas finan
 
 **Tecnologias:** HTML5, CSS3, JavaScript e APIs externas.
 
-### 🎵 EON MUSIC
+---
+
+## 🎵 EON MUSIC
 
 Projeto de plataforma musical em desenvolvimento.
 
 **Tecnologias-base:** React, TypeScript e Vite.
 
-**Funcionalidades em evolução ou planejadas:**
+### Funcionalidades em evolução ou planejadas
 
 - Reprodução musical
 - Player global
@@ -312,11 +701,11 @@ A seção Contato foi desenvolvida para facilitar a comunicação sobre projetos
 - Limites de caracteres
 - Preparação automática da mensagem
 - Integração com a interface de composição do Gmail
-- Links diretos para redes sociais
+- Links para redes sociais
 
 **Funcionamento atual:** o formulário prepara a mensagem e abre o Gmail. O visitante precisa revisar e confirmar o envio na plataforma de e-mail.
 
-O formulário ainda não possui um backend próprio para envio automático.
+O formulário ainda não possui backend próprio para envio automático.
 
 ### Canais profissionais
 
@@ -330,7 +719,7 @@ Outros canais podem ser disponibilizados diretamente na interface.
 
 ## 👨‍🚀 Footer futurista
 
-O rodapé mantém a identidade visual tecnológica do restante do portfólio.
+O rodapé mantém a identidade visual tecnológica do portfólio.
 
 ### Elementos
 
@@ -341,9 +730,9 @@ O rodapé mantém a identidade visual tecnológica do restante do portfólio.
 - Redes sociais
 - Link para retornar ao início
 - Ano atualizado automaticamente
-- Identificação das tecnologias utilizadas
+- Tecnologias utilizadas
 
-A ilustração do astronauta é construída com elementos vetoriais, gradientes e efeitos luminosos.
+A ilustração do astronauta utiliza elementos vetoriais, gradientes e efeitos luminosos.
 
 ---
 
@@ -372,42 +761,40 @@ CounterAPI
 - Solicitação de incremento
 - Persistência de marcação local por navegador
 - Estados de carregamento e erro
-- Validação da resposta da API
-- Compartilhamento de incrementos simultâneos dentro da mesma instância JavaScript
+- Validação de resposta
+- Compartilhamento de incrementos simultâneos na mesma instância JavaScript
 
 ### Regra de contagem desejada
 
 O objetivo é registrar **cada navegador apenas uma vez**, mantendo esse registro em visitas posteriores.
 
-Entretanto, a implementação atual possui limitações:
+Entretanto, a implementação possui limitações:
 
 - Não identifica pessoas únicas com precisão
 - Depende da disponibilidade da API externa
 - Pode sofrer efeitos de concorrência entre abas
-- Pode registrar novamente após limpeza dos dados locais
+- Pode registrar novamente após a limpeza dos dados locais
 
-**Status atual: funcionalidade em investigação.**
+**Status:** funcionalidade em investigação.
 
-Durante os testes locais, o contador apresentou valor zero. Sua confiabilidade ainda não foi validada.
+Durante testes locais anteriores, o contador apresentou valor zero. Sua confiabilidade ainda não foi validada.
 
-Uma futura integração com backend poderá permitir maior controle sobre persistência, concorrência e integridade da contagem.
+Uma futura integração com backend poderá oferecer maior controle sobre persistência e integridade da contagem.
 
 ---
 
-## 🌗 Sistema de temas
+## 🌗 Sistema de temas do portfólio
 
 O portfólio oferece dois modos de apresentação:
 
 - **Tema escuro:** identidade tecnológica com iluminação neon
-- **Tema claro:** adaptação da interface para uma apresentação mais clara
-
-### Funcionamento
+- **Tema claro:** adaptação para uma apresentação mais clara
 
 O tema é gerenciado pelo hook `useTheme`.
 
 A preferência selecionada é salva em `localStorage`.
 
-Quando não existe uma escolha armazenada, a aplicação consulta a preferência de cores do sistema operacional utilizando `prefers-color-scheme`.
+Quando não existe uma escolha armazenada, a aplicação consulta a preferência de cores do sistema operacional por meio de `prefers-color-scheme`.
 
 ---
 
@@ -415,7 +802,7 @@ Quando não existe uma escolha armazenada, a aplicação consulta a preferência
 
 O portfólio utiliza o hook personalizado `useScrollReveal`.
 
-Sua implementação é baseada em `IntersectionObserver`, permitindo identificar quando determinados elementos entram na área visível do navegador.
+A implementação é baseada em `IntersectionObserver`, permitindo identificar quando determinados elementos entram na área visível do navegador.
 
 ### Recursos
 
@@ -426,13 +813,13 @@ Sua implementação é baseada em `IntersectionObserver`, permitindo identificar
 - Desconexão do observador quando necessário
 - Tratamento inicial da preferência por movimento reduzido
 
-A melhoria do comportamento quando a preferência por movimento reduzido muda durante a navegação permanece planejada.
+A melhoria do comportamento quando a preferência de movimento reduzido muda durante a navegação permanece planejada.
 
 ---
 
 ## ♿ Acessibilidade
 
-O projeto utiliza práticas de acessibilidade durante o desenvolvimento.
+O desenvolvimento utiliza práticas de acessibilidade de forma progressiva.
 
 ### Implementações existentes
 
@@ -440,25 +827,25 @@ O projeto utiliza práticas de acessibilidade durante o desenvolvimento.
 - Hierarquia de títulos
 - Regiões de navegação identificadas
 - Atributos `aria-label` e `aria-labelledby`
-- Identificação de item ativo com `aria-current`
-- Estados de botões com `aria-expanded` e `aria-pressed`
+- Identificação de itens ativos com `aria-current`
+- Estados com `aria-expanded` e `aria-pressed`
 - Descrições alternativas de imagens
 - Elementos decorativos ocultos de tecnologias assistivas
-- Estilos para foco visível
-- Formulário com labels
-- Consideração da preferência `prefers-reduced-motion`
+- Estilos de foco visível
+- Formulários com labels
+- Consideração de `prefers-reduced-motion`
 
-**A auditoria de acessibilidade ainda está em andamento.** Melhorias identificadas serão implementadas e testadas progressivamente.
+**A auditoria de acessibilidade permanece em andamento.**
 
 ---
 
-## 📱 Responsividade
+## 📱 Responsividade do portfólio
 
-A interface combina CSS Grid, Flexbox e unidades responsivas para adaptação a diferentes larguras de tela.
+A interface combina CSS Grid, Flexbox e unidades responsivas.
 
 ### Técnicas utilizadas
 
-- `@media`
+- Media queries
 - `rem`
 - `%`
 - `clamp()`
@@ -467,35 +854,23 @@ A interface combina CSS Grid, Flexbox e unidades responsivas para adaptação a 
 - Flexbox
 - `aspect-ratio`
 
-O Header possui um breakpoint específico para navegação móvel, enquanto outras seções utilizam regras responsivas próprias.
+O Header utiliza um breakpoint específico para navegação móvel, enquanto outras seções possuem regras responsivas próprias.
 
-**Status:** o projeto contém implementações responsivas, mas a validação prática em smartphones físicos ainda está pendente.
+**Status:** a implementação responsiva existe, mas a validação prática em smartphones físicos permanece pendente.
 
-O próximo ciclo de testes verificará:
-
-- Largura e altura do conteúdo
-- Menu móvel
-- Legibilidade
-- Tamanho das áreas de toque
-- Distribuição dos cards
-- Animações
-- Formulário
-- Overflow horizontal
-- Comportamento do tema
+Os testes futuros verificarão largura, altura, menus, legibilidade, áreas de toque, cards, animações, formulários, overflow horizontal e temas.
 
 ---
 
-## 🧱 Arquitetura do projeto
+## 🧱 Arquitetura do portfólio
 
 ```text
 src/
 ├── app/
 │   └── App.tsx
-│
 ├── assets/
 │   └── images/
 │       └── projects/
-│
 ├── components/
 │   ├── AboutSection.tsx
 │   ├── ContactSection.tsx
@@ -509,31 +884,27 @@ src/
 │       ├── Carousel.tsx
 │       ├── ProjectCard.tsx
 │       └── ProjectMediaRotator.tsx
-│
 ├── data/
 │   ├── projects.ts
 │   └── socialLinks.ts
-│
 ├── hooks/
 │   ├── useScrollReveal.ts
 │   ├── useTheme.ts
 │   └── useVisitorCounter.ts
-│
 ├── services/
 │   └── visitorService.ts
-│
 ├── styles/
 │   ├── animations.css
 │   ├── globals.css
 │   └── variables.css
-│
 ├── types/
 │   └── index.ts
-│
 └── main.tsx
 ```
 
 Essa organização separa interface, dados, lógica reutilizável, comunicação externa, estilos e contratos TypeScript.
+
+O App Clima Global React é mantido como uma aplicação independente dentro do ambiente de desenvolvimento, com configuração própria de dependências e build.
 
 ---
 
@@ -541,7 +912,7 @@ Essa organização separa interface, dados, lógica reutilizável, comunicação
 
 ### Pré-requisitos
 
-- Node.js compatível com as versões das dependências
+- Node.js compatível com as dependências do projeto
 - npm
 - Git
 
@@ -569,13 +940,36 @@ npm install
 npm run dev
 ```
 
-O Vite exibirá o endereço local para abrir a aplicação no navegador.
+O Vite exibirá o endereço local para acessar o portfólio no navegador.
+
+### Executar o App Clima Global React
+
+Quando o diretório da nova aplicação estiver disponível no repositório:
+
+```bash
+cd app-clima-global-dashboard
+npm install
+```
+
+Crie o arquivo `.env.local` com a configuração da API:
+
+```dotenv
+VITE_OPENWEATHER_API_KEY=SUA_CHAVE_AQUI
+```
+
+Depois execute:
+
+```bash
+npm run dev
+```
+
+A chave não deve ser enviada ao Git. A configuração local não garante sigilo da chave quando a aplicação é compilada para execução pública no navegador.
 
 ---
 
 ## 🧪 Qualidade de código e testes técnicos
 
-O projeto utiliza ferramentas para validar a implementação.
+O portfólio e o aplicativo meteorológico utilizam ferramentas de análise estática e compilação.
 
 ### ESLint
 
@@ -583,15 +977,13 @@ O projeto utiliza ferramentas para validar a implementação.
 npm run lint
 ```
 
-Analisa o código da aplicação dentro de `src`.
-
 ### TypeScript
 
 ```bash
 npm run typecheck
 ```
 
-Executa a verificação de tipos por meio do TypeScript.
+O comando `typecheck` depende de sua existência no `package.json` do projeto em questão.
 
 ### Build de produção
 
@@ -599,29 +991,39 @@ Executa a verificação de tipos por meio do TypeScript.
 npm run build
 ```
 
-Executa a verificação TypeScript e gera o bundle de produção.
+O build do projeto utiliza TypeScript e Vite.
 
-### Pré-visualização da versão compilada
+### Pré-visualização do build
 
 ```bash
 npm run preview
 ```
 
-### Verificação de alterações no Git
+### Verificação das alterações Git
 
 ```bash
 git diff --check
 ```
 
-### Última validação técnica realizada
+### Validações locais recentes
 
-- ESLint: aprovado
-- TypeScript: aprovado
-- Build de produção: aprovado
-- VS Code: zero erros e zero avisos
-- Vite: build concluído com 42 módulos transformados
+**Portfólio principal:**
 
-Esses resultados correspondem à última rodada de testes locais, não substituindo testes funcionais, visuais ou de acessibilidade no navegador.
+- ESLint executado sem erros reportados
+- Build de produção concluído
+- Vite 8.3.0
+- 43 módulos transformados
+- Três novas imagens do App Clima Global incorporadas ao build
+
+**App Clima Global:**
+
+- ESLint executado sem erros reportados
+- TypeScript compilado
+- Build de produção concluído
+- Vite 8.3.4
+- 70 módulos transformados nas últimas verificações apresentadas
+
+Esses resultados correspondem às verificações locais realizadas durante o desenvolvimento e não garantem, isoladamente, compatibilidade completa entre navegadores, desempenho em produção ou ausência de problemas de acessibilidade.
 
 ---
 
@@ -639,29 +1041,50 @@ gera os arquivos de produção no diretório:
 dist/
 ```
 
-O Vite realiza o processamento dos módulos, arquivos CSS, JavaScript e demais recursos utilizados pela aplicação.
+O Vite processa os módulos, recursos CSS, JavaScript e arquivos de imagem utilizados.
+
+O portfólio principal e o App Clima Global React possuem processos de build próprios.
 
 ---
 
 ## 🚀 GitHub Pages
 
-O portfólio utiliza o GitHub como repositório de código e o GitHub Pages como ambiente de hospedagem pública.
+O GitHub é utilizado para versionamento do código, enquanto o GitHub Pages hospeda o portfólio público.
 
-**URL do projeto:**
+**Endereço do portfólio:**
 
 https://cicdev83.github.io/Landing-page-sobre-mim-com-projetos-e-atualizacao/
 
-A publicação requer a configuração correta do caminho `base` no Vite para carregamento de recursos em um repositório hospedado em um subdiretório.
+### Publicação do novo App Clima Global
 
-O fluxo de publicação com GitHub Actions deve ser conferido antes de enviar novas alterações para produção.
+A publicação da nova versão React está planejada para uma subpasta do mesmo site:
+
+```text
+/Landing-page-sobre-mim-com-projetos-e-atualizacao/app-clima-global/
+```
+
+Esse endereço é **planejado** e ainda não deve ser considerado disponível publicamente.
+
+### Etapas pendentes
+
+1. Conferir a configuração atual de GitHub Pages e GitHub Actions.
+2. Configurar o `base` do Vite para a publicação em subdiretório.
+3. Preparar a integração do build da aplicação ao portfólio.
+4. Revisar os riscos associados à chave da OpenWeatherMap.
+5. Atualizar o destino do botão **Ver projeto**.
+6. Validar caminhos de recursos e navegação local.
+7. Realizar commit e push dos arquivos corretos.
+8. Testar o site público após a publicação.
+
+A versão antiga do App Clima permanece preservada até que a integração do novo aplicativo seja concluída.
 
 ---
 
 ## 🔎 Auditoria técnica em andamento
 
-O desenvolvimento inclui revisões progressivas de arquitetura e qualidade.
+O desenvolvimento inclui revisões progressivas de arquitetura, qualidade, acessibilidade, responsividade e desempenho.
 
-### Áreas já examinadas
+### Áreas do portfólio já examinadas
 
 - Estrutura principal da aplicação
 - Header e navegação
@@ -676,16 +1099,34 @@ O desenvolvimento inclui revisões progressivas de arquitetura e qualidade.
 - Hooks personalizados
 - Serviço externo de contagem
 
+### Áreas do App Clima Global já examinadas
+
+- Componente principal
+- Recomendações meteorológicas
+- Gerenciamento de favoritos
+- WeatherHero
+- Indicadores meteorológicos
+- Previsão de cinco dias
+- Navegação mobile
+- Estilos responsivos
+- Serviço meteorológico
+- Qualidade do ar e UV
+- Integração com API
+- Tratamento de erros
+- Organização do CSS
+
 ### Áreas ainda em validação
 
-- Comportamentos de acessibilidade
+- Acessibilidade integral
 - Interações por teclado
-- Preferência de movimento reduzido
 - Testes em smartphones físicos
-- Verificação visual das diferentes resoluções
-- Funcionamento público de links e integrações
-- Desempenho no navegador
+- Overflow horizontal mobile
+- Diferentes resoluções de tela
+- Funcionamento público dos links e integrações
+- Desempenho real de carregamento
+- Otimização das imagens da galeria
 - Persistência confiável do contador
+- Proteção e controle de utilização das APIs
 
 ---
 
@@ -695,16 +1136,20 @@ O portfólio continuará evoluindo juntamente com minha formação e meus projet
 
 ### Melhorias técnicas previstas
 
-- Refinamentos de responsividade
-- Testes reais em smartphones
-- Acessibilidade da rotação automática das imagens
-- Melhoria das animações com movimento reduzido
-- Refinamentos de gerenciamento de foco
-- Consolidação de configurações compartilhadas
-- Revisão de desempenho e carregamento das imagens
+- Publicação da nova versão React do App Clima Global
+- Atualização do botão **Ver projeto**
+- Testes práticos em smartphone
+- Correção de eventuais problemas de overflow horizontal
+- Otimização do carregamento das imagens
+- Acessibilidade da rotação automática de imagens
+- Melhorias para preferência por movimento reduzido
+- Refinamentos no gerenciamento de foco
+- Cancelamento de requisições meteorológicas obsoletas
+- Validação adicional de respostas de APIs
+- Revisão de desempenho
 - Correção e evolução do contador de visitantes
 - Aprimoramento do envio de mensagens
-- Ampliação de testes automatizados
+- Ampliação dos testes automatizados
 
 ### Evoluções futuras
 
@@ -712,10 +1157,10 @@ O portfólio continuará evoluindo juntamente com minha formação e meus projet
 - Métricas privadas do portfólio
 - Área administrativa autenticada
 - Integração com banco de dados
-- Identificação profissional voluntária de visitantes, mediante transparência e proteção dos dados
+- Identificação profissional voluntária de visitantes, mediante transparência e proteção de dados
 - Novos projetos
 - Evolução do EON MUSIC
-- Ampliação do conhecimento em engenharia de software e cibersegurança
+- Ampliação dos conhecimentos em engenharia de software e cibersegurança
 
 ---
 
