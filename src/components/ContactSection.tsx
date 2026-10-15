@@ -17,7 +17,7 @@ export function ContactSection() {
 
     if (!name || !email || !message) return;
 
-    const subject = encodeURIComponent(`Contato pelo portfólio — ${name}`);
+    const subject = encodeURIComponent(`Contato EonLabs — ${name}`);
 
     const body = encodeURIComponent(
       `Nome: ${name}\nE-mail: ${email}\n\nMensagem:\n${message}`,
@@ -46,7 +46,7 @@ export function ContactSection() {
       <div className="container contact__container">
         <div className="contact__header">
           <span className="contact__eyebrow">
-            <span aria-hidden="true">✦</span> VAMOS CONVERSAR
+            <span aria-hidden="true">✦</span> FALE COM A EONLABS
           </span>
 
           <h2 id="contact-title">
@@ -54,11 +54,16 @@ export function ContactSection() {
           </h2>
 
           <p className="contact__introduction">
-            Vamos transformar sua ideia em uma solução digital incrível. Entre
-            em contato e vamos conversar!
+            A EonLabs transforma ideias em soluções tecnológicas, unindo
+            desenvolvimento de software, criatividade e inovação. Conte-nos
+            sobre seu projeto e vamos explorar juntos as melhores
+            possibilidades.
           </p>
 
-          <nav className="contact__socials" aria-label="Minhas redes sociais">
+          <nav
+            className="contact__socials"
+            aria-label="Canais da EonLabs e redes profissionais"
+          >
             {socialLinks.map(({ label, href, icon }) => (
               <a
                 key={label}

@@ -1,18 +1,167 @@
-# Professional 👨‍💻 Portfolio — Cicero W. Silva
+# 🚀 EonLabs — Laboratório de Tecnologia e Inovação
 
-**Full Stack Developer em formação | React • TypeScript • JavaScript • UI/UX**
+**By CicGhost | Desenvolvimento de Software • Soluções Digitais • Tecnologia & Inovação**
 
-Portfólio profissional desenvolvido para apresentar minha trajetória na programação, minhas habilidades técnicas, projetos e evolução na área de desenvolvimento de software.
+Bem-vindo ao repositório oficial do portfólio institucional da **EonLabs**, um laboratório de tecnologia e inovação idealizado por **CicGhost**, com foco na criação de soluções digitais, pesquisa tecnológica e desenvolvimento de projetos.
 
-Construído com **React 19, TypeScript 6 e Vite 8**, o portfólio utiliza uma identidade visual **Cyberpunk Neon**, com efeitos holográficos, interface responsiva, componentes reutilizáveis e interações desenvolvidas com tecnologias web.
+Este projeto apresenta a identidade da EonLabs, suas soluções, integrantes, iniciativas tecnológicas e portfólio de aplicações.
 
-Além da apresentação profissional, este repositório funciona como um ambiente de estudo e aplicação prática de arquitetura frontend, engenharia de software, acessibilidade, integração com APIs e experiência do usuário.
+A plataforma foi desenvolvida com **React 19, TypeScript 6 e Vite 8**, utilizando uma identidade visual **Cyberpunk Neon**, com interfaces responsivas, iluminação futurista, efeitos holográficos e componentes reutilizáveis.
 
-### 🌐 Portfólio online
+## 🌐 Site oficial
 
-**[Acessar meu portfólio](https://cicdev83.github.io/Landing-page-sobre-mim-com-projetos-e-atualizacao/)**
+**[Acessar EonLabs](https://cicdev83.github.io/Landing-page-sobre-mim-com-projetos-e-atualizacao/)**
 
-> **Status:** desenvolvimento contínuo. A nova versão React do App Clima Global já foi desenvolvida e validada localmente, mas sua publicação no GitHub Pages ainda está em preparação.
+> **Status:** desenvolvimento contínuo. A versão institucional está preparada para publicação, sujeita à revisão final e à execução do deploy.
+
+---
+
+## 🏢 Sobre a EonLabs
+
+A EonLabs é uma iniciativa voltada ao desenvolvimento de soluções tecnológicas e à evolução de projetos digitais.
+
+Sua proposta reúne engenharia de software, desenvolvimento web, automação, inteligência artificial, cibersegurança e tecnologias de infraestrutura, respeitando o estágio de desenvolvimento de cada iniciativa.
+
+### Missão
+
+Desenvolver soluções tecnológicas que contribuam para resolver desafios reais, com foco em qualidade, inovação, usabilidade e evolução contínua.
+
+### Visão
+
+Construir um ecossistema tecnológico capaz de integrar produtos digitais, serviços, automação e novas experiências para pessoas e empresas.
+
+---
+
+## 💼 Soluções e Serviços
+
+A apresentação institucional contempla seis categorias:
+
+1. **Desenvolvimento de Sistemas** — aplicações web, plataformas e soluções personalizadas.
+2. **Aplicativos Mobile** — soluções para dispositivos móveis.
+3. **Inteligência Artificial** — possibilidades de integração, automação e sistemas inteligentes.
+4. **Cibersegurança** — iniciativas e especializações em segurança digital.
+5. **Cloud & DevOps** — infraestrutura, implantação e evolução tecnológica.
+6. **Consultoria Tecnológica** — planejamento e orientação para projetos digitais.
+
+Os cartões possuem apresentações detalhadas, interfaces interativas e navegação para contato.
+
+A inclusão de uma solução nesta apresentação não representa, por si só, a existência de um serviço comercial já entregue ou de certificações profissionais.
+
+---
+
+## 👥 Fundador e Equipe
+
+### CicGhost — Fundador
+
+Idealizador da EonLabs, com foco em desenvolvimento de software, inovação e aprendizado contínuo.
+
+**Áreas de interesse e desenvolvimento:** Engenharia de Software, Desenvolvimento Full Stack, Automação, Inteligência Artificial e Cibersegurança.
+
+**Tecnologias apresentadas:** React, TypeScript, JavaScript, Node.js, Git e SQL.
+
+### Leonardo — Integrante
+
+Integrante da equipe EonLabs, com informações profissionais e especialidades a serem definidas.
+
+### Luis — Integrante
+
+Integrante da equipe EonLabs. Informações sobre suas competências em automação e tráfego digital aguardam confirmação.
+
+A seção de equipe utiliza uma estrutura de dados expansível, permitindo adicionar novos integrantes sem reconstruir seus componentes.
+
+---
+
+## 🌌 Ecossistema EonLabs
+
+### Projetos próprios
+
+**EonCommerce**
+
+Projeto de ecossistema digital modular envolvendo marketplace, comércio, serviços, gestão empresarial, logística e automação.
+
+**Status:** Em desenvolvimento.
+
+**EonMusic**
+
+Iniciativa de aplicativo musical com funcionalidades de biblioteca, reprodução, favoritos e recursos planejados para diferentes modalidades de uso.
+
+**Status:** Planejado na apresentação institucional, com recursos e protótipos em evolução.
+
+### Empresas parceiras
+
+A plataforma possui uma área preparada para apresentar parceiros institucionais, organizações e profissionais.
+
+Somente parcerias confirmadas deverão ser identificadas publicamente como vínculos comerciais da EonLabs.
+
+---
+
+## 🧭 Navegação institucional
+
+O Header e o Footer apresentam oito destinos principais:
+
+1. Início
+2. Serviços
+3. Sobre / Habilidades
+4. Fundador
+5. Equipe
+6. Ecossistema
+7. Projetos
+8. Contato
+
+A navegação inclui links por âncoras, menu responsivo, indicador de seção ativa e suporte à navegação por teclado.
+
+---
+
+## 🎨 Experiência visual
+
+A identidade **Cyberpunk Neon** utiliza:
+
+- Ciano, violeta e magenta.
+- Glassmorphism e efeitos de iluminação.
+- Atmosfera espacial e fundos estelares.
+- Componentes React e elementos SVG.
+- Animações e microinterações.
+- Temas claro e escuro.
+- Layouts responsivos.
+- Cartões de serviços, equipe e ecossistema.
+- Modais informativos e interativos.
+
+---
+
+## 🛠️ Arquitetura institucional
+
+Os principais componentes adicionados incluem:
+
+| Componente             | Responsabilidade              |
+| ---------------------- | ----------------------------- |
+| `ServicesSection.tsx`  | Catálogo de soluções          |
+| `FounderSection.tsx`   | Apresentação do fundador      |
+| `TeamSection.tsx`      | Equipe e perfis               |
+| `EcosystemSection.tsx` | Projetos próprios e parceiros |
+| `Header.tsx`           | Navegação superior            |
+| `Footer.tsx`           | Rodapé institucional          |
+
+Os dados reutilizáveis são organizados em arquivos TypeScript:
+
+- `src/data/teamMembers.ts`
+- `src/data/ecosystem.ts`
+
+A estilização das novas seções é organizada em arquivos CSS independentes.
+
+---
+
+## ✅ Validação técnica recente
+
+Durante a preparação desta versão institucional:
+
+- ESLint executado sem erros exibidos.
+- Compilação TypeScript e build Vite concluídos.
+- **Vite 8.3.0**
+- **54 módulos transformados.**
+- Build concluído em aproximadamente **2,14 segundos**.
+- Revisões visuais realizadas no ambiente local.
+
+Essas verificações não substituem testes automatizados abrangentes, auditoria completa de acessibilidade ou validação em dispositivos físicos.
 
 ---
 
@@ -121,7 +270,7 @@ O currículo permanece identificado como **em preparação**, sem disponibilizar
 
 ---
 
-### 🔙 Botão de retorno ao portfólio
+### 🔙 Botão return to or portfolio
 
 O App Clima Global possui um botão circular de navegação que permite retornar diretamente à página principal do portfólio profissional.
 

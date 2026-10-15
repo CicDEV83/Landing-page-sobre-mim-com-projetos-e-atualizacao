@@ -214,6 +214,7 @@ function TypingHologram() {
   const [reducedMotion, setReducedMotion] = useState(
     () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   );
+
   const [characterCount, setCharacterCount] = useState(() =>
     window.matchMedia("(prefers-reduced-motion: reduce)").matches
       ? hologramCode.length
@@ -224,8 +225,10 @@ function TypingHologram() {
     const motionPreference = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     );
+
     function handleMotionChange() {
       setReducedMotion(motionPreference.matches);
+
       if (motionPreference.matches) {
         setCharacterCount(hologramCode.length);
       } else {
@@ -234,6 +237,7 @@ function TypingHologram() {
     }
 
     handleMotionChange();
+
     motionPreference.addEventListener("change", handleMotionChange);
 
     return () => {
@@ -245,6 +249,7 @@ function TypingHologram() {
     if (reducedMotion) return;
 
     const completed = characterCount >= hologramCode.length;
+
     const timeoutId = window.setTimeout(
       () => {
         setCharacterCount((current) =>
@@ -263,11 +268,14 @@ function TypingHologram() {
   return (
     <div className="hero__hologram hero__hologram--code" aria-hidden="true">
       <span className="hero__hologram-label">developer.ts</span>
+
       <div className="hero__typed-code">
         <span className="hero__typed-keyword">
           {visibleCode.slice(0, keywordLength)}
         </span>
+
         {visibleCode.slice(keywordLength)}
+
         {!reducedMotion && <span className="hero__typing-caret" />}
       </div>
     </div>
@@ -304,15 +312,18 @@ export function HeroSection() {
             </p>
           </div>
 
+          {/* IDENTIDADE INSTITUCIONAL EONLABS | CICGHOST */}
           <h1 className="hero__title" id="hero-title">
             <span className="hero__title-line hero__title-line--first">
-              Olá, eu sou
+              Bem-vindo à
             </span>
+
             <span className="hero__title-line hero__title-line--second">
-              Cicero
+              EonLabs.
             </span>
+
             <span className="hero__title-line hero__title-line--highlight">
-              Walison.
+              By CicGhost
             </span>
           </h1>
 
@@ -337,6 +348,7 @@ export function HeroSection() {
                 <span className="hero__technology-icon" aria-hidden="true">
                   <TechnologyIcon type={technology.id} />
                 </span>
+
                 <span>{technology.label}</span>
               </li>
             ))}
@@ -351,6 +363,7 @@ export function HeroSection() {
               Ver meus projetos
               <span aria-hidden="true">→</span>
             </a>
+
             <a className="button button--secondary" href="#contato">
               Falar comigo
               <span aria-hidden="true">↗</span>
@@ -388,7 +401,7 @@ export function HeroSection() {
               <img
                 className="hero__profile-image"
                 src={profileImage}
-                alt="Retrato de Cicero Walison, desenvolvedor Full Stack"
+                alt="Retrato de CicGhost, fundador da EonLabs"
               />
             </div>
           </figure>
@@ -406,6 +419,7 @@ export function HeroSection() {
                 <span className="hero__highlight-icon" aria-hidden="true">
                   <HighlightIconGraphic type={highlight.id} />
                 </span>
+
                 <div>
                   <strong>{highlight.title}</strong>
                   <span>{highlight.description}</span>

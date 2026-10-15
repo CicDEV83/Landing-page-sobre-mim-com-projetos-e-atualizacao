@@ -1,9 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "../hooks/useTheme";
 
+/* ==========================================================
+   EONLABS — NAVEGAÇÃO PRINCIPAL
+   Sprint 05 | Header completo
+   ========================================================== */
+
 const navigation = [
   { label: "Início", id: "inicio" },
+  { label: "Serviços", id: "servicos" },
   { label: "Sobre / Habilidades", id: "sobre" },
+  { label: "Fundador", id: "fundador" },
+  { label: "Equipe", id: "equipe" },
+  { label: "Ecossistema", id: "ecossistema" },
   { label: "Projetos", id: "projetos" },
   { label: "Contato", id: "contato" },
 ] as const;
@@ -22,7 +31,10 @@ export function Header() {
 
   const isDarkTheme = theme === "dark";
 
-  // Identifica a seção ativa durante a rolagem.
+  /* ========================================================
+     IDENTIFICAÇÃO DA SEÇÃO ATIVA
+     ======================================================== */
+
   useEffect(() => {
     let frame = 0;
 
@@ -35,12 +47,12 @@ export function Header() {
       let currentSection: SectionId = "inicio";
 
       /*
-       * Sobre e Habilidades compartilham
-       * o mesmo item de navegação: #sobre.
+       * Percorre as seções existentes no documento.
        *
-       * Preservamos a lógica já aprovada
-       * para identificar a seção ativa.
+       * A seção cuja posição já ultrapassou a linha
+       * de referência passa a ser considerada ativa.
        */
+
       for (const item of navigation) {
         const element = document.getElementById(item.id);
 
@@ -51,6 +63,22 @@ export function Header() {
         if (sectionTop <= referenceLine) {
           currentSection = item.id;
         }
+      }
+
+      /*
+       * Próximo ao final da página, destaca Contato
+       * quando a seção estiver presente.
+       */
+
+      const scrollBottom = window.scrollY + window.innerHeight;
+
+      const documentHeight = document.documentElement.scrollHeight;
+
+      if (
+        documentHeight - scrollBottom <= 4 &&
+        document.getElementById("contato")
+      ) {
+        currentSection = "contato";
       }
 
       setActiveSection((previous) =>
@@ -74,10 +102,12 @@ export function Header() {
     });
 
     window.addEventListener("resize", onScroll);
+    window.addEventListener("hashchange", onScroll);
 
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
+      window.removeEventListener("hashchange", onScroll);
 
       if (frame) {
         window.cancelAnimationFrame(frame);
@@ -85,7 +115,10 @@ export function Header() {
     };
   }, []);
 
-  // Fecha o menu com Escape e devolve o foco ao botão.
+  /* ========================================================
+     FECHAMENTO DO MENU COM ESCAPE
+     ======================================================== */
+
   useEffect(() => {
     if (!isMenuOpen) return;
 
@@ -103,7 +136,10 @@ export function Header() {
     };
   }, [isMenuOpen]);
 
-  // Reinicia o menu ao mudar do layout mobile para desktop.
+  /* ========================================================
+     ALTERAÇÃO ENTRE MOBILE E DESKTOP
+     ======================================================== */
+
   useEffect(() => {
     const mediaQuery = window.matchMedia(MOBILE_MENU_QUERY);
 
@@ -120,6 +156,10 @@ export function Header() {
     };
   }, []);
 
+  /* ========================================================
+     CONTROLE DA NAVEGAÇÃO
+     ======================================================== */
+
   function closeMenu() {
     setIsMenuOpen(false);
   }
@@ -129,25 +169,33 @@ export function Header() {
     closeMenu();
   }
 
+  /* ========================================================
+     RENDERIZAÇÃO DO HEADER
+     ======================================================== */
+
   return (
     <header className="header">
       <div className="container header__container">
+        {/* IDENTIDADE EONLABS */}
+
         <a
           className="header__brand"
           href="#inicio"
-          aria-label="Cicero Walison — voltar ao início"
+          aria-label="EonLabs — voltar ao início"
           onClick={() => handleNavigation("inicio")}
         >
           <span className="header__brand-symbol" aria-hidden="true">
-            CW
+            EL
           </span>
 
           <span className="header__brand-information">
-            <strong className="header__brand-name">CICERO WALISON</strong>
+            <strong className="header__brand-name">EONLABS</strong>
 
-            <span className="header__brand-role">FULL STACK DEVELOPER</span>
+            <span className="header__brand-role">BY CICGHOST</span>
           </span>
         </a>
+
+        {/* NAVEGAÇÃO PRINCIPAL */}
 
         <nav
           id="header-navigation"
@@ -168,11 +216,14 @@ export function Header() {
           ))}
         </nav>
 
+        {/* AÇÕES DO HEADER */}
+
         <div className="header__actions">
           {/*
-           * O currículo ainda está em preparação.
-           * Mantemos o elemento não interativo.
+           * Currículo em preparação.
+           * Mantemos o comportamento anterior.
            */}
+
           <span
             className="header__cv"
             title="Currículo em preparação"
@@ -193,6 +244,8 @@ export function Header() {
             Baixar CV
           </span>
 
+          {/* BOTÃO DE TEMA */}
+
           <button
             className="header__theme-toggle"
             type="button"
@@ -204,6 +257,8 @@ export function Header() {
           >
             <span aria-hidden="true">{isDarkTheme ? "☀" : "☾"}</span>
           </button>
+
+          {/* MENU MOBILE */}
 
           <button
             ref={menuButtonRef}

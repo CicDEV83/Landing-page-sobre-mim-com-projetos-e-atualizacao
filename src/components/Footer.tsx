@@ -1,16 +1,30 @@
+
 import { socialLinks } from "../data/socialLinks";
 import { SocialIcon } from "./SocialIcon";
 
+/* ==========================================================
+   EONLABS — FOOTER
+   Sprint 05 | Navegação institucional completa
+   ========================================================== */
+
 const footerNavigation = [
   { label: "Início", href: "#inicio" },
-  { label: "Sobre", href: "#sobre" },
+  { label: "Serviços", href: "#servicos" },
+  { label: "Sobre / Habilidades", href: "#sobre" },
+  { label: "Fundador", href: "#fundador" },
+  { label: "Equipe", href: "#equipe" },
+  { label: "Ecossistema", href: "#ecossistema" },
   { label: "Projetos", href: "#projetos" },
-  { label: "Habilidades", href: "#habilidades" },
   { label: "Contato", href: "#contato" },
 ];
 
 const gmailComposeUrl =
   "https://mail.google.com/mail/?view=cm&fs=1&to=csilvaw9.3@gmail.com";
+
+/* ==========================================================
+   ASTRONAUTA CÓSMICO — IDENTIDADE EONLABS
+   Ilustração original preservada
+   ========================================================== */
 
 function CosmicAstronaut() {
   return (
@@ -27,19 +41,37 @@ function CosmicAstronaut() {
           <stop offset="1" stopColor="#923dff" stopOpacity="0" />
         </radialGradient>
 
-        <linearGradient id="astro-suit" x1="0" y1="0" x2="1" y2="1">
+        <linearGradient
+          id="astro-suit"
+          x1="0"
+          y1="0"
+          x2="1"
+          y2="1"
+        >
           <stop stopColor="#3f62ac" />
           <stop offset=".48" stopColor="#182449" />
           <stop offset="1" stopColor="#0b0c27" />
         </linearGradient>
 
-        <linearGradient id="astro-visor" x1="0" y1="0" x2="1" y2="1">
+        <linearGradient
+          id="astro-visor"
+          x1="0"
+          y1="0"
+          x2="1"
+          y2="1"
+        >
           <stop stopColor="#093e66" />
           <stop offset=".45" stopColor="#070b2c" />
           <stop offset="1" stopColor="#311452" />
         </linearGradient>
 
-        <linearGradient id="astro-rim" x1="0" y1="0" x2="1" y2="1">
+        <linearGradient
+          id="astro-rim"
+          x1="0"
+          y1="0"
+          x2="1"
+          y2="1"
+        >
           <stop stopColor="#00e5ff" />
           <stop offset=".55" stopColor="#b35dff" />
           <stop offset="1" stopColor="#ff5fe7" />
@@ -50,7 +82,13 @@ function CosmicAstronaut() {
         </filter>
       </defs>
 
-      <ellipse cx="200" cy="172" rx="185" ry="160" fill="url(#astro-aura)" />
+      <ellipse
+        cx="200"
+        cy="172"
+        rx="185"
+        ry="160"
+        fill="url(#astro-aura)"
+      />
 
       <g opacity=".75" fill="#7df9ff">
         <circle cx="54" cy="80" r="2" />
@@ -180,7 +218,7 @@ function CosmicAstronaut() {
         fontWeight="800"
         fontFamily="Arial, sans-serif"
       >
-        CW
+        EL
       </text>
 
       <ellipse
@@ -198,11 +236,19 @@ function CosmicAstronaut() {
   );
 }
 
+/* ==========================================================
+   FOOTER PRINCIPAL
+   ========================================================== */
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="footer footer--cosmic">
+      {/* ==============================================
+          APRESENTAÇÃO CÓSMICA
+          ============================================== */}
+
       <div className="footer__showcase">
         <div className="container footer__showcase-inner">
           <div className="footer__showcase-copy">
@@ -217,7 +263,10 @@ export function Footer() {
               <span>RESULTADOS</span>
             </h2>
 
-            <span className="footer__showcase-streak" aria-hidden="true" />
+            <span
+              className="footer__showcase-streak"
+              aria-hidden="true"
+            />
           </div>
 
           <div className="footer__astronaut">
@@ -226,26 +275,40 @@ export function Footer() {
         </div>
       </div>
 
+      {/* ==============================================
+          IDENTIDADE, NAVEGAÇÃO E REDES SOCIAIS
+          ============================================== */}
+
       <div className="container footer__container">
         <div className="footer__panel">
+          {/* IDENTIDADE EONLABS */}
+
           <div className="footer__identity">
             <a
               className="footer__brand"
               href="#inicio"
-              aria-label="Cicero Wallison, voltar ao início"
+              aria-label="EonLabs, voltar ao início"
             >
-              <span className="footer__brand-symbol" aria-hidden="true">
-                CW
+              <span
+                className="footer__brand-symbol"
+                aria-hidden="true"
+              >
+                EL
               </span>
 
               <span className="footer__brand-text">
-                <strong>CICERO WALISON</strong>
-                <span>Desenvolvedor Full Stack</span>
+                <strong>EONLABS</strong>
+                <span>BY CICGHOST</span>
               </span>
             </a>
           </div>
 
-          <nav className="footer__navigation" aria-label="Navegação do rodapé">
+          {/* NAVEGAÇÃO COMPLETA */}
+
+          <nav
+            className="footer__navigation"
+            aria-label="Navegação do rodapé"
+          >
             {footerNavigation.map(({ label, href }) => (
               <a key={href} href={href}>
                 {label}
@@ -253,9 +316,17 @@ export function Footer() {
             ))}
           </nav>
 
-          <div className="footer__socials" aria-label="Redes sociais">
+          {/* REDES SOCIAIS — PRESERVADAS */}
+
+          <div
+            className="footer__socials"
+            aria-label="Redes sociais"
+          >
             {socialLinks.map(({ label, href, icon }) => {
-              const destination = icon === "email" ? gmailComposeUrl : href;
+              const destination =
+                icon === "email"
+                  ? gmailComposeUrl
+                  : href;
 
               return (
                 <a
@@ -273,6 +344,8 @@ export function Footer() {
             })}
           </div>
 
+          {/* VOLTAR AO TOPO */}
+
           <a
             className="footer__back-to-top"
             href="#inicio"
@@ -283,11 +356,19 @@ export function Footer() {
           </a>
         </div>
 
+        {/* ==============================================
+            COPYRIGHT E TECNOLOGIAS
+            ============================================== */}
+
         <div className="footer__meta">
-          <p>© {currentYear} Cicero W. Silva. Todos os direitos reservados.</p>
+          <p>
+            © {currentYear} EonLabs.
+            Todos os direitos reservados.
+          </p>
 
           <p className="footer__technology">
-            Desenvolvido com <span>React + TypeScript</span>{" "}
+            Desenvolvido com{" "}
+            <span>React + TypeScript</span>{" "}
             <span aria-hidden="true">✦</span>
           </p>
         </div>

@@ -32,17 +32,21 @@ export function AboutSection() {
     >
       <div className="container about__container about__container--neon">
         <div className="about__story">
-          <span className="about__tag">✦ SOBRE MIM</span>
+          <span className="about__tag">✦ SOBRE A EONLABS</span>
+
           <h2 id="about-title" className="about__headline">
             Muito mais que código, <span>soluções para o futuro.</span>
           </h2>
+
           <p className="about__biography">
-            Sou Cicero Walison, desenvolvedor Fullstack em formação, apaixonado
-            por tecnologia, inovação e por transformar ideias em projetos reais.
-            Busco sempre aprender, evoluir e criar soluções que geram valor para
-            pessoas e negócios.
+            A EonLabs é um laboratório de tecnologia e inovação, idealizado por
+            CicGhost, com foco no desenvolvimento de software, engenharia de
+            sistemas, automação e soluções digitais. Nossa missão é transformar
+            ideias em projetos reais, combinando criatividade, conhecimento
+            técnico e evolução contínua para gerar valor a pessoas e negócios.
           </p>
-          <ul className="about__stats" aria-label="Estatísticas profissionais">
+
+          <ul className="about__stats" aria-label="Indicadores da EonLabs">
             {statistics.map(({ value, label, className }) => (
               <li
                 className={`about__stat about__stat--${className}`}
@@ -57,12 +61,14 @@ export function AboutSection() {
 
         <figure className="about__scene">
           <DeveloperWorkspace />
+
           <figcaption className="about__quote">
             <blockquote>
               “Disciplina hoje,
               <br /> liberdade amanhã.”
             </blockquote>
-            <span>Cicero Walison</span>
+
+            <span>CicGhost</span>
           </figcaption>
         </figure>
 
@@ -74,6 +80,7 @@ export function AboutSection() {
           <h3 className="about__tag" id="about-skills-title">
             ✦ TECNOLOGIAS
           </h3>
+
           <ul
             className="about__skills-grid"
             aria-label="Tecnologias e ferramentas"
@@ -83,10 +90,12 @@ export function AboutSection() {
                 <span className="about__skill-symbol" aria-hidden="true">
                   {symbol}
                 </span>
+
                 <span className="about__skill-label">{name}</span>
               </li>
             ))}
           </ul>
+
           <button
             className="about__skills-link"
             type="button"
@@ -97,8 +106,10 @@ export function AboutSection() {
             {showSkillDetails
               ? "Ocultar habilidades"
               : "Ver todas as habilidades"}
+
             <span aria-hidden="true">→</span>
           </button>
+
           {showSkillDetails && (
             <p className="about__skills-details" id="about-skills-details">
               Frontend: HTML5, CSS3, JavaScript, TypeScript e React. Ferramentas

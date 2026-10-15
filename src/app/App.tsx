@@ -5,6 +5,10 @@ import { Header } from "../components/Header";
 import { HeroSection } from "../components/HeroSection";
 import { Carousel } from "../components/ProjectCarousel/Carousel";
 import { VisitorSection } from "../components/VisitorSection";
+import { ServicesSection } from "../components/ServicesSection";
+import { FounderSection } from "../components/FounderSection";
+import { TeamSection } from "../components/TeamSection";
+import { EcosystemSection } from "../components/EcosystemSection";
 
 export function App() {
   return (
@@ -13,7 +17,11 @@ export function App() {
 
       <main>
         <HeroSection />
+        <ServicesSection />
         <AboutSection />
+        <FounderSection />
+        <TeamSection />
+        <EcosystemSection />
         <Carousel />
         <ContactSection />
       </main>

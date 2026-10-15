@@ -1,0 +1,746 @@
+/* ==========================================================
+   EONLABS — NOSSA EQUIPE
+   Sprint 03 | Cyberpunk Neon
+   Versão consolidada — alinhamento dos botões corrigido
+   ========================================================== */
+
+/* ==========================================================
+   SEÇÃO PRINCIPAL
+   ========================================================== */
+
+.team {
+  position: relative;
+  padding: clamp(4rem, 7vw, 7rem) 0;
+  background: transparent;
+}
+
+/* Fundo estelar */
+
+.team::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.75) 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(0, 220, 255, 0.55) 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(185, 90, 255, 0.7) 1px, transparent 1.5px);
+
+  background-size:
+    240px 260px,
+    310px 330px,
+    390px 370px;
+
+  background-position:
+    10px 25px,
+    130px 85px,
+    210px 140px;
+
+  opacity: 0.35;
+}
+
+.team::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 15% 35%,
+      rgba(126, 47, 255, 0.1),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 85% 75%,
+      rgba(0, 194, 255, 0.08),
+      transparent 48%
+    );
+}
+
+.team__container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================
+   CABEÇALHO
+   ========================================================== */
+
+.team__heading {
+  max-width: 760px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.team__eyebrow {
+  display: inline-flex;
+  padding: 0.45rem 1.1rem;
+  margin-bottom: 1rem;
+
+  color: #b98aff;
+  background: rgba(145, 55, 255, 0.09);
+
+  border: 1px solid rgba(170, 88, 255, 0.5);
+  border-radius: 999px;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+
+  box-shadow: 0 0 20px rgba(150, 65, 255, 0.12);
+}
+
+.team__heading h2 {
+  margin: 0;
+
+  color: #f7f3ff;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.team__heading h2 span {
+  color: #bd70ff;
+}
+
+.team__heading p {
+  max-width: 620px;
+  margin: 1rem auto 0;
+
+  color: #c4c8dc;
+  font-size: clamp(0.86rem, 1vw, 1rem);
+  line-height: 1.7;
+}
+
+/* ==========================================================
+   GRID EXPANSÍVEL
+   ========================================================== */
+
+.team__grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: clamp(1rem, 2vw, 1.6rem);
+
+  /* Todos os cartões ocupam a altura da linha */
+  align-items: stretch;
+}
+
+/* ==========================================================
+   CARTÕES DOS INTEGRANTES
+   ========================================================== */
+
+.team__card {
+  --team-accent: #b675ff;
+  --team-glow: rgba(169, 81, 255, 0.2);
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  height: 100%;
+
+  overflow: hidden;
+  padding: 1rem;
+
+  background: linear-gradient(
+    145deg,
+    rgba(20, 17, 49, 0.88),
+    rgba(7, 14, 32, 0.88)
+  );
+
+  border: 1px solid rgba(177, 110, 255, 0.38);
+  border-radius: 20px;
+
+  box-shadow:
+    0 0 28px var(--team-glow),
+    inset 0 0 18px rgba(255, 255, 255, 0.015);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Leonardo — Ciano */
+
+.team__card:nth-child(3n + 2) {
+  --team-accent: #4cddf5;
+  --team-glow: rgba(0, 213, 255, 0.15);
+
+  border-color: rgba(0, 213, 255, 0.32);
+}
+
+/* Luis — Rosa neon */
+
+.team__card:nth-child(3n + 3) {
+  --team-accent: #f28bdc;
+  --team-glow: rgba(242, 91, 199, 0.16);
+
+  border-color: rgba(238, 109, 211, 0.34);
+}
+
+@media (hover: hover) {
+  .team__card:hover {
+    transform: translateY(-6px);
+    border-color: var(--team-accent);
+
+    box-shadow:
+      0 0 36px var(--team-glow),
+      0 14px 40px rgba(0, 0, 0, 0.23);
+  }
+}
+
+/* ==========================================================
+   FOTOGRAFIAS
+   ========================================================== */
+
+.team__photo {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  /* Impede que imagens encolham conforme o conteúdo */
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+  background: #11182e;
+
+  border: 1px solid var(--team-accent);
+  border-radius: 14px;
+}
+
+.team__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(180deg, transparent 72%, rgba(4, 7, 22, 0.3));
+}
+
+.team__photo img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ==========================================================
+   AVATAR PROVISÓRIO
+   ========================================================== */
+
+.team__placeholder {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+
+  color: #75e5ff;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(0, 215, 255, 0.17),
+      transparent 65%
+    ),
+    linear-gradient(145deg, #151c38, #0a1025);
+}
+
+.team__placeholder-icon {
+  color: #b889ff;
+
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.team__placeholder-initial {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 82px;
+  height: 82px;
+
+  color: #dbf7ff;
+
+  border: 1px solid rgba(90, 224, 255, 0.55);
+  border-radius: 50%;
+
+  background: rgba(37, 111, 163, 0.13);
+
+  box-shadow: 0 0 25px rgba(0, 216, 255, 0.16);
+
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+/* ==========================================================
+   CONTEÚDO DOS CARTÕES
+   ========================================================== */
+
+.team__card-content {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  /* Ocupa o espaço restante após a fotografia */
+  flex: 1 1 auto;
+
+  min-width: 0;
+  min-height: 0;
+
+  padding: 1.35rem 0.4rem 0.45rem;
+}
+
+.team__card-eyebrow {
+  color: var(--team-accent);
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.team__card h3 {
+  margin: 0.6rem 0 0;
+
+  color: #fff;
+
+  font-size: clamp(1.45rem, 2vw, 1.9rem);
+
+  font-weight: 800;
+}
+
+.team__role {
+  margin: 0.45rem 0 0;
+
+  color: #c5c3e4;
+
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ==========================================================
+   ESPECIALIDADES
+   ========================================================== */
+
+.team__skills-group {
+  width: 100%;
+  margin-top: 1.15rem;
+}
+
+.team__skills-group h4 {
+  margin: 0 0 0.65rem;
+
+  color: #f3efff;
+
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.team__specialties {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.5rem;
+
+  margin: 1.1rem 0 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.team__skills-group .team__specialties {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.team__specialties li {
+  padding: 0.45rem 0.65rem;
+
+  color: #d8d3ed;
+  background: rgba(147, 80, 255, 0.075);
+
+  border: 1px solid rgba(174, 113, 255, 0.28);
+  border-radius: 999px;
+
+  font-size: 0.73rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* ==========================================================
+   TECNOLOGIAS
+   ========================================================== */
+
+.team__technologies li {
+  color: #c5efff;
+
+  background: rgba(0, 188, 255, 0.06);
+
+  border-color: rgba(0, 218, 255, 0.3);
+}
+
+/* ==========================================================
+   ALINHAMENTO DEFINITIVO DOS BOTÕES
+   ========================================================== */
+
+/*
+   Os cartões têm a mesma altura na linha do grid.
+   O conteúdo flex ocupa toda a altura disponível.
+   O botão recebe automaticamente o espaço livre
+   acima dele, mantendo os três alinhados.
+*/
+
+.team__card-content > .team__skills-group:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+/*
+   Para integrantes sem especialidades,
+   garante uma separação antes do botão.
+*/
+
+.team__card-content > .team__role:has(+ .team__button) {
+  margin-bottom: 1.5rem;
+}
+
+/* Botão Ver perfil */
+
+.team__button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.75rem;
+
+  width: 100%;
+  min-height: 46px;
+
+  padding: 0.8rem 1rem;
+
+  color: #f9f6ff;
+  background: rgba(115, 65, 210, 0.13);
+
+  border: 1px solid var(--team-accent);
+  border-radius: 11px;
+
+  box-shadow: 0 0 16px var(--team-glow);
+
+  font: inherit;
+  font-size: 0.87rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/*
+   ÚNICA REGRA DE MARGEM AUTOMÁTICA
+   PARA O BOTÃO DENTRO DO CARTÃO.
+*/
+
+.team__card-content > .team__button {
+  margin-top: auto;
+}
+
+.team__button span {
+  font-size: 1.15rem;
+}
+
+.team__button:focus-visible,
+.team__modal-close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .team__button:hover {
+    transform: translateY(-2px);
+
+    background: rgba(125, 75, 225, 0.23);
+
+    box-shadow: 0 0 26px var(--team-glow);
+  }
+}
+
+/* ==========================================================
+   MODAL — PERFIL DO INTEGRANTE
+   ========================================================== */
+
+.team__modal {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow-y: auto;
+
+  padding: 1.25rem;
+
+  background: rgba(2, 5, 17, 0.88);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.team__modal-panel {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.85fr)
+    minmax(0, 1.15fr);
+
+  gap: clamp(1.3rem, 3vw, 2.5rem);
+
+  width: min(100%, 900px);
+  max-height: calc(100dvh - 2.5rem);
+
+  overflow-y: auto;
+
+  margin: auto;
+
+  padding: clamp(1rem, 2.5vw, 2rem);
+
+  color: #f3f0ff;
+
+  background: linear-gradient(145deg, #16112f, #071326);
+
+  border: 1px solid rgba(180, 105, 255, 0.55);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 0 40px rgba(147, 68, 255, 0.2),
+    0 20px 70px rgba(0, 0, 0, 0.5);
+}
+
+.team__modal-close {
+  position: absolute;
+
+  top: 0.8rem;
+  right: 0.8rem;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  color: #fff;
+  background: rgba(16, 21, 49, 0.95);
+
+  border: 1px solid rgba(207, 174, 255, 0.6);
+
+  border-radius: 10px;
+
+  font: inherit;
+  font-size: 1.7rem;
+
+  cursor: pointer;
+}
+
+.team__modal-photo {
+  width: 100%;
+  min-height: 280px;
+
+  overflow: hidden;
+
+  background: #11182c;
+
+  border: 1px solid rgba(186, 109, 255, 0.55);
+
+  border-radius: 16px;
+}
+
+.team__modal-photo img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  max-height: 500px;
+
+  object-fit: cover;
+}
+
+.team__modal-content {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+
+  min-width: 0;
+
+  padding: 0.65rem 0;
+}
+
+.team__modal-eyebrow {
+  color: #6ae5fa;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.team__modal-content h3 {
+  margin: 0.65rem 0 0;
+
+  color: #fff;
+
+  font-size: clamp(2rem, 4vw, 3rem);
+
+  line-height: 1.2;
+}
+
+.team__modal-role {
+  margin: 0.7rem 0 0;
+
+  color: #c68eff;
+
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.team__modal-description {
+  margin: 1.2rem 0 0;
+
+  color: #d2d6e9;
+
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.team__modal-group {
+  margin-top: 1.4rem;
+}
+
+.team__modal-group h4 {
+  margin: 0;
+
+  color: #f1eaff;
+  font-size: 0.95rem;
+}
+
+.team__modal-group .team__specialties {
+  margin-top: 0.8rem;
+}
+
+/* ==========================================================
+   RESPONSIVIDADE
+   ========================================================== */
+
+/* Tablets */
+
+@media (max-width: 900px) {
+  .team__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Smartphones */
+
+@media (max-width: 650px) {
+  .team {
+    padding: 3.5rem 0;
+  }
+
+  .team__heading {
+    margin-bottom: 2rem;
+  }
+
+  .team__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .team__card {
+    max-width: 440px;
+    width: 100%;
+
+    margin-inline: auto;
+  }
+
+  .team__modal {
+    padding: 0.75rem;
+  }
+
+  .team__modal-panel {
+    grid-template-columns: 1fr;
+
+    max-height: calc(100dvh - 1.5rem);
+
+    gap: 1rem;
+    padding: 1rem;
+
+    border-radius: 16px;
+  }
+
+  .team__modal-photo {
+    min-height: 0;
+    max-height: 340px;
+
+    aspect-ratio: 1 / 1;
+  }
+
+  .team__modal-photo img {
+    max-height: 340px;
+  }
+
+  .team__modal-content {
+    padding: 0.4rem;
+  }
+}
+
+/* ==========================================================
+   ACESSIBILIDADE
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .team__card,
+  .team__button {
+    transition: none;
+  }
+}
