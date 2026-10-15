@@ -1,0 +1,2010 @@
+.clima-page {
+  min-height: 100vh;
+
+  padding: 34px clamp(16px, 3vw, 48px) 48px;
+
+  position: relative;
+
+  isolation: isolate;
+
+  overflow: hidden;
+
+  color: var(--clima-text);
+
+  background:
+    radial-gradient(ellipse at 0% 0%, #39085f 0%, transparent 32%),
+    radial-gradient(ellipse at 100% 30%, #10126b 0%, transparent 38%),
+    radial-gradient(ellipse at 55% 100%, #23093f 0%, transparent 50%), #040819;
+}
+
+.clima-page__ambient {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  opacity: 0.55;
+
+  background-image:
+    radial-gradient(circle, #a6b7ff 1px, transparent 1.5px),
+    radial-gradient(circle, #df7dff 1px, transparent 1.5px);
+
+  background-size:
+    127px 139px,
+    203px 191px;
+
+  background-position:
+    20px 50px,
+    80px 10px;
+}
+
+.clima-page[data-theme="light"] {
+  --clima-bg: #edf3ff;
+
+  --clima-panel: rgba(247, 249, 255, 0.95);
+
+  --clima-card: rgba(230, 238, 255, 0.94);
+
+  --clima-text: #171c3d;
+
+  --clima-muted: #555d81;
+
+  --clima-border: rgba(120, 91, 209, 0.32);
+
+  background:
+    radial-gradient(ellipse at 10% 10%, #ded0ff, transparent 40%),
+    radial-gradient(ellipse at 90% 70%, #bceaf8, transparent 45%), #ecf1ff;
+}
+
+.dashboard-heading {
+  max-width: 1580px;
+
+  margin: 0 auto 28px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 24px;
+}
+
+.dashboard-heading h1 {
+  margin: 0;
+
+  font-size: clamp(1.65rem, 2.5vw, 2.65rem);
+
+  letter-spacing: -0.04em;
+}
+
+.dashboard-heading h1 span {
+  background: linear-gradient(90deg, #af78ff, #ff57e5);
+
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+.dashboard-heading p {
+  color: var(--clima-muted);
+
+  margin: 7px 0 0;
+}
+
+.dashboard-heading__tags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 9px;
+}
+
+.dashboard-heading__tags span {
+  padding: 8px 13px;
+
+  border: 1px solid var(--clima-border);
+
+  border-radius: 999px;
+
+  background: rgba(128, 47, 218, 0.15);
+
+  font-size: 0.76rem;
+
+  font-weight: 700;
+}
+
+.dashboard-shell {
+  width: 100%;
+
+  max-width: 1580px;
+
+  min-height: 790px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 250px minmax(0, 1fr);
+
+  border: 1px solid rgba(178, 91, 255, 0.72);
+
+  border-radius: 25px;
+
+  overflow: hidden;
+
+  background: var(--clima-panel);
+
+  box-shadow:
+    0 0 0 1px rgba(0, 217, 255, 0.13),
+    0 0 50px rgba(119, 40, 236, 0.19);
+}
+
+.sidebar {
+  min-height: 100%;
+
+  padding: 28px 14px 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  border-right: 1px solid var(--clima-border);
+
+  background: rgba(3, 7, 27, 0.48);
+}
+
+.sidebar__brand {
+  min-height: 62px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  margin-bottom: 34px;
+
+  padding: 0 9px;
+}
+
+.sidebar__brand-icon {
+  font-size: 2.5rem;
+
+  line-height: 1;
+
+  color: #9e70ff;
+
+  text-shadow: 0 0 20px #8944ff;
+}
+
+.sidebar__brand-copy {
+  display: grid;
+
+  gap: 5px;
+}
+
+.sidebar__brand-copy strong {
+  font-size: 0.96rem;
+}
+
+.sidebar__brand-copy strong span {
+  color: #ec77e9;
+}
+
+.sidebar__brand-copy small {
+  color: var(--clima-muted);
+
+  font-size: 0.66rem;
+}
+
+.sidebar__navigation {
+  display: grid;
+
+  gap: 6px;
+}
+
+.sidebar__link {
+  width: 100%;
+
+  min-height: 47px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 0 14px;
+
+  border: 1px solid transparent;
+
+  border-radius: 12px;
+
+  background: transparent;
+
+  color: var(--clima-muted);
+
+  text-align: left;
+}
+
+.sidebar__link:hover,
+.sidebar__link--active {
+  color: #fff;
+
+  border-color: rgba(148, 58, 255, 0.4);
+
+  background: linear-gradient(90deg, #6d0dcc, #181444);
+}
+
+.sidebar__link--active {
+  box-shadow:
+    inset 3px 0 #bb6aff,
+    0 0 22px #7000cb33;
+}
+
+.sidebar__link-icon {
+  width: 23px;
+
+  font-size: 1.45rem;
+
+  text-align: center;
+}
+
+.sidebar__link-label {
+  flex: 1;
+
+  font-size: 0.83rem;
+}
+
+.sidebar__badge {
+  padding: 3px 8px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(120deg, #e92bec, #18c7fa);
+
+  color: white;
+
+  font-size: 0.7rem;
+
+  font-weight: 800;
+}
+
+.sidebar__link-arrow {
+  font-size: 1.4rem;
+}
+
+.sidebar__premium {
+  margin-top: auto;
+
+  padding: 18px 14px 14px;
+
+  border: 1px solid rgba(170, 60, 248, 0.6);
+
+  border-radius: 14px;
+
+  background: linear-gradient(140deg, #35104f99, #12133f99);
+}
+
+.sidebar__premium-heading {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #fa71ec;
+}
+
+.sidebar__premium-heading > span {
+  font-size: 1.65rem;
+
+  color: #ffd05a;
+}
+
+.sidebar__premium-heading strong {
+  font-size: 0.9rem;
+
+  line-height: 1.4;
+}
+
+.sidebar__premium-heading strong span {
+  display: block;
+}
+
+.sidebar__premium p {
+  margin: 12px 0 16px;
+
+  color: var(--clima-muted);
+
+  font-size: 0.78rem;
+}
+
+.sidebar__premium button {
+  width: 100%;
+
+  min-height: 40px;
+
+  border: 1px solid #a43bff;
+
+  border-radius: 10px;
+
+  background: rgba(96, 25, 150, 0.28);
+
+  color: #f8f4ff;
+
+  font-weight: 700;
+}
+
+.sidebar__premium button:disabled {
+  cursor: not-allowed;
+}
+
+.dashboard-main {
+  min-width: 0;
+
+  padding: 22px 16px 16px;
+}
+
+.topbar {
+  min-height: 56px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 24px;
+
+  margin-bottom: 22px;
+}
+
+.topbar__search {
+  flex: 1;
+
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  border: 1px solid var(--clima-border);
+
+  border-radius: 13px;
+
+  background: var(--clima-card);
+}
+
+.topbar__search-icon {
+  padding-left: 16px;
+
+  font-size: 1.8rem;
+
+  color: #b9b0e8;
+}
+
+.topbar__search input {
+  min-width: 0;
+
+  flex: 1;
+
+  height: 45px;
+
+  padding: 0 12px;
+
+  border: 0;
+
+  outline: 0;
+
+  background: transparent;
+
+  color: var(--clima-text);
+
+  font-size: 0.8rem;
+}
+
+.topbar__search input::placeholder {
+  color: var(--clima-muted);
+}
+
+.topbar__search-button {
+  align-self: stretch;
+
+  min-width: 95px;
+
+  padding: 0 17px;
+
+  border: 0;
+
+  border-radius: 11px;
+
+  background: linear-gradient(130deg, #139cff, #b521ee);
+
+  color: white;
+
+  font-weight: 800;
+
+  box-shadow: 0 0 20px #9a29e777;
+}
+
+.topbar__actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+}
+
+.topbar__location {
+  min-height: 40px;
+
+  padding: 0 13px;
+
+  border: 1px solid #008fda;
+
+  border-radius: 11px;
+
+  color: #89ecff;
+
+  background: rgba(0, 148, 217, 0.09);
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.topbar__theme {
+  width: 65px;
+
+  height: 35px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 4px 5px 4px 9px;
+
+  border: 1px solid #753caf;
+
+  border-radius: 999px;
+
+  background: #171339;
+
+  color: #d9d2ff;
+}
+
+.topbar__theme-knob {
+  width: 25px;
+
+  height: 25px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  box-shadow: 0 0 12px #d84bff;
+}
+
+.topbar__profile {
+  display: grid;
+
+  place-items: center;
+}
+
+.topbar__avatar {
+  width: 40px;
+
+  height: 40px;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 2px solid #714fb2;
+
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, #294d85, #481a69);
+
+  font-size: 0.75rem;
+
+  font-weight: 800;
+}
+
+.dashboard-content {
+  display: grid;
+
+  grid-template-columns: minmax(0, 2.55fr) minmax(250px, 1fr);
+
+  align-items: start;
+
+  gap: 15px;
+}
+
+.dashboard-primary,
+.dashboard-secondary {
+  min-width: 0;
+
+  display: grid;
+
+  gap: 15px;
+}
+
+.weather-hero {
+  min-height: 245px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 22px 24px;
+
+  border: 1px solid #a44bee;
+
+  border-radius: 16px;
+
+  background:
+    radial-gradient(circle at 67% 27%, #ff9e5870, transparent 23%),
+    radial-gradient(circle at 75% 80%, #793bc490, transparent 35%),
+    linear-gradient(125deg, #1a1251, #082969 65%, #140f3f);
+}
+
+.weather-hero__content {
+  position: relative;
+
+  z-index: 2;
+}
+
+.weather-hero__location {
+  margin: 0 0 5px;
+
+  font-size: 0.8rem;
+
+  color: #eccaff;
+}
+
+.weather-hero h2 {
+  max-width: 60%;
+
+  margin: 0;
+
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+}
+
+.weather-hero__date,
+.weather-hero__feels {
+  margin: 7px 0;
+
+  color: #d9ddff;
+
+  font-size: 0.76rem;
+}
+
+.weather-hero__temperature {
+  margin-top: 17px;
+
+  font-size: clamp(3.2rem, 5.7vw, 5.6rem);
+
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: -0.07em;
+}
+
+.weather-hero__temperature span {
+  color: #b366ff;
+}
+
+.weather-hero__condition {
+  margin: 7px 0;
+
+  font-size: 0.95rem;
+
+  font-weight: 700;
+}
+
+.weather-hero__decoration {
+  position: absolute;
+
+  right: 18%;
+
+  bottom: 22px;
+
+  width: 185px;
+
+  height: 158px;
+
+  pointer-events: none;
+}
+
+.weather-hero__sun {
+  position: absolute;
+
+  right: 0;
+
+  top: 4px;
+
+  width: 82px;
+
+  height: 82px;
+
+  border-radius: 50%;
+
+  background: #ffca50;
+
+  box-shadow: 0 0 38px #ffad35;
+}
+
+.weather-hero__cloud {
+  position: absolute;
+
+  bottom: 0;
+
+  left: 0;
+
+  font-size: 8rem;
+
+  line-height: 1;
+
+  color: #b8a4f7;
+
+  text-shadow: 0 0 25px #8b79e0;
+}
+
+.weather-hero__greeting {
+  position: absolute;
+
+  z-index: 3;
+
+  top: 18px;
+
+  right: 18px;
+
+  max-width: 225px;
+
+  display: flex;
+
+  gap: 10px;
+
+  padding: 15px;
+
+  border: 1px solid #6472de55;
+
+  border-radius: 14px;
+
+  background: #101c57de;
+}
+
+.weather-hero__greeting > span {
+  font-size: 1.7rem;
+
+  color: #ffd559;
+}
+
+.weather-hero__greeting strong,
+.weather-hero__greeting small {
+  display: block;
+
+  font-size: 0.78rem;
+}
+
+.weather-hero__greeting small {
+  margin-top: 4px;
+
+  color: #c4cdf0;
+
+  line-height: 1.5;
+}
+
+.weather-hero__floating-cards {
+  position: absolute;
+
+  z-index: 3;
+
+  bottom: 16px;
+
+  right: 16px;
+
+  display: flex;
+
+  gap: 8px;
+}
+
+.weather-hero__floating-cards > div {
+  min-width: 95px;
+
+  display: grid;
+
+  gap: 8px;
+
+  padding: 10px;
+
+  border: 1px solid #6d51ba77;
+
+  border-radius: 11px;
+
+  background: #101a45e8;
+}
+
+.weather-hero__floating-cards small {
+  font-size: 0.67rem;
+
+  color: #c8ceec;
+}
+
+.weather-hero__floating-cards strong {
+  color: #77f5bd;
+}
+
+.weather-metrics {
+  display: grid;
+
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+
+  gap: 9px;
+}
+
+.metric-card {
+  min-height: 87px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 12px 9px;
+
+  border: 1px solid #324da7a6;
+
+  border-radius: 13px;
+
+  background: var(--clima-card);
+}
+
+.metric-card__icon {
+  font-size: 1.55rem;
+
+  color: #36dbff;
+}
+
+.metric-card h3 {
+  margin: 0 0 7px;
+
+  font-size: 0.59rem;
+
+  font-weight: 500;
+
+  color: var(--clima-muted);
+}
+
+.metric-card strong {
+  display: block;
+
+  font-size: clamp(0.78rem, 1.2vw, 1rem);
+}
+
+.forecast-panel,
+.saved-cities,
+.weather-map {
+  border: 1px solid var(--clima-border);
+
+  border-radius: 15px;
+
+  background: var(--clima-panel);
+}
+
+.forecast-panel {
+  padding: 15px 12px;
+}
+
+.panel-heading {
+  min-height: 45px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  margin-bottom: 13px;
+}
+
+.panel-heading h2 {
+  margin: 0;
+
+  font-size: 1rem;
+}
+
+.panel-heading h2 span {
+  color: #e95aff;
+}
+
+.panel-heading p {
+  margin: 5px 0 0;
+
+  color: var(--clima-muted);
+
+  font-size: 0.73rem;
+}
+
+.panel-heading__pending {
+  color: #b7a3ed;
+
+  font-size: 0.67rem;
+
+  text-align: right;
+}
+
+.forecast-grid {
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: 8px;
+}
+
+.forecast-card {
+  min-height: 158px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: space-around;
+
+  padding: 12px 5px;
+
+  border: 1px solid #27386a;
+
+  border-radius: 12px;
+
+  background: var(--clima-card);
+
+  text-align: center;
+}
+
+.forecast-card h3 {
+  margin: 0;
+
+  font-size: 0.76rem;
+
+  font-weight: 500;
+}
+
+.forecast-card__icon {
+  font-size: 1.9rem;
+
+  color: #d7d2ff;
+}
+
+.forecast-card strong {
+  color: #ee64dd;
+
+  font-size: 1.23rem;
+}
+
+.forecast-card small,
+.forecast-card__rain {
+  color: var(--clima-muted);
+
+  font-size: 0.65rem;
+}
+
+.saved-cities {
+  min-height: 291px;
+
+  padding: 18px 15px;
+}
+
+.saved-cities__empty {
+  min-height: 192px;
+
+  display: grid;
+
+  place-content: center;
+
+  justify-items: center;
+
+  gap: 14px;
+
+  text-align: center;
+
+  color: var(--clima-muted);
+}
+
+.saved-cities__empty span {
+  font-size: 2.6rem;
+
+  color: #af68ff;
+}
+
+.saved-cities__empty p {
+  max-width: 180px;
+
+  font-size: 0.8rem;
+
+  line-height: 1.6;
+}
+
+.weather-map {
+  padding: 14px;
+}
+
+.weather-map__visual {
+  min-height: 152px;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 1px solid #5a3cf1;
+
+  border-radius: 12px;
+
+  background:
+    repeating-linear-gradient(45deg, #2f2ed844 0 1px, transparent 1px 20px),
+    radial-gradient(ellipse at 55% 50%, #344ee8, #1b145c 50%, #090d31);
+}
+
+.weather-map__visual span {
+  font-size: 5rem;
+
+  color: #70cbff;
+
+  text-shadow: 0 0 30px #9a3aff;
+}
+
+.weather-map__information {
+  display: flex;
+
+  gap: 13px;
+
+  margin-top: 15px;
+}
+
+.weather-map__icon {
+  font-size: 2.4rem;
+
+  color: #41d4ff;
+}
+
+.weather-map h2 {
+  margin: 0 0 5px;
+
+  font-size: 0.91rem;
+}
+
+.weather-map p {
+  margin: 0;
+
+  font-size: 0.74rem;
+
+  color: var(--clima-muted);
+
+  line-height: 1.5;
+}
+
+.weather-map__pending {
+  display: inline-block;
+
+  margin-top: 17px;
+
+  padding: 9px 12px;
+
+  border: 1px solid #008dd0;
+
+  border-radius: 9px;
+
+  color: #78deff;
+
+  font-size: 0.68rem;
+}
+
+.dashboard-footer {
+  display: grid;
+
+  grid-template-columns: 34% 1fr;
+
+  gap: 14px;
+
+  margin-top: 14px;
+}
+
+.dashboard-clock,
+.dashboard-highlights {
+  min-height: 85px;
+
+  border: 1px solid #3053bd;
+
+  border-radius: 15px;
+
+  background: var(--clima-panel);
+}
+
+.dashboard-clock {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  padding: 14px;
+}
+
+.dashboard-clock strong,
+.dashboard-clock small {
+  display: block;
+}
+
+.dashboard-clock small {
+  margin-top: 6px;
+
+  color: var(--clima-muted);
+
+  font-size: 0.72rem;
+}
+
+.dashboard-highlights {
+  padding: 16px;
+
+  border-color: #763cae;
+}
+
+.dashboard-highlights h2 {
+  margin: 0 0 9px;
+
+  color: #66e7ff;
+
+  font-size: 0.9rem;
+}
+
+.dashboard-highlights p {
+  margin: 0;
+
+  color: var(--clima-muted);
+
+  font-size: 0.76rem;
+}
+
+.dashboard-status {
+  margin: 14px 0 0;
+
+  color: var(--clima-muted);
+
+  font-size: 0.78rem;
+}
+
+/* TABLET */
+
+@media (max-width: 1150px) {
+  .dashboard-shell {
+    grid-template-columns: 215px minmax(0, 1fr);
+  }
+
+  .dashboard-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dashboard-secondary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .weather-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .topbar {
+    flex-wrap: wrap;
+  }
+
+  .topbar__search {
+    flex-basis: 100%;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 720px) {
+  .clima-page {
+    padding: 12px 10px 25px;
+  }
+
+  .dashboard-heading {
+    margin-bottom: 16px;
+  }
+
+  .dashboard-heading h1 {
+    font-size: 1.35rem;
+  }
+
+  .dashboard-heading__tags {
+    display: none;
+  }
+
+  .dashboard-shell {
+    display: block;
+
+    border-radius: 19px;
+  }
+
+  .sidebar {
+    min-height: auto;
+
+    padding: 14px;
+
+    border-right: 0;
+
+    border-bottom: 1px solid var(--clima-border);
+  }
+
+  .sidebar__brand {
+    margin: 0;
+  }
+
+  .sidebar__navigation,
+  .sidebar__premium {
+    display: none;
+  }
+
+  .dashboard-main {
+    padding: 13px 11px;
+  }
+
+  .topbar {
+    gap: 12px;
+  }
+
+  .topbar__actions {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  .topbar__location {
+    flex: 1;
+  }
+
+  .weather-hero {
+    min-height: 285px;
+
+    padding: 17px;
+  }
+
+  .weather-hero__greeting {
+    display: none;
+  }
+
+  .weather-hero__decoration {
+    right: 5px;
+
+    top: 45px;
+
+    transform: scale(0.75);
+
+    transform-origin: top right;
+  }
+
+  .weather-hero__temperature {
+    margin-top: 30px;
+  }
+
+  .weather-hero__floating-cards {
+    bottom: 13px;
+
+    right: 12px;
+  }
+
+  .weather-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .metric-card {
+    min-height: 82px;
+  }
+
+  .forecast-grid {
+    gap: 5px;
+  }
+
+  .forecast-card {
+    min-height: 145px;
+  }
+
+  .forecast-card strong {
+    font-size: 1rem;
+  }
+
+  .dashboard-secondary,
+  .dashboard-footer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 390px) {
+  .weather-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .topbar__search-button {
+    min-width: 73px;
+  }
+
+  .topbar__search input {
+    font-size: 0.72rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.01ms !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================
+
+   SPRINT 03 — CENÁRIO CLIMÁTICO PREMIUM
+
+   App Clima Global | React + TypeScript
+
+   Referência: Dashboard Cyberpunk Neon
+
+   ========================================================== */
+
+.weather-hero {
+  position: relative;
+
+  isolation: isolate;
+
+  min-height: 245px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(13, 12, 54, 0.92) 0%,
+
+      rgba(13, 19, 70, 0.7) 37%,
+
+      rgba(18, 13, 67, 0.1) 100%
+    ),
+    radial-gradient(
+      ellipse at 67% 58%,
+
+      rgba(236, 92, 178, 0.38),
+      transparent 52%
+    ),
+    linear-gradient(125deg, #171042, #113277 65%, #27114a);
+}
+
+/* Iluminação e profundidade do painel */
+
+.weather-hero::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(to top, rgba(6, 7, 31, 0.72), transparent 55%),
+    radial-gradient(
+      circle at 75% 75%,
+
+      rgba(255, 91, 190, 0.23),
+      transparent 40%
+    );
+}
+
+/* Estrelas discretas no fundo */
+
+.weather-hero::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  opacity: 0.48;
+
+  background-image: radial-gradient(circle, #ffffff 1px, transparent 1.5px);
+
+  background-size: 74px 59px;
+}
+
+/* Texto e cartões acima do cenário */
+
+.weather-hero__content,
+.weather-hero__greeting,
+.weather-hero__floating-cards {
+  z-index: 2;
+}
+
+.weather-hero__content {
+  position: relative;
+}
+
+.weather-hero__greeting,
+.weather-hero__floating-cards {
+  position: absolute;
+}
+
+/* Temperatura com profundidade visual */
+
+.weather-hero__temperature {
+  text-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+}
+
+/* Sol com brilho quente */
+
+.weather-hero__sun {
+  background: radial-gradient(circle at 35% 35%, #ffe58b, #ffbf37 70%, #ff8f35);
+
+  box-shadow:
+    0 0 24px rgba(255, 184, 53, 0.9),
+    0 0 70px rgba(255, 122, 73, 0.45);
+}
+
+/* Nuvem com iluminação violeta */
+
+.weather-hero__cloud {
+  color: #c6b4fa;
+
+  text-shadow:
+    0 0 22px rgba(154, 116, 255, 0.7),
+    0 15px 35px rgba(53, 27, 116, 0.6);
+}
+
+/* ==========================================================
+
+   SPRINT 05 — PREVISÃO METEOROLÓGICA REAL
+
+   ========================================================== */
+
+.forecast-empty {
+  grid-column: 1 / -1;
+
+  padding: 35px 12px;
+
+  color: var(--clima-muted);
+
+  text-align: center;
+
+  font-size: 0.85rem;
+}
+
+.forecast-card__weather-icon {
+  width: 52px;
+
+  height: 52px;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 3px 8px rgba(101, 151, 255, 0.35));
+}
+
+.forecast-card__minimum {
+  color: var(--clima-muted);
+
+  font-size: 0.78em;
+
+  font-weight: 500;
+}
+
+/* ============================================
+
+   CORREÇÃO DO AUTOFILL — GOOGLE CHROME
+
+   Mantém o design original da barra de busca
+
+   ============================================ */
+
+/* Cor do texto digitado e selecionado */
+
+.dashboard-main input[type="search"],
+.dashboard-main input[type="text"] {
+  color: #f5f3ff;
+
+  -webkit-text-fill-color: #f5f3ff;
+
+  caret-color: #f5f3ff;
+}
+
+/* Mantém o visual escuro no preenchimento automático */
+
+.dashboard-main input:-webkit-autofill,
+.dashboard-main input:-webkit-autofill:hover,
+.dashboard-main input:-webkit-autofill:focus,
+.dashboard-main input:-webkit-autofill:active {
+  -webkit-text-fill-color: #f5f3ff !important;
+
+  -webkit-box-shadow: 0 0 0 1000px #0c1435 inset !important;
+
+  box-shadow: 0 0 0 1000px #0c1435 inset !important;
+
+  caret-color: #f5f3ff;
+}
+
+/* Cor da seleção do texto */
+
+.dashboard-main input::selection {
+  background: #7437da;
+
+  color: #ffffff;
+}
+
+/* =============================================================
+   SPRINT 06 — CENÁRIOS CLIMÁTICOS DINÂMICOS
+   Mantém o visual aprovado na ausência de pesquisa.
+   Os atributos data-scene e data-period são definidos em App.tsx.
+   ============================================================= */
+
+/* Transições leves apenas nos elementos do cenário. */
+.weather-hero {
+  transition: background 450ms ease;
+}
+
+.weather-hero__sun,
+.weather-hero__cloud {
+  transition:
+    opacity 450ms ease,
+    transform 450ms ease,
+    filter 450ms ease,
+    background 450ms ease,
+    box-shadow 450ms ease;
+}
+
+/* O céu limpo de dia conserva o visual dourado aprovado. */
+.weather-hero[data-scene="clear"][data-period="day"] {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(13, 12, 54, 0.92),
+      rgba(13, 19, 70, 0.7) 40%,
+      rgba(18, 13, 67, 0.08)
+    ),
+    radial-gradient(
+      ellipse at 68% 53%,
+      rgba(255, 160, 100, 0.32),
+      transparent 55%
+    ),
+    linear-gradient(125deg, #171042, #174483 65%, #27114a);
+}
+
+/* Nuvens: atmosfera mais violeta e luz solar suavizada. */
+.weather-hero[data-scene="clouds"][data-period="day"] {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(13, 12, 54, 0.92),
+      rgba(20, 18, 65, 0.72) 42%,
+      rgba(18, 13, 67, 0.14)
+    ),
+    radial-gradient(
+      ellipse at 70% 55%,
+      rgba(161, 117, 216, 0.34),
+      transparent 56%
+    ),
+    linear-gradient(125deg, #171042, #273978 65%, #27114a);
+}
+
+.weather-hero[data-scene="clouds"][data-period="day"] .weather-hero__sun {
+  opacity: 0.72;
+}
+
+/* Noite: estrelas intensificadas e lua crescente no lugar do sol. */
+.weather-hero[data-period="night"] {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 8, 29, 0.94),
+      rgba(10, 12, 50, 0.76) 55%,
+      rgba(16, 10, 49, 0.3)
+    ),
+    radial-gradient(
+      ellipse at 72% 35%,
+      rgba(104, 74, 193, 0.25),
+      transparent 51%
+    ),
+    linear-gradient(130deg, #080b29, #14244f 68%, #130d32);
+}
+
+.weather-hero[data-period="night"]::after {
+  opacity: 0.78;
+}
+
+.weather-hero[data-period="night"] .weather-hero__sun {
+  background: transparent;
+  box-shadow: inset -23px 8px 0 4px #e6dcff;
+  filter: drop-shadow(0 0 15px rgba(187, 166, 255, 0.6));
+  transform: rotate(-17deg);
+}
+
+.weather-hero[data-period="night"] .weather-hero__cloud {
+  color: #a4a4da;
+  text-shadow: 0 0 25px rgba(130, 108, 226, 0.5);
+}
+
+/* Chuva: cenário frio, nuvens densas e gotas discretas. */
+.weather-hero[data-scene="rain"] {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 11, 39, 0.95),
+      rgba(12, 21, 66, 0.78) 60%,
+      rgba(14, 16, 52, 0.36)
+    ),
+    radial-gradient(
+      ellipse at 73% 45%,
+      rgba(85, 133, 208, 0.22),
+      transparent 55%
+    ),
+    linear-gradient(125deg, #0b1538, #203d69 65%, #191339);
+}
+
+.weather-hero[data-scene="rain"] .weather-hero__sun,
+.weather-hero[data-scene="storm"] .weather-hero__sun,
+.weather-hero[data-scene="mist"] .weather-hero__sun {
+  opacity: 0.12;
+}
+
+.weather-hero[data-scene="rain"] .weather-hero__decoration::before,
+.weather-hero[data-scene="storm"] .weather-hero__decoration::before {
+  content: "";
+  position: absolute;
+  inset: 16px -12px -25px;
+  background: repeating-linear-gradient(
+    108deg,
+    transparent 0 14px,
+    rgba(117, 218, 255, 0.52) 15px,
+    transparent 17px 30px
+  );
+  background-size: 100% 38px;
+  opacity: 0.43;
+  animation: clima-rain 900ms linear infinite;
+  pointer-events: none;
+}
+
+/* Tempestade: nuvens mais escuras com pulso de iluminação. */
+.weather-hero[data-scene="storm"] {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(6, 8, 33, 0.97),
+      rgba(12, 19, 48, 0.84) 60%,
+      rgba(8, 9, 33, 0.42)
+    ),
+    radial-gradient(
+      ellipse at 75% 58%,
+      rgba(78, 102, 187, 0.3),
+      transparent 55%
+    ),
+    linear-gradient(125deg, #0b0e31, #202a52 65%, #11102e);
+  animation: clima-lightning 9s linear infinite;
+}
+
+/* Neve: pontos suaves caindo no espaço da ilustração. */
+.weather-hero[data-scene="snow"] {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 14, 46, 0.92),
+      rgba(25, 36, 77, 0.67) 62%,
+      rgba(16, 25, 62, 0.25)
+    ),
+    radial-gradient(
+      ellipse at 75% 47%,
+      rgba(169, 211, 250, 0.24),
+      transparent 55%
+    ),
+    linear-gradient(125deg, #142245, #38608a 65%, #22224e);
+}
+
+.weather-hero[data-scene="snow"] .weather-hero__decoration::before {
+  content: "";
+  position: absolute;
+  inset: -20px -15px;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 2px, transparent 3px),
+    radial-gradient(circle, rgba(219, 235, 255, 0.75) 2px, transparent 3px);
+  background-size:
+    40px 48px,
+    61px 60px;
+  opacity: 0.7;
+  animation: clima-snow 7s linear infinite;
+  pointer-events: none;
+}
+
+/* Névoa: aparência fosca, sem alterar os textos e cartões. */
+.weather-hero[data-scene="mist"] {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(17, 18, 50, 0.94),
+      rgba(40, 39, 76, 0.78) 60%,
+      rgba(54, 49, 82, 0.38)
+    ),
+    radial-gradient(
+      ellipse at 70% 60%,
+      rgba(186, 181, 218, 0.26),
+      transparent 58%
+    ),
+    linear-gradient(125deg, #202348, #46517b 65%, #33264d);
+}
+
+.weather-hero[data-scene="mist"] .weather-hero__cloud {
+  opacity: 0.85;
+  filter: blur(2px);
+}
+
+@keyframes clima-rain {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -14px 76px;
+  }
+}
+
+@keyframes clima-snow {
+  from {
+    background-position:
+      0 0,
+      0 0;
+  }
+  to {
+    background-position:
+      0 96px,
+      20px 120px;
+  }
+}
+
+@keyframes clima-lightning {
+  0%,
+  48%,
+  50%,
+  52%,
+  100% {
+    filter: brightness(1);
+  }
+  49%,
+  51% {
+    filter: brightness(1.22);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weather-hero,
+  .weather-hero__sun,
+  .weather-hero__cloud {
+    transition: none;
+  }
+  .weather-hero[data-scene="storm"],
+  .weather-hero[data-scene="rain"] .weather-hero__decoration::before,
+  .weather-hero[data-scene="storm"] .weather-hero__decoration::before,
+  .weather-hero[data-scene="snow"] .weather-hero__decoration::before {
+    animation: none;
+  }
+}
+
+/* ==========================================================
+   SPRINT 07 — CIDADES FAVORITAS
+   Acrescentar AO FINAL de src/styles/layout.css
+   ========================================================== */
+
+/* Coração discreto, junto da indicação "Clima atual".
+   Não altera as dimensões do card climático. */
+.weather-hero__favorite-button {
+  position: absolute;
+  top: -4px;
+  left: 99px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 25px;
+  padding: 3px 8px;
+  border: 1px solid rgba(180, 105, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(32, 16, 82, 0.72);
+  color: #f5d8ff;
+  font-size: 0.66rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.weather-hero__favorite-button span {
+  font-size: 1rem;
+  color: #ed80ed;
+  line-height: 1;
+}
+
+.weather-hero__favorite-button[aria-pressed="true"] {
+  color: #fff;
+  border-color: #ed76ea;
+  background: rgba(132, 35, 152, 0.38);
+}
+
+.weather-hero__favorite-button:hover,
+.weather-hero__favorite-button:focus-visible {
+  border-color: #f0b3ff;
+  box-shadow: 0 0 12px rgba(188, 91, 251, 0.32);
+}
+
+.saved-cities__list {
+  display: grid;
+  align-content: start;
+  gap: 9px;
+  max-height: 350px;
+  overflow-y: auto;
+  padding-right: 3px;
+}
+
+.saved-cities__item {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgba(94, 91, 192, 0.5);
+  border-radius: 11px;
+  background: rgba(16, 25, 70, 0.76);
+}
+
+.saved-cities__city-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  flex: 1;
+  padding: 7px 1px 7px 6px;
+  border: none;
+  background: transparent;
+  color: #f7f4ff;
+  text-align: left;
+  cursor: pointer;
+}
+
+.saved-cities__city-button:hover,
+.saved-cities__city-button:focus-visible {
+  background: rgba(136, 73, 230, 0.1);
+}
+
+.saved-cities__city-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.saved-cities__city-button img {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.saved-cities__city-info {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+
+.saved-cities__city-info strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.71rem;
+}
+
+.saved-cities__city-info small {
+  overflow: hidden;
+  color: #b9c3ea;
+  font-size: 0.63rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.saved-cities__temperature {
+  margin-left: auto;
+  font-size: 0.88rem;
+  color: #e5b1ff;
+}
+
+.saved-cities__remove {
+  flex-shrink: 0;
+  margin-right: 6px;
+  padding: 4px 7px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: transparent;
+  color: #bcb5df;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.saved-cities__remove:hover,
+.saved-cities__remove:focus-visible {
+  color: #ff9ab9;
+  border-color: rgba(255, 154, 185, 0.45);
+}
+
+.saved-cities__notice {
+  margin: 3px 0 0;
+  font-size: 0.64rem;
+  line-height: 1.4;
+  color: #b9c3ea;
+}
+
+@media (max-width: 390px) {
+  .weather-hero__favorite-button {
+    left: 95px;
+    padding-inline: 6px;
+    font-size: 0.61rem;
+  }
+}
+
+/* ==============================================
+   RODAPÉ PREMIUM — APP CLIMA GLOBAL
+   ============================================== */
+
+.dashboard-footer {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.34fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: 12px;
+}
+
+.dashboard-clock {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+/* Ícone centralizado visualmente sem alterar o selo azul neon. */
+.dashboard-clock__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  color: #19ddff;
+  background: rgba(0, 205, 255, 0.12);
+  border: 1px solid rgba(0, 205, 255, 0.28);
+  font-size: 0;
+  line-height: 1;
+  text-shadow: 0 0 14px rgba(0, 205, 255, 0.55);
+}
+
+/* O glifo original ◷ possui margens óticas assimétricas na fonte. */
+.dashboard-clock__icon::before {
+  content: "◷";
+  display: block;
+  font-size: 35px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.dashboard-clock__details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  min-width: 0;
+}
+
+.dashboard-clock__time {
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+
+.dashboard-clock__date,
+.dashboard-clock__city {
+  font-size: 10px;
+  line-height: 1.4;
+  color: #b8c5e9;
+}
+
+.dashboard-clock__city {
+  color: #9be7ff;
+}
+
+.dashboard-highlights {
+  min-width: 0;
+}
+
+.dashboard-highlights h2 {
+  margin: 0 0 14px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #28ddf7;
+}
+
+.dashboard-highlights__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.dashboard-highlight {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.dashboard-highlight__icon {
+  flex-shrink: 0;
+  font-size: 23px;
+  line-height: 1;
+}
+
+.dashboard-highlight > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.dashboard-highlight strong {
+  color: #f9f7ff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.dashboard-highlight small {
+  color: #aebde2;
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+@media (max-width: 1150px) {
+  .dashboard-footer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .dashboard-highlights__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 390px) {
+  .dashboard-highlights__grid {
+    grid-template-columns: 1fr;
+  }
+}

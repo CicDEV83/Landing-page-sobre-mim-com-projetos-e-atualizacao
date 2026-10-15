@@ -1,0 +1,785 @@
+/* =====================================================
+   APP CLIMA GLOBAL
+   SPRINT 11.2 — DASHBOARD MOBILE
+
+   Referência: mockup do smartphone neon
+   Preserva o desktop, o tema claro e o tema escuro
+   ===================================================== */
+
+@media (max-width: 720px) {
+  /* ==========================================
+     1. ESTRUTURA GERAL
+     ========================================== */
+
+  .clima-page {
+    min-width: 320px;
+    min-height: 100dvh;
+    padding: 0 0 calc(90px + env(safe-area-inset-bottom, 0px));
+    overflow-x: clip;
+  }
+
+  .dashboard-heading {
+    display: none;
+  }
+
+  .dashboard-shell {
+    width: 100%;
+    min-height: 100dvh;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: visible;
+    border-radius: 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    box-shadow: none;
+  }
+
+  .dashboard-main {
+    min-width: 0;
+    width: 100%;
+    padding: 12px;
+  }
+
+  .dashboard-content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .dashboard-primary,
+  .dashboard-secondary {
+    width: 100%;
+    min-width: 0;
+    gap: 14px;
+  }
+
+  /* ==========================================
+     2. CABEÇALHO MOBILE
+     ========================================== */
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    padding: 17px 15px 13px;
+
+    border-right: 0;
+    border-bottom: 1px solid var(--clima-border);
+
+    background: rgba(8, 12, 38, 0.92);
+  }
+
+  .sidebar__brand {
+    min-height: 46px;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+  }
+
+  .sidebar__brand-icon {
+    font-size: 2.15rem;
+  }
+
+  .sidebar__brand-copy strong {
+    font-size: 0.95rem;
+  }
+
+  .sidebar__brand-copy small {
+    font-size: 0.64rem;
+  }
+
+  .sidebar__navigation,
+  .sidebar__premium {
+    display: none;
+  }
+
+  /* ==========================================
+     3. TOPBAR E BUSCA
+     ========================================== */
+
+  .topbar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    min-height: 0;
+    gap: 11px;
+    margin-bottom: 14px;
+  }
+
+  .topbar__search {
+    width: 100%;
+    min-width: 0;
+    flex: none;
+    min-height: 46px;
+    border-radius: 12px;
+  }
+
+  .topbar__search-icon {
+    padding-left: 13px;
+    font-size: 1.4rem;
+  }
+
+  .topbar__search input {
+    height: 44px;
+    padding: 0 8px;
+    font-size: 0.79rem;
+  }
+
+  .topbar__search-button {
+    min-width: 76px;
+    padding: 0 10px;
+    font-size: 0.76rem;
+  }
+
+  .topbar__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 9px;
+
+    width: 100%;
+    min-width: 0;
+  }
+
+  .topbar__location {
+    flex: 1;
+    min-width: 0;
+    min-height: 42px;
+    padding: 0 10px;
+    font-size: 0.72rem;
+  }
+
+  .topbar__theme {
+    flex-shrink: 0;
+    width: 60px;
+  }
+
+  .topbar__profile {
+    flex-shrink: 0;
+  }
+
+  .topbar__avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* ==========================================
+     4. CARD CLIMÁTICO PRINCIPAL
+     ========================================== */
+
+  .weather-hero {
+    position: relative;
+    min-height: 320px;
+    padding: 17px 15px;
+    border-radius: 15px;
+  }
+
+  .weather-hero__content {
+    position: relative;
+    z-index: 3;
+  }
+
+  .weather-hero__location {
+    margin-bottom: 7px;
+    font-size: 0.72rem;
+  }
+
+  .weather-hero h2 {
+    max-width: 90%;
+    font-size: clamp(1.15rem, 5vw, 1.4rem);
+    line-height: 1.25;
+  }
+
+  .weather-hero__date {
+    margin-top: 7px;
+    font-size: 0.68rem;
+  }
+
+  .weather-hero__temperature {
+    position: relative;
+    z-index: 3;
+
+    margin-top: 20px;
+    font-size: clamp(3.8rem, 15vw, 5.1rem);
+    line-height: 1;
+  }
+
+  .weather-hero__condition {
+    max-width: 90%;
+    margin: 8px 0 5px;
+    font-size: 0.86rem;
+  }
+
+  .weather-hero__feels {
+    margin: 4px 0;
+    font-size: 0.72rem;
+  }
+
+  .weather-hero__decoration {
+    position: absolute;
+    top: 46px;
+    right: -5px;
+    bottom: auto;
+
+    width: 185px;
+    height: 155px;
+
+    transform: scale(0.77);
+    transform-origin: top right;
+    opacity: 0.93;
+  }
+
+  .weather-hero__greeting {
+    display: none;
+  }
+
+  .weather-hero__floating-cards {
+    position: absolute;
+    bottom: 13px;
+    right: 12px;
+    left: 12px;
+
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .weather-hero__floating-cards > div {
+    min-width: 0;
+    width: 112px;
+    max-width: 46%;
+    padding: 9px;
+    gap: 5px;
+  }
+
+  .weather-hero__floating-cards small {
+    font-size: 0.64rem;
+  }
+
+  .weather-hero__floating-cards strong {
+    font-size: 0.82rem;
+  }
+
+  .weather-hero__favorite-button {
+    left: 94px;
+    top: -3px;
+    padding: 3px 7px;
+    font-size: 0.61rem;
+  }
+
+  /* ==========================================
+     5. INDICADORES METEOROLÓGICOS
+     ========================================== */
+
+  .weather-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .metric-card {
+    min-width: 0;
+    min-height: 84px;
+    padding: 10px 8px;
+    gap: 6px;
+    border-radius: 12px;
+  }
+
+  .metric-card__icon {
+    flex-shrink: 0;
+    font-size: 1.3rem;
+  }
+
+  .metric-card > div {
+    min-width: 0;
+  }
+
+  .metric-card h3 {
+    margin-bottom: 5px;
+    font-size: 0.61rem;
+    line-height: 1.3;
+  }
+
+  .metric-card strong {
+    font-size: 0.82rem;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  /* ==========================================
+     6. PREVISÃO HORIZONTAL
+     ========================================== */
+
+  .forecast-panel {
+    min-width: 0;
+    padding: 15px 10px;
+    overflow: hidden;
+  }
+
+  .forecast-panel .panel-heading {
+    margin-bottom: 12px;
+  }
+
+  .forecast-panel .panel-heading h2 {
+    font-size: 0.96rem;
+  }
+
+  .forecast-panel .panel-heading p {
+    font-size: 0.69rem;
+  }
+
+  .forecast-grid {
+    display: grid;
+    grid-auto-columns: minmax(91px, 1fr);
+    grid-auto-flow: column;
+    grid-template-columns: none;
+
+    gap: 8px;
+
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+
+    padding: 2px 1px 8px;
+
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .forecast-card {
+    min-width: 91px;
+    min-height: 150px;
+    padding: 11px 6px;
+    scroll-snap-align: start;
+  }
+
+  .forecast-card h3 {
+    font-size: 0.7rem;
+  }
+
+  .forecast-card__weather-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .forecast-card strong {
+    font-size: 1.1rem;
+  }
+
+  .forecast-card small,
+  .forecast-card__rain {
+    font-size: 0.63rem;
+  }
+
+  .forecast-empty {
+    min-width: 100%;
+  }
+
+  /* ==========================================
+     7. CIDADES SALVAS E MAPA
+     ========================================== */
+
+  .dashboard-secondary {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .saved-cities {
+    min-height: 0;
+    padding: 15px;
+  }
+
+  .saved-cities__empty {
+    min-height: 115px;
+  }
+
+  .saved-cities__list {
+    max-height: 280px;
+  }
+
+  .weather-map {
+    width: 100%;
+    padding: 13px;
+  }
+
+  .weather-map__visual:has(.climate-map) {
+    height: 260px;
+    min-height: 260px;
+  }
+
+  .weather-map__information {
+    margin-top: 13px;
+  }
+
+  .weather-map__pending {
+    margin-top: 14px;
+  }
+
+  /* ==========================================
+     8. RELÓGIO E DESTAQUES
+     ========================================== */
+
+  .dashboard-footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    margin-top: 15px;
+  }
+
+  .dashboard-clock,
+  .dashboard-highlights {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .dashboard-clock {
+    min-height: 90px;
+    padding: 13px 15px;
+  }
+
+  .dashboard-clock__time {
+    font-size: 1.6rem;
+  }
+
+  .dashboard-clock__date,
+  .dashboard-clock__city {
+    font-size: 0.72rem;
+  }
+
+  .dashboard-highlights {
+    padding: 15px;
+  }
+
+  .dashboard-highlights h2 {
+    margin-bottom: 15px;
+    font-size: 0.87rem;
+  }
+
+  .dashboard-highlights__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px 12px;
+  }
+
+  .dashboard-highlight {
+    align-items: flex-start;
+    gap: 9px;
+  }
+
+  .dashboard-highlight__icon {
+    font-size: 1.45rem;
+  }
+
+  .dashboard-highlight strong {
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .dashboard-highlight small {
+    font-size: 0.68rem;
+    line-height: 1.45;
+  }
+
+  .dashboard-status {
+    padding-bottom: 12px;
+    font-size: 0.72rem;
+    line-height: 1.5;
+  }
+
+  /* ==========================================
+     9. LIGHT MODE MOBILE
+     ========================================== */
+
+  .clima-page[data-theme="light"] .sidebar {
+    background: linear-gradient(180deg, #edf0ff, #e6ebff);
+  }
+}
+
+/* =====================================================
+   CELULARES ESTREITOS
+   ===================================================== */
+
+@media (max-width: 390px) {
+  .dashboard-main {
+    padding: 10px;
+  }
+
+  .weather-hero {
+    min-height: 310px;
+    padding: 15px 12px;
+  }
+
+  .weather-hero__temperature {
+    font-size: clamp(3.5rem, 15vw, 4.4rem);
+  }
+
+  .weather-hero__decoration {
+    transform: scale(0.63);
+    right: -12px;
+  }
+
+  .weather-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .metric-card {
+    padding: 8px 6px;
+    gap: 4px;
+  }
+
+  .metric-card h3 {
+    font-size: 0.57rem;
+  }
+
+  .metric-card strong {
+    font-size: 0.74rem;
+  }
+
+  .forecast-grid {
+    grid-auto-columns: 96px;
+  }
+
+  .dashboard-highlights__grid {
+    gap: 14px 9px;
+  }
+
+  .dashboard-highlight strong {
+    font-size: 0.7rem;
+  }
+
+  .dashboard-highlight small {
+    font-size: 0.64rem;
+  }
+}
+
+/* =====================================================
+   ACESSIBILIDADE — MOVIMENTO REDUZIDO
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .forecast-grid {
+    scroll-behavior: auto;
+  }
+}
+
+/* =====================================================
+   SPRINT 11.3 — TOPBAR E LOCALIZAÇÃO MOBILE
+   ===================================================== */
+
+/* DESKTOP: OCULTAR ELEMENTOS EXCLUSIVOS DO MOBILE */
+
+.sidebar__mobile-menu-button,
+.mobile-location-button {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  /* CABEÇALHO COM MARCA E MENU */
+
+  .sidebar__brand {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .sidebar__brand-copy {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sidebar__mobile-menu-button {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+
+    width: 39px;
+    height: 39px;
+
+    margin-left: auto;
+    padding: 0;
+
+    border: 1px solid rgba(163, 88, 255, 0.65);
+    border-radius: 11px;
+
+    background: rgba(109, 39, 185, 0.22);
+    color: #e9c8ff;
+
+    font-size: 1.3rem;
+    line-height: 1;
+
+    box-shadow: 0 0 13px rgba(129, 42, 205, 0.13);
+  }
+
+  /* TOPBAR COMPACTA */
+
+  .topbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 9px;
+    margin-bottom: 13px;
+  }
+
+  .topbar__search {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .topbar__search input {
+    min-width: 0;
+    font-size: 0.79rem;
+  }
+
+  .topbar__search input::placeholder {
+    text-overflow: ellipsis;
+  }
+
+  /* BOTÃO ORIGINAL SÓ APARECE NO DESKTOP */
+
+  .topbar__location {
+    display: none;
+  }
+
+  /* CONTROLES DE TEMA E PERFIL */
+
+  .topbar__actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  /* NOVO BOTÃO DE LOCALIZAÇÃO */
+
+  .mobile-location-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 14px;
+
+    border: 1px solid #008fd4;
+    border-radius: 11px;
+
+    background: rgba(0, 149, 216, 0.11);
+    color: #a0eeff;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-align: center;
+
+    box-shadow: inset 0 0 12px rgba(0, 194, 255, 0.06);
+  }
+
+  .mobile-location-button > span {
+    font-size: 1.1rem;
+  }
+
+  .mobile-location-button:active {
+    transform: scale(0.99);
+  }
+
+  /* LIGHT MODE */
+
+  .clima-page[data-theme="light"] .sidebar__mobile-menu-button {
+    background: #ece2ff;
+    border-color: #9c6bd9;
+    color: #54238c;
+  }
+
+  .clima-page[data-theme="light"] .mobile-location-button {
+    background: #e7f6ff;
+    border-color: #128ac0;
+    color: #075e88;
+  }
+}
+
+/* =====================================================
+   SPRINT 11.4 — CONTENÇÃO HORIZONTAL MOBILE
+   ===================================================== */
+
+@media (max-width: 720px) {
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-width: 320px;
+    max-width: 100%;
+  }
+
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  .clima-page {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+  }
+
+  .dashboard-shell,
+  .dashboard-main,
+  .dashboard-content,
+  .dashboard-primary,
+  .dashboard-secondary,
+  .dashboard-footer {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .dashboard-shell {
+    overflow-x: clip;
+  }
+
+  .weather-hero,
+  .weather-metrics,
+  .forecast-panel,
+  .saved-cities,
+  .weather-map,
+  .dashboard-clock,
+  .dashboard-highlights {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .weather-metrics,
+  .dashboard-highlights__grid {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .forecast-grid {
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .forecast-card {
+    min-width: 0;
+  }
+
+  .topbar,
+  .topbar__search,
+  .topbar__actions {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .mobile-bottom-nav {
+    width: 100%;
+    max-width: 100%;
+  }
+}

@@ -1,4 +1,7 @@
-# React + TypeScript + ScrewwHub Pages
+# Portfolio React + Global Climate App
+# Publicação automática no GitHub Pages
+
+name: Deploy Portfolio and App Clima Global
 
 on:
   push:
@@ -21,30 +24,55 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Baixa os arquivos do repositório
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2. Configura o Node.js
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
 
-      - name: Install dependencies
+      # 3. Instala as dependências do portfólio
+      - name: Install portfolio dependencies
         run: npm ci
 
+      # 4. Compila o portfólio principal
       - name: Build React portfolio
         run: npm run build
 
+      # 5. Preserva os projetos estáticos existentes
       - name: Copy static projects
         run: |
           cp -R projeto1-app-clima dist/projeto1-app-clima
           cp -R task-manager-pro dist/task-manager-pro
           cp -R currency-converter-pro dist/currency-converter-pro
 
+      # 6. Instala as dependências do App Clima Global
+      - name: Install App Clima Global dependencies
+        working-directory: app-clima-global-dashboard
+        run: npm ci
+
+      # 7. Compila o novo aplicativo React
+      - name: Build App Clima Global
+        working-directory: app-clima-global-dashboard
+        env:
+          VITE_OPENWEATHER_API_KEY: ${{ secrets.VITE_OPENWEATHER_API_KEY }}
+        run: npm run build
+
+      # 8. Integra o build ao portfólio
+      - name: Copy App Clima Global
+        run: |
+          mkdir -p dist/app-clima-global
+          cp -R app-clima-global-dashboard/dist/. dist/app-clima-global/
+
+      # 9. Configura o GitHub Pages
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
+      # 10. Envia o artefato de publicação
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
