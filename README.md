@@ -121,6 +121,30 @@ O currículo permanece identificado como **em preparação**, sem disponibilizar
 
 ---
 
+### 🔙 Botão de retorno ao portfólio
+
+O App Clima Global possui um botão circular de navegação que permite retornar diretamente à página principal do portfólio profissional.
+
+**Características implementadas:**
+
+- Botão circular com identidade visual Cyberpunk Neon.
+- Ícone SVG com seta de retorno.
+- Efeito Glassmorphism e iluminação ciano.
+- Animação suave ao posicionar o mouse.
+- Estados de interação e foco visível.
+- Compatibilidade com os temas claro e escuro.
+- Implementação sem alterar as funcionalidades meteorológicas.
+- Navegação acessível com `aria-label` e `title`.
+- Redirecionamento para a página principal do portfólio.
+
+**Localização:** cabeçalho superior do dashboard, junto aos controles de busca, geolocalização e alternância de tema.
+
+**Implementação:** componente `Topbar.tsx`, com estilização no arquivo `layout.css`.
+
+**Status:** implementado e visualizado em ambiente local. A permanência do botão após interações e sua adaptação a diferentes tamanhos de tela fazem parte da validação final.
+
+**Objetivo:** oferecer uma navegação contínua entre o portfólio profissional e o aplicativo meteorológico.
+
 ## 🌌 Hero — Apresentação principal
 
 A primeira seção apresenta minha identidade profissional por meio de uma composição visual futurista.
@@ -240,20 +264,20 @@ O aplicativo combina dados de serviços meteorológicos externos com recursos na
 
 ## Tecnologias do App Clima Global
 
-| Tecnologia | Aplicação |
-|---|---|
-| React | Componentização da interface |
-| TypeScript | Contratos de dados e tipagem |
-| Vite | Desenvolvimento e build de produção |
-| HTML5 | Estrutura semântica |
-| CSS3 | Design, responsividade e cenários climáticos |
-| OpenWeatherMap | Clima atual e previsão meteorológica |
-| Open-Meteo | Qualidade do ar e índice UV |
-| React Leaflet | Mapa climático interativo |
-| Leaflet | Recursos de navegação cartográfica |
-| OpenStreetMap | Cartografia de base |
-| LocalStorage | Persistência de favoritos e tema |
-| Geolocation API | Consulta por localização do dispositivo |
+| Tecnologia      | Aplicação                                    |
+| --------------- | -------------------------------------------- |
+| React           | Componentização da interface                 |
+| TypeScript      | Contratos de dados e tipagem                 |
+| Vite            | Desenvolvimento e build de produção          |
+| HTML5           | Estrutura semântica                          |
+| CSS3            | Design, responsividade e cenários climáticos |
+| OpenWeatherMap  | Clima atual e previsão meteorológica         |
+| Open-Meteo      | Qualidade do ar e índice UV                  |
+| React Leaflet   | Mapa climático interativo                    |
+| Leaflet         | Recursos de navegação cartográfica           |
+| OpenStreetMap   | Cartografia de base                          |
+| LocalStorage    | Persistência de favoritos e tema             |
+| Geolocation API | Consulta por localização do dispositivo      |
 
 ## Funcionalidades implementadas
 
