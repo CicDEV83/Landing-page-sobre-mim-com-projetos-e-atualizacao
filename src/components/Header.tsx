@@ -3,7 +3,7 @@ import { useTheme } from "../hooks/useTheme";
 
 /* ==========================================================
    EONLABS — NAVEGAÇÃO PRINCIPAL
-   Sprint 05 | Header completo
+   Header institucional | Cyberpunk Neon
    ========================================================== */
 
 const navigation = [
@@ -12,8 +12,9 @@ const navigation = [
   { label: "Sobre / Habilidades", id: "sobre" },
   { label: "Fundador", id: "fundador" },
   { label: "Equipe", id: "equipe" },
-  { label: "Ecossistema", id: "ecossistema" },
+  { label: "Soluções", id: "solutions" },
   { label: "Projetos", id: "projetos" },
+  { label: "Ecossistema", id: "ecossistema" },
   { label: "Contato", id: "contato" },
 ] as const;
 
@@ -21,18 +22,32 @@ type SectionId = (typeof navigation)[number]["id"];
 
 const MOBILE_MENU_QUERY = "(max-width: 68rem)";
 
+function getInitialSection(): SectionId {
+  if (typeof window === "undefined") {
+    return "inicio";
+  }
+
+  const hash = window.location.hash.slice(1);
+
+  const section = navigation.find((item) => item.id === hash);
+
+  return section?.id ?? "inicio";
+}
+
 export function Header() {
   const { theme, toggleTheme } = useTheme();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<SectionId>("inicio");
+  const [activeSection, setActiveSection] =
+    useState<SectionId>(getInitialSection);
 
   const menuButtonRef = useRef<HTMLButtonElement | null>(null);
 
   const isDarkTheme = theme === "dark";
 
   /* ========================================================
-     IDENTIFICAÇÃO DA SEÇÃO ATIVA
+     DETECÇÃO DA SEÇÃO ATIVA
+     Acompanha a rolagem para cima e para baixo.
      ======================================================== */
 
   useEffect(() => {
@@ -42,42 +57,39 @@ export function Header() {
       const headerHeight =
         document.querySelector(".header")?.getBoundingClientRect().height ?? 0;
 
-      const referenceLine = headerHeight + window.innerHeight * 0.22;
+      const referenceLine = headerHeight + window.innerHeight * 0.25;
 
       let currentSection: SectionId = "inicio";
-
-      /*
-       * Percorre as seções existentes no documento.
-       *
-       * A seção cuja posição já ultrapassou a linha
-       * de referência passa a ser considerada ativa.
-       */
+      let nearestDistance = Number.POSITIVE_INFINITY;
 
       for (const item of navigation) {
         const element = document.getElementById(item.id);
 
         if (!element) continue;
 
-        const sectionTop = element.getBoundingClientRect().top;
+        const rect = element.getBoundingClientRect();
 
-        if (sectionTop <= referenceLine) {
+        if (rect.top <= referenceLine && rect.bottom > referenceLine) {
+          currentSection = item.id;
+          break;
+        }
+
+        const distance =
+          rect.top > referenceLine
+            ? rect.top - referenceLine
+            : referenceLine - rect.bottom;
+
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
           currentSection = item.id;
         }
       }
 
-      /*
-       * Próximo ao final da página, destaca Contato
-       * quando a seção estiver presente.
-       */
+      const reachedBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 4;
 
-      const scrollBottom = window.scrollY + window.innerHeight;
-
-      const documentHeight = document.documentElement.scrollHeight;
-
-      if (
-        documentHeight - scrollBottom <= 4 &&
-        document.getElementById("contato")
-      ) {
+      if (reachedBottom && document.getElementById("contato")) {
         currentSection = "contato";
       }
 
@@ -86,8 +98,8 @@ export function Header() {
       );
     }
 
-    function onScroll() {
-      if (frame) return;
+    function handleScroll() {
+      if (frame !== 0) return;
 
       frame = window.requestAnimationFrame(() => {
         frame = 0;
@@ -97,19 +109,18 @@ export function Header() {
 
     updateActiveSection();
 
-    window.addEventListener("scroll", onScroll, {
+    window.addEventListener("scroll", handleScroll, {
       passive: true,
     });
 
-    window.addEventListener("resize", onScroll);
-    window.addEventListener("hashchange", onScroll);
+    window.addEventListener("resize", handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      window.removeEventListener("hashchange", onScroll);
+      window.removeEventListener("scroll", handleScroll);
 
-      if (frame) {
+      window.removeEventListener("resize", handleScroll);
+
+      if (frame !== 0) {
         window.cancelAnimationFrame(frame);
       }
     };
@@ -157,16 +168,12 @@ export function Header() {
   }, []);
 
   /* ========================================================
-     CONTROLE DA NAVEGAÇÃO
+     NAVEGAÇÃO IMEDIATA AO CLICAR
      ======================================================== */
-
-  function closeMenu() {
-    setIsMenuOpen(false);
-  }
 
   function handleNavigation(id: SectionId) {
     setActiveSection(id);
-    closeMenu();
+    setIsMenuOpen(false);
   }
 
   /* ========================================================
@@ -219,10 +226,7 @@ export function Header() {
         {/* AÇÕES DO HEADER */}
 
         <div className="header__actions">
-          {/*
-           * Currículo em preparação.
-           * Mantemos o comportamento anterior.
-           */}
+          {/* CURRÍCULO EM PREPARAÇÃO */}
 
           <span
             className="header__cv"

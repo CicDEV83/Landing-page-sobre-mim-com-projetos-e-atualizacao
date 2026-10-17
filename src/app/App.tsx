@@ -9,6 +9,7 @@ import { ServicesSection } from "../components/ServicesSection";
 import { FounderSection } from "../components/FounderSection";
 import { TeamSection } from "../components/TeamSection";
 import { EcosystemSection } from "../components/EcosystemSection";
+import { SolutionsSection } from "../components/SolutionsSection";
 
 export function App() {
   return (
@@ -21,8 +22,9 @@ export function App() {
         <AboutSection />
         <FounderSection />
         <TeamSection />
-        <EcosystemSection />
+        <SolutionsSection />
         <Carousel />
+        <EcosystemSection />
         <ContactSection />
       </main>
 

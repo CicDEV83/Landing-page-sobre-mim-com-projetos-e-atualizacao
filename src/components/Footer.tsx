@@ -1,21 +1,21 @@
-
 import { socialLinks } from "../data/socialLinks";
 import { SocialIcon } from "./SocialIcon";
 
 /* ==========================================================
    EONLABS — FOOTER
-   Sprint 05 | Navegação institucional completa
+   Sprint 05 | Footer institucional premium
    ========================================================== */
 
-const footerNavigation = [
-  { label: "Início", href: "#inicio" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Sobre / Habilidades", href: "#sobre" },
-  { label: "Fundador", href: "#fundador" },
-  { label: "Equipe", href: "#equipe" },
-  { label: "Ecossistema", href: "#ecossistema" },
-  { label: "Projetos", href: "#projetos" },
-  { label: "Contato", href: "#contato" },
+const serviceHighlights = [
+  "Sites e plataformas",
+  "Sistemas empresariais",
+  "Automação e integrações",
+];
+
+const businessActions = [
+  { label: "Conhecer soluções", href: "#solutions" },
+  { label: "Ver projetos", href: "#projetos" },
+  { label: "Solicitar orçamento", href: "#contato" },
 ];
 
 const gmailComposeUrl =
@@ -41,37 +41,19 @@ function CosmicAstronaut() {
           <stop offset="1" stopColor="#923dff" stopOpacity="0" />
         </radialGradient>
 
-        <linearGradient
-          id="astro-suit"
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1"
-        >
+        <linearGradient id="astro-suit" x1="0" y1="0" x2="1" y2="1">
           <stop stopColor="#3f62ac" />
           <stop offset=".48" stopColor="#182449" />
           <stop offset="1" stopColor="#0b0c27" />
         </linearGradient>
 
-        <linearGradient
-          id="astro-visor"
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1"
-        >
+        <linearGradient id="astro-visor" x1="0" y1="0" x2="1" y2="1">
           <stop stopColor="#093e66" />
           <stop offset=".45" stopColor="#070b2c" />
           <stop offset="1" stopColor="#311452" />
         </linearGradient>
 
-        <linearGradient
-          id="astro-rim"
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1"
-        >
+        <linearGradient id="astro-rim" x1="0" y1="0" x2="1" y2="1">
           <stop stopColor="#00e5ff" />
           <stop offset=".55" stopColor="#b35dff" />
           <stop offset="1" stopColor="#ff5fe7" />
@@ -82,13 +64,7 @@ function CosmicAstronaut() {
         </filter>
       </defs>
 
-      <ellipse
-        cx="200"
-        cy="172"
-        rx="185"
-        ry="160"
-        fill="url(#astro-aura)"
-      />
+      <ellipse cx="200" cy="172" rx="185" ry="160" fill="url(#astro-aura)" />
 
       <g opacity=".75" fill="#7df9ff">
         <circle cx="54" cy="80" r="2" />
@@ -263,10 +239,7 @@ export function Footer() {
               <span>RESULTADOS</span>
             </h2>
 
-            <span
-              className="footer__showcase-streak"
-              aria-hidden="true"
-            />
+            <span className="footer__showcase-streak" aria-hidden="true" />
           </div>
 
           <div className="footer__astronaut">
@@ -276,12 +249,12 @@ export function Footer() {
       </div>
 
       {/* ==============================================
-          IDENTIDADE, NAVEGAÇÃO E REDES SOCIAIS
+          RODAPÉ INSTITUCIONAL
           ============================================== */}
 
       <div className="container footer__container">
         <div className="footer__panel">
-          {/* IDENTIDADE EONLABS */}
+          {/* BLOCO 1 — IDENTIDADE */}
 
           <div className="footer__identity">
             <a
@@ -289,10 +262,7 @@ export function Footer() {
               href="#inicio"
               aria-label="EonLabs, voltar ao início"
             >
-              <span
-                className="footer__brand-symbol"
-                aria-hidden="true"
-              >
+              <span className="footer__brand-symbol" aria-hidden="true">
                 EL
               </span>
 
@@ -301,59 +271,71 @@ export function Footer() {
                 <span>BY CICGHOST</span>
               </span>
             </a>
+
+            <p className="footer__summary">Sua marca. Nosso desenvolvimento.</p>
           </div>
 
-          {/* NAVEGAÇÃO COMPLETA */}
+          {/* BLOCO 2 — O QUE FAZEMOS */}
 
-          <nav
-            className="footer__navigation"
-            aria-label="Navegação do rodapé"
-          >
-            {footerNavigation.map(({ label, href }) => (
-              <a key={href} href={href}>
-                {label}
-              </a>
-            ))}
-          </nav>
+          <div className="footer__column">
+            <h3 className="footer__column-title">O que fazemos</h3>
 
-          {/* REDES SOCIAIS — PRESERVADAS */}
+            <ul className="footer__list">
+              {serviceHighlights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
 
-          <div
-            className="footer__socials"
-            aria-label="Redes sociais"
-          >
-            {socialLinks.map(({ label, href, icon }) => {
-              const destination =
-                icon === "email"
-                  ? gmailComposeUrl
-                  : href;
+          {/* BLOCO 3 — PARA SUA EMPRESA */}
 
-              return (
-                <a
-                  key={label}
-                  className={`footer__social footer__social--${icon}`}
-                  href={destination}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Abrir ${label}`}
-                  title={label}
-                >
-                  <SocialIcon name={icon} />
+          <div className="footer__column">
+            <h3 className="footer__column-title">Para sua empresa</h3>
+
+            <div className="footer__quick-links">
+              {businessActions.map(({ label, href }) => (
+                <a key={label} href={href} className="footer__quick-link">
+                  {label}
                 </a>
-              );
-            })}
+              ))}
+            </div>
           </div>
 
-          {/* VOLTAR AO TOPO */}
+          {/* BLOCO 4 — CONTATOS + SETA NO FINAL */}
 
-          <a
-            className="footer__back-to-top"
-            href="#inicio"
-            aria-label="Voltar ao topo"
-            title="Voltar ao topo"
-          >
-            ↑
-          </a>
+          <div className="footer__column footer__column--contacts">
+            <h3 className="footer__column-title">Conecte-se</h3>
+
+            <div className="footer__socials" aria-label="Redes sociais">
+              {socialLinks.map(({ label, href, icon }) => {
+                const destination = icon === "email" ? gmailComposeUrl : href;
+
+                return (
+                  <a
+                    key={label}
+                    className={`footer__social footer__social--${icon}`}
+                    href={destination}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Abrir ${label}`}
+                    title={label}
+                  >
+                    <SocialIcon name={icon} />
+                  </a>
+                );
+              })}
+
+              {/* SETA MANTIDA DEPOIS DOS CONTATOS */}
+              <a
+                className="footer__back-to-top"
+                href="#inicio"
+                aria-label="Voltar ao topo"
+                title="Voltar ao topo"
+              >
+                ↑
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* ==============================================
@@ -361,15 +343,11 @@ export function Footer() {
             ============================================== */}
 
         <div className="footer__meta">
-          <p>
-            © {currentYear} EonLabs.
-            Todos os direitos reservados.
-          </p>
+          <p>© {currentYear} EonLabs. Todos os direitos reservados.</p>
 
           <p className="footer__technology">
-            Desenvolvido com{" "}
-            <span>React + TypeScript</span>{" "}
-            <span aria-hidden="true">✦</span>
+            Desenvolvido com <span>React + TypeScript</span>
+            <span aria-hidden="true"> ✦ </span>
           </p>
         </div>
       </div>
