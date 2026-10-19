@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
-import profileImage from "../assets/images/profile.png";
+import "../styles/hero-corporate.css";
 
 type TechnologyId = "html" | "css" | "javascript" | "react" | "typescript";
 
@@ -122,23 +122,23 @@ type Highlight = {
 const highlights: Highlight[] = [
   {
     id: "code",
-    title: "Clean Code",
-    description: "Código limpo e organizado",
+    title: "Engenharia sólida",
+    description: "Arquiteturas escaláveis",
   },
   {
     id: "performance",
-    title: "Performance",
-    description: "Experiências rápidas",
+    title: "Alta performance",
+    description: "Experiências eficientes",
   },
   {
     id: "design",
-    title: "UI/UX Premium",
-    description: "Interfaces intuitivas",
+    title: "Design estratégico",
+    description: "Experiências centradas em pessoas",
   },
   {
     id: "ai",
-    title: "IA Integration",
-    description: "Tecnologia com inteligência",
+    title: "Soluções inteligentes",
+    description: "Automação e inovação",
   },
 ];
 
@@ -204,9 +204,9 @@ function HighlightIconGraphic({ type }: { type: HighlightIcon }) {
 }
 
 const hologramCode = [
-  "const developer = {",
-  '  passion: "technology",',
-  '  focus: "innovation"',
+  "const eonlabs = {",
+  '  engineering: "software",',
+  '  focus: "business innovation"',
   "}",
 ].join("\n");
 
@@ -267,7 +267,7 @@ function TypingHologram() {
 
   return (
     <div className="hero__hologram hero__hologram--code" aria-hidden="true">
-      <span className="hero__hologram-label">developer.ts</span>
+      <span className="hero__hologram-label">eonlabs.ts</span>
 
       <div className="hero__typed-code">
         <span className="hero__typed-keyword">
@@ -285,11 +285,10 @@ function TypingHologram() {
 export function HeroSection() {
   return (
     <section
-      className="hero hero--cyberpunk"
+      className="hero hero--cyberpunk hero--corporate"
       id="inicio"
       aria-labelledby="hero-title"
     >
-      {/* ATMOSFERA VISUAL */}
       <div className="hero__atmosphere" aria-hidden="true">
         <div className="hero__stars" />
         <div className="hero__planet-glow" />
@@ -298,48 +297,38 @@ export function HeroSection() {
       </div>
 
       <div className="container hero__container">
-        {/* CONTEÚDO PRINCIPAL */}
         <div className="hero__content">
           <div className="hero__introduction">
             <p className="hero__welcome">
               <span className="hero__welcome-line" aria-hidden="true" />
-              BEM-VINDO AO MEU UNIVERSO DIGITAL
+              ENGENHARIA • INOVAÇÃO • TECNOLOGIA
             </p>
-
             <p className="hero__eyebrow">
               <span className="hero__status-dot" aria-hidden="true" />
-              Disponível para novas oportunidades
+              TECNOLOGIA PARA NEGÓCIOS REAIS
             </p>
           </div>
 
-          {/* IDENTIDADE INSTITUCIONAL EONLABS | CICGHOST */}
           <h1 className="hero__title" id="hero-title">
             <span className="hero__title-line hero__title-line--first">
-              Bem-vindo à
+              Engenharia que
             </span>
-
             <span className="hero__title-line hero__title-line--second">
-              EonLabs.
+              transforma ideias
             </span>
-
             <span className="hero__title-line hero__title-line--highlight">
-              By CicGhost
+              em soluções.
             </span>
           </h1>
 
-          <p className="hero__profession">FULL STACK DEVELOPER</p>
-
+          <p className="hero__profession">EONLABS · DIGITAL ENGINEERING</p>
           <p className="hero__description">
-            Transformando ideias em experiências digitais incriveis, combinando
-            tecnologia, criatividade e engenharia de software para construir
-            soluções que fazem a diferença.
+            Desenvolvemos experiências digitais, plataformas inteligentes e
+            soluções tecnológicas sob medida para impulsionar negócios e
+            transformar desafios em inovação.
           </p>
 
-          {/* TECNOLOGIAS */}
-          <ul
-            className="hero__technologies"
-            aria-label="Tecnologias utilizadas"
-          >
+          <ul className="hero__technologies" aria-label="Tecnologias utilizadas">
             {technologies.map((technology) => (
               <li
                 className={`hero__technology hero__technology--${technology.id}`}
@@ -348,69 +337,40 @@ export function HeroSection() {
                 <span className="hero__technology-icon" aria-hidden="true">
                   <TechnologyIcon type={technology.id} />
                 </span>
-
                 <span>{technology.label}</span>
               </li>
             ))}
           </ul>
 
-          {/* AÇÕES */}
           <div className="hero__actions">
-            <a
-              className="button button--primary animate-neon-pulse"
-              href="#projetos"
-            >
-              Ver meus projetos
-              <span aria-hidden="true">→</span>
+            <a className="button button--primary animate-neon-pulse" href="#solutions">
+              Conhecer soluções <span aria-hidden="true">↗</span>
             </a>
-
-            <a className="button button--secondary" href="#contato">
-              Falar comigo
-              <span aria-hidden="true">↗</span>
+            <a className="button button--secondary" href="#projetos">
+              Explorar projetos <span aria-hidden="true">→</span>
             </a>
           </div>
 
-          {/* INDICADOR DE ROLAGEM */}
           <a
             className="hero__scroll-indicator"
-            href="#sobre"
-            aria-label="Rolar para a seção Sobre"
+            href="#solutions"
+            aria-label="Rolar para a seção Soluções"
           >
             <span aria-hidden="true">↓</span>
-            Explore meu universo
+            Descubra o que podemos construir
           </a>
         </div>
 
-        {/* COMPOSIÇÃO VISUAL */}
-        <div className="hero__visual">
+        <div className="hero__visual" aria-label="Tecnologia e soluções EonLabs">
           <div className="hero__visual-aura" aria-hidden="true" />
-
-          <div
-            className="hero__hologram hero__hologram--top"
-            aria-hidden="true"
-          >
+          <div className="hero__hologram hero__hologram--top" aria-hidden="true">
             <span className="hero__hologram-indicator" />
             SYSTEM ONLINE
           </div>
 
           <TypingHologram />
 
-          {/* RETRATO */}
-          <figure className="hero__profile">
-            <div className="hero__profile-frame">
-              <img
-                className="hero__profile-image"
-                src={profileImage}
-                alt="Retrato de CicGhost, fundador da EonLabs"
-              />
-            </div>
-          </figure>
-
-          {/* PAINÉIS TÉCNICOS COM ÍCONES NEON */}
-          <div
-            className="hero__highlights"
-            aria-label="Diferenciais profissionais"
-          >
+          <div className="hero__highlights" aria-label="Diferenciais da EonLabs">
             {highlights.map((highlight) => (
               <div
                 className={`hero__highlight hero__highlight--${highlight.id}`}
@@ -419,7 +379,6 @@ export function HeroSection() {
                 <span className="hero__highlight-icon" aria-hidden="true">
                   <HighlightIconGraphic type={highlight.id} />
                 </span>
-
                 <div>
                   <strong>{highlight.title}</strong>
                   <span>{highlight.description}</span>
@@ -428,12 +387,9 @@ export function HeroSection() {
             ))}
           </div>
 
-          <div
-            className="hero__hologram hero__hologram--bottom"
-            aria-hidden="true"
-          >
+          <div className="hero__hologram hero__hologram--bottom" aria-hidden="true">
             <span className="hero__hologram-indicator" />
-            BUILDING THE FUTURE
+            BUILDING DIGITAL FUTURES
           </div>
         </div>
       </div>

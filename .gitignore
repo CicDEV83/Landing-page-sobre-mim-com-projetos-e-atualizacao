@@ -22,3 +22,16 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# EONLABS - BACKUPS LOCAIS
+.eonlabs-*-backup-*/
+.header-migration-preview/
+header-migration-backup/
+header-css-auditoria.txt
+
+# Backups de desenvolvimento
+*.backup-*
+*.rollback-*.bak
+*.experimental-*.bak
+.gitignore.backup-*

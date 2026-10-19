@@ -1,14 +1,13 @@
-import { AboutSection } from "../components/AboutSection";
+import { AboutSection } from "../components/AboutCorporateSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { HeroSection } from "../components/HeroSection";
-import { Carousel } from "../components/ProjectCarousel/Carousel";
 import { VisitorSection } from "../components/VisitorSection";
 import { ServicesSection } from "../components/ServicesSection";
 import { FounderSection } from "../components/FounderSection";
-import { TeamSection } from "../components/TeamSection";
 import { EcosystemSection } from "../components/EcosystemSection";
+import { PartnerShowcase } from "../components/PartnerShowcase";
 import { SolutionsSection } from "../components/SolutionsSection";
 
 export function App() {
@@ -21,10 +20,20 @@ export function App() {
         <ServicesSection />
         <AboutSection />
         <FounderSection />
-        <TeamSection />
-        <SolutionsSection />
-        <Carousel />
+          <SolutionsSection />
+
+
         <EcosystemSection />
+
+        <section
+          id="parceiros"
+          className="eon-partners-section"
+          aria-label="Empresas Parceiras"
+        >
+          <div className="container">
+            <PartnerShowcase />
+          </div>
+        </section>
         <ContactSection />
       </main>
 

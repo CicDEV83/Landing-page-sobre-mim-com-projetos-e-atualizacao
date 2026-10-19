@@ -1,0 +1,95 @@
+/* EonLabs — parceiros. Isolado da vitrine de produtos. */
+.ecosystem__dialog--partners{width:min(95vw,1380px);max-width:1380px;max-height:calc(100dvh - 2.5rem);overflow-x:hidden;overflow-y:auto}
+.ecosystem__dialog--partners .ecosystem__dialog-heading{display:none}
+.eon-partners{color:#f5f3ff}
+.eon-partners__hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(1rem,3vw,2.5rem);padding:clamp(1rem,2.5vw,2rem) 0}
+.eon-partners__eyebrow{display:inline-block;color:#83e6fa;font-size:.7rem;letter-spacing:.14em;font-weight:800}
+.eon-partners__intro h4{font-size:clamp(2rem,4.8vw,4.3rem);line-height:1.06;letter-spacing:-.05em;margin:.65rem 0 1rem;font-weight:850}
+.eon-partners__intro h4 span{background:linear-gradient(100deg,#b26aff,#eb61e8);color:transparent;background-clip:text;-webkit-background-clip:text}
+.eon-partners__intro p,.eon-partners__strategy p{color:#c5c6e3;line-height:1.7;max-width:55ch}
+.eon-partners__principles{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.5rem}
+.eon-partners__principles span{border:1px solid #6441ae;border-radius:999px;padding:.55rem .85rem;background:#261449;color:#e3cbff;font-size:.8rem}
+.eon-partners__strategy{padding:clamp(1.2rem,2vw,2rem);background:linear-gradient(125deg,#171139,#081b39);border:1px solid #9358e2;border-radius:1.3rem;box-shadow:0 0 40px #933dcd22}
+.eon-partners__strategy h5{font-size:clamp(1.3rem,2vw,2rem);margin:.7rem 0;line-height:1.2}
+.eon-partners__values{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-top:1.4rem}
+.eon-partners__values>div{padding:1rem;border:1px solid #473b83;border-radius:.8rem;background:#0b1535;display:grid;gap:.4rem}
+.eon-partners__values strong{color:#b86cff;font:800 1.1rem ui-monospace,monospace}
+.eon-partners__values span{color:#e3e4f5;font-size:.8rem}
+.eon-partners__directory{background:linear-gradient(145deg,#0b1030,#07172c);border:1px solid #5e4596;border-radius:1.25rem;padding:clamp(1rem,2.5vw,2rem)}
+.eon-partners__directory-head{display:flex;justify-content:space-between;align-items:end;gap:1.5rem;flex-wrap:wrap}
+.eon-partners__directory-head h5{font-size:clamp(1.35rem,2.3vw,2rem);margin:.3rem 0}
+.eon-partners__directory-head p{color:#bcbfe0;font-size:.9rem}
+.eon-partners__search input{width:min(20rem,100%);padding:.8rem 1rem;border-radius:.7rem;border:1px solid #5d4b9e;background:#111334;color:#fff;font:inherit}
+.eon-partners__search input:focus-visible,.eon-partners__filter:focus-visible,.eon-partners__partner a:focus-visible{outline:2px solid #71e4ff;outline-offset:3px}
+.eon-partners__filters{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.4rem 0}
+.eon-partners__filter{color:#ddd6f7;border:1px solid #594283;border-radius:.65rem;background:#11112e;padding:.5rem .8rem;cursor:pointer;font:inherit;font-size:.76rem}
+.eon-partners__filter--active{background:linear-gradient(100deg,#6221bd,#9624c9);border-color:#bc65f5;color:#fff;box-shadow:0 0 15px #a432e850}
+.eon-partners__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15.5rem),1fr));gap:.8rem}
+.eon-partners__partner{display:flex;gap:.8rem;padding:1rem;border-radius:.85rem;border:1px solid #594388;background:#101536;min-width:0}
+.eon-partners__partner-icon{font-size:1.8rem;color:#b66aff}
+.eon-partners__partner h6{font-size:1rem;margin:0 0 .3rem}.eon-partners__partner-segment{color:#7ee0f3;font-size:.72rem}
+.eon-partners__partner p{font-size:.8rem;color:#bebedb;line-height:1.6;margin:.4rem 0}.eon-partners__partner a{color:#86e9ff;font-size:.82rem}
+.eon-partners__empty{text-align:center;border:1px dashed #665395;border-radius:1rem;padding:clamp(2rem,5vw,4rem);background:#131232}
+.eon-partners__empty>span{display:block;font-size:2.5rem;color:#ad70ff;margin-bottom:.5rem}
+.eon-partners__empty strong{display:block;font-size:1.25rem}.eon-partners__empty p{color:#c2bfdd;max-width:45ch;margin:.7rem auto 0;line-height:1.6}
+.eon-partners__trust{display:flex;align-items:center;flex-wrap:wrap;gap:1rem;margin-top:1rem;padding:1.2rem;border-radius:1rem;border:1px solid #5d449c;background:#101333}
+.eon-partners__trust>div{flex:2 1 16rem;display:grid;gap:.3rem}.eon-partners__trust>div span{color:#bdc1df;font-size:.78rem;line-height:1.6}
+.eon-partners__trust>span{flex:1 1 7rem;color:#9ae9fd;font-size:.75rem;border-left:1px solid #594d91;padding-left:.75rem}
+.eon-partners__sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:850px){.eon-partners__hero{grid-template-columns:1fr}.eon-partners__strategy{max-width:none}}
+@media(max-width:600px){.ecosystem__dialog--partners{width:100%;max-height:calc(100dvh - 1.5rem)}.eon-partners__directory-head{display:block}.eon-partners__search{display:block;margin-top:1rem}.eon-partners__search input{width:100%}.eon-partners__values{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){.eon-partners__filter{scroll-behavior:auto}}
+
+
+/* EONLABS - LAYOUT PRODUTOS E PARCEIROS V1 */
+
+.eon-partners-section {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  padding: clamp(4rem, 7vw, 7rem) 0;
+  scroll-margin-top: 6rem;
+  overflow: hidden;
+  background: transparent;
+}
+
+.eon-partners-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 12% 25%,
+      rgba(138, 54, 255, 0.12),
+      transparent 52%
+    ),
+    radial-gradient(
+      ellipse at 90% 60%,
+      rgba(0, 207, 255, 0.09),
+      transparent 48%
+    );
+}
+
+.eon-partners-section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.eon-partners-section .eon-partners {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .eon-partners-section {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .eon-partners-section {
+    padding: 2.5rem 0;
+  }
+}

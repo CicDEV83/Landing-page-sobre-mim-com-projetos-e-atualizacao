@@ -57,7 +57,7 @@ export function Carousel() {
   return (
     <section
       className="projects projects--neon"
-      id="projetos"
+      id="catalogo-produtos"
       aria-labelledby="projects-title"
     >
       <div className="container projects__container">
@@ -68,7 +68,7 @@ export function Carousel() {
           }`}
         >
           <div className="projects__heading">
-            <p className="projects__eyebrow">✦ MEUS PROJETOS</p>
+            <p className="projects__eyebrow">✦ NOSSOS PRODUTOS</p>
             <h2 id="projects-title">
               Projetos que transformam <span>ideias em realidade.</span>
             </h2>

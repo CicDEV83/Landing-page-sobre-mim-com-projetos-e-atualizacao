@@ -8,13 +8,10 @@ import { useTheme } from "../hooks/useTheme";
 
 const navigation = [
   { label: "Início", id: "inicio" },
-  { label: "Serviços", id: "servicos" },
-  { label: "Sobre / Habilidades", id: "sobre" },
-  { label: "Fundador", id: "fundador" },
-  { label: "Equipe", id: "equipe" },
-  { label: "Soluções", id: "solutions" },
   { label: "Projetos", id: "projetos" },
-  { label: "Ecossistema", id: "ecossistema" },
+  { label: "Soluções", id: "solutions" },
+  { label: "Empresas Parceiras", id: "parceiros" },
+  { label: "Sobre", id: "sobre" },
   { label: "Contato", id: "contato" },
 ] as const;
 
@@ -198,7 +195,7 @@ export function Header() {
           <span className="header__brand-information">
             <strong className="header__brand-name">EONLABS</strong>
 
-            <span className="header__brand-role">BY CICGHOST</span>
+
           </span>
         </a>
 
@@ -211,43 +208,32 @@ export function Header() {
           }`}
           aria-label="Navegação principal"
         >
-          {navigation.map(({ label, id }) => (
-            <a
-              key={id}
-              href={`#${id}`}
-              aria-current={activeSection === id ? "location" : undefined}
-              onClick={() => handleNavigation(id)}
-            >
-              {label}
-            </a>
-          ))}
+          {navigation.map(({ label, id }) =>
+            id === "parceiros" ? (
+              <span
+                key={id}
+                className="header__nav-pending"
+                title="Seção em desenvolvimento"
+                aria-disabled="true"
+              >
+                {label}
+              </span>
+            ) : (
+              <a
+                key={id}
+                href={`#${id}`}
+                aria-current={activeSection === id ? "location" : undefined}
+                onClick={() => handleNavigation(id)}
+              >
+                {label}
+              </a>
+            ),
+          )}
         </nav>
 
         {/* AÇÕES DO HEADER */}
 
         <div className="header__actions">
-          {/* CURRÍCULO EM PREPARAÇÃO */}
-
-          <span
-            className="header__cv"
-            title="Currículo em preparação"
-            aria-label="Currículo em preparação"
-          >
-            <svg
-              className="header__cv-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M12 3v12m-4-4 4 4 4-4M5 17v3h14v-3" />
-            </svg>
-            Baixar CV
-          </span>
-
           {/* BOTÃO DE TEMA */}
 
           <button

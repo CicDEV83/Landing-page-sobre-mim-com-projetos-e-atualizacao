@@ -1,13 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import {
-  ecosystemPartners,
-  ecosystemProjects,
-  getProjectStatusLabel,
-} from "../data/ecosystem";
-
+import { Carousel } from "./ProjectCarousel/Carousel";
 import "../styles/ecosystem.css";
 
-type EcosystemView = "projects" | "partners";
+type EcosystemView = "projects";
 
 function EcosystemIcon({ type }: { type: EcosystemView }) {
   if (type === "projects") {
@@ -149,16 +144,16 @@ export function EcosystemSection() {
         </header>
 
         <div className="ecosystem__grid">
-          <article className="ecosystem__card ecosystem__card--projects">
+          <article id="projetos" className="ecosystem__card ecosystem__card--projects">
             <div className="ecosystem__icon">
               <EcosystemIcon type="projects" />
             </div>
 
-            <h3>Projetos EonLabs</h3>
+            <h3>Nossos Produtos</h3>
 
             <p>Produtos e plataformas do nosso ecossistema.</p>
 
-            <span className="ecosystem__badge">Projetos próprios</span>
+            <span className="ecosystem__badge">Produtos EonLabs</span>
 
             <button
               type="button"
@@ -166,32 +161,12 @@ export function EcosystemSection() {
               onClick={() => openView("projects")}
               aria-haspopup="dialog"
             >
-              Explorar projetos
+              Explorar produtos
               <span aria-hidden="true">→</span>
             </button>
           </article>
 
-          <article className="ecosystem__card ecosystem__card--partners">
-            <div className="ecosystem__icon">
-              <EcosystemIcon type="partners" />
-            </div>
 
-            <h3>Empresas Parceiras</h3>
-
-            <p>Organizações e profissionais com parcerias confirmadas.</p>
-
-            <span className="ecosystem__badge">Parcerias verificadas</span>
-
-            <button
-              type="button"
-              className="ecosystem__button"
-              onClick={() => openView("partners")}
-              aria-haspopup="dialog"
-            >
-              Conhecer parceiros
-              <span aria-hidden="true">→</span>
-            </button>
-          </article>
         </div>
 
         <p className="ecosystem__footer-note">
@@ -211,7 +186,9 @@ export function EcosystemSection() {
         >
           <div
             ref={dialogRef}
-            className="ecosystem__dialog"
+            className={`ecosystem__dialog${
+              activeView === "projects" ? " ecosystem__dialog--products" : " ecosystem__dialog--partners"
+            }`}
             role="dialog"
             aria-modal="true"
             aria-labelledby="ecosystem-dialog-title"
@@ -234,99 +211,20 @@ export function EcosystemSection() {
 
               <h3 id="ecosystem-dialog-title">
                 {activeView === "projects"
-                  ? "Projetos EonLabs"
+                  ? "Nossos Produtos"
                   : "Empresas Parceiras"}
               </h3>
 
               <p>
                 {activeView === "projects"
-                  ? "Conheça os produtos e iniciativas em desenvolvimento ou planejamento."
+                  ? "Explore nossos produtos digitais, aplicações e demonstrações disponíveis."
                   : "Conheça as organizações que integram nossas parcerias confirmadas."}
               </p>
             </div>
 
-            {activeView === "projects" && (
-              <div className="ecosystem__items">
-                {ecosystemProjects.length > 0 ? (
-                  ecosystemProjects.map((project) => (
-                    <article className="ecosystem__item" key={project.id}>
-                      <div className="ecosystem__item-top">
-                        <h4>{project.name}</h4>
+            {activeView === "projects" && <Carousel />}
 
-                        <span className="ecosystem__status">
-                          {getProjectStatusLabel(project.status)}
-                        </span>
-                      </div>
 
-                      <span className="ecosystem__item-category">
-                        {project.category}
-                      </span>
-
-                      <p>{project.description}</p>
-
-                      <p className="ecosystem__item-detail">
-                        {project.details}
-                      </p>
-
-                      {project.website && (
-                        <a
-                          href={project.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="ecosystem__item-link"
-                        >
-                          Visitar projeto
-                          <span aria-hidden="true">↗</span>
-                        </a>
-                      )}
-                    </article>
-                  ))
-                ) : (
-                  <p className="ecosystem__empty">
-                    Novos projetos serão apresentados aqui.
-                  </p>
-                )}
-              </div>
-            )}
-
-            {activeView === "partners" && (
-              <div className="ecosystem__items">
-                {ecosystemPartners.length > 0 ? (
-                  ecosystemPartners.map((partner) => (
-                    <article className="ecosystem__item" key={partner.id}>
-                      <h4>{partner.name}</h4>
-
-                      <span className="ecosystem__item-category">
-                        {partner.segment}
-                      </span>
-
-                      <p>{partner.description}</p>
-
-                      {partner.website && (
-                        <a
-                          href={partner.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="ecosystem__item-link"
-                        >
-                          Visitar parceiro
-                          <span aria-hidden="true">↗</span>
-                        </a>
-                      )}
-                    </article>
-                  ))
-                ) : (
-                  <div className="ecosystem__empty">
-                    <strong>Novas conexões em breve</strong>
-
-                    <p>
-                      Estamos preparando este espaço para apresentar empresas e
-                      profissionais com parcerias confirmadas junto à EonLabs.
-                    </p>
-                  </div>
-                )}
-              </div>
-            )}
           </div>
         </div>
       )}

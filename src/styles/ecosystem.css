@@ -629,3 +629,67 @@
     transition: none;
   }
 }
+
+
+/* EONLABS - CATALOGO RESPONSIVO V1 */
+
+.ecosystem__dialog--products {
+  width: min(94vw, 1440px);
+  max-width: 1440px;
+  max-height: calc(100dvh - 2.5rem);
+  margin: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.ecosystem__dialog--products .projects {
+  width: 100%;
+  min-height: auto;
+  padding-block: 1rem 2rem;
+  background: transparent;
+}
+
+.ecosystem__dialog--products .projects__container {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+@media (max-width: 1024px) {
+  .ecosystem__dialog--products {
+    width: min(96vw, 100%);
+    max-height: calc(100dvh - 2rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .ecosystem__dialog--products {
+    width: 100%;
+    max-height: calc(100dvh - 1.5rem);
+    padding: 1.25rem;
+  }
+
+  .ecosystem__dialog--products .projects {
+    padding-block: 0.75rem 1.5rem;
+  }
+}
+
+
+/* EONLABS - LAYOUT PRODUTOS E PARCEIROS V1 */
+
+.ecosystem__grid:has(
+  > .ecosystem__card--projects:only-child
+) {
+  grid-template-columns: minmax(0, 720px);
+  justify-content: center;
+}
+
+.ecosystem__grid > .ecosystem__card--projects:only-child {
+  width: 100%;
+  min-width: 0;
+}
+
+#projetos {
+  scroll-margin-top: 6rem;
+}
