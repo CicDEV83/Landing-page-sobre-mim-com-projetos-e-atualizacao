@@ -321,7 +321,7 @@ export function HeroSection() {
             </span>
           </h1>
 
-          <p className="hero__profession">EONLABS · DIGITAL ENGINEERING</p>
+          <p className="hero__profession">EONLABS · SOFTWARE ENGINEERING</p>
           <p className="hero__description">
             Desenvolvemos experiências digitais, plataformas inteligentes e
             soluções tecnológicas sob medida para impulsionar negócios e
