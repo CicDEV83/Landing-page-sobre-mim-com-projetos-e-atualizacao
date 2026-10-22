@@ -6530,7 +6530,6 @@ body[data-theme="light"] .visitor-section__container {
   }
 }
 
-
 /* ==========================================================
    EONLABS — CAMPO ESTELAR GLOBAL
    Fundo global da aplicação
@@ -6547,8 +6546,16 @@ body {
   overflow-x: hidden;
   color: #f5f7ff;
   background:
-    radial-gradient(circle at 15% 18%, rgba(132, 56, 255, 0.18), transparent 24%),
-    radial-gradient(circle at 82% 14%, rgba(0, 204, 255, 0.12), transparent 22%),
+    radial-gradient(
+      circle at 15% 18%,
+      rgba(132, 56, 255, 0.18),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 82% 14%,
+      rgba(0, 204, 255, 0.12),
+      transparent 22%
+    ),
     radial-gradient(circle at 50% 55%, rgba(98, 0, 255, 0.08), transparent 34%),
     linear-gradient(180deg, #02030b 0%, #05081a 35%, #040817 68%, #030611 100%);
   background-attachment: fixed;
@@ -6566,26 +6573,106 @@ body::before {
   z-index: 0;
   opacity: 0.9;
   background-image:
-    radial-gradient(circle at 4% 8%, rgba(255,255,255,0.95) 0 1px, transparent 1.6px),
-    radial-gradient(circle at 12% 24%, rgba(110,232,255,0.9) 0 1px, transparent 1.7px),
-    radial-gradient(circle at 21% 16%, rgba(195,135,255,0.85) 0 1.1px, transparent 1.8px),
-    radial-gradient(circle at 30% 42%, rgba(255,255,255,0.9) 0 1px, transparent 1.7px),
-    radial-gradient(circle at 40% 12%, rgba(103,216,255,0.9) 0 1px, transparent 1.7px),
-    radial-gradient(circle at 48% 30%, rgba(255,255,255,0.92) 0 1px, transparent 1.7px),
-    radial-gradient(circle at 57% 18%, rgba(178,120,255,0.88) 0 1.1px, transparent 1.8px),
-    radial-gradient(circle at 66% 38%, rgba(255,255,255,0.95) 0 1px, transparent 1.7px),
-    radial-gradient(circle at 73% 10%, rgba(96,233,255,0.88) 0 1px, transparent 1.7px),
-    radial-gradient(circle at 82% 28%, rgba(255,255,255,0.9) 0 1px, transparent 1.7px),
-    radial-gradient(circle at 91% 16%, rgba(182,126,255,0.9) 0 1.1px, transparent 1.8px),
-    radial-gradient(circle at 8% 62%, rgba(255,255,255,0.9) 0 1px, transparent 1.7px),
-    radial-gradient(circle at 17% 78%, rgba(102,224,255,0.88) 0 1px, transparent 1.7px),
-    radial-gradient(circle at 28% 70%, rgba(255,255,255,0.92) 0 1px, transparent 1.7px),
-    radial-gradient(circle at 36% 88%, rgba(184,118,255,0.85) 0 1.1px, transparent 1.8px),
-    radial-gradient(circle at 47% 72%, rgba(255,255,255,0.92) 0 1px, transparent 1.7px),
-    radial-gradient(circle at 58% 84%, rgba(88,224,255,0.88) 0 1px, transparent 1.7px),
-    radial-gradient(circle at 69% 74%, rgba(255,255,255,0.94) 0 1px, transparent 1.7px),
-    radial-gradient(circle at 79% 88%, rgba(195,138,255,0.86) 0 1.1px, transparent 1.8px),
-    radial-gradient(circle at 90% 72%, rgba(255,255,255,0.92) 0 1px, transparent 1.7px);
+    radial-gradient(
+      circle at 4% 8%,
+      rgba(255, 255, 255, 0.95) 0 1px,
+      transparent 1.6px
+    ),
+    radial-gradient(
+      circle at 12% 24%,
+      rgba(110, 232, 255, 0.9) 0 1px,
+      transparent 1.7px
+    ),
+    radial-gradient(
+      circle at 21% 16%,
+      rgba(195, 135, 255, 0.85) 0 1.1px,
+      transparent 1.8px
+    ),
+    radial-gradient(
+      circle at 30% 42%,
+      rgba(255, 255, 255, 0.9) 0 1px,
+      transparent 1.7px
+    ),
+    radial-gradient(
+      circle at 40% 12%,
+      rgba(103, 216, 255, 0.9) 0 1px,
+      transparent 1.7px
+    ),
+    radial-gradient(
+      circle at 48% 30%,
+      rgba(255, 255, 255, 0.92) 0 1px,
+      transparent 1.7px
+    ),
+    radial-gradient(
+      circle at 57% 18%,
+      rgba(178, 120, 255, 0.88) 0 1.1px,
+      transparent 1.8px
+    ),
+    radial-gradient(
+      circle at 66% 38%,
+      rgba(255, 255, 255, 0.95) 0 1px,
+      transparent 1.7px
+    ),
+    radial-gradient(
+      circle at 73% 10%,
+      rgba(96, 233, 255, 0.88) 0 1px,
+      transparent 1.7px
+    ),
+    radial-gradient(
+      circle at 82% 28%,
+      rgba(255, 255, 255, 0.9) 0 1px,
+      transparent 1.7px
+    ),
+    radial-gradient(
+      circle at 91% 16%,
+      rgba(182, 126, 255, 0.9) 0 1.1px,
+      transparent 1.8px
+    ),
+    radial-gradient(
+      circle at 8% 62%,
+      rgba(255, 255, 255, 0.9) 0 1px,
+      transparent 1.7px
+    ),
+    radial-gradient(
+      circle at 17% 78%,
+      rgba(102, 224, 255, 0.88) 0 1px,
+      transparent 1.7px
+    ),
+    radial-gradient(
+      circle at 28% 70%,
+      rgba(255, 255, 255, 0.92) 0 1px,
+      transparent 1.7px
+    ),
+    radial-gradient(
+      circle at 36% 88%,
+      rgba(184, 118, 255, 0.85) 0 1.1px,
+      transparent 1.8px
+    ),
+    radial-gradient(
+      circle at 47% 72%,
+      rgba(255, 255, 255, 0.92) 0 1px,
+      transparent 1.7px
+    ),
+    radial-gradient(
+      circle at 58% 84%,
+      rgba(88, 224, 255, 0.88) 0 1px,
+      transparent 1.7px
+    ),
+    radial-gradient(
+      circle at 69% 74%,
+      rgba(255, 255, 255, 0.94) 0 1px,
+      transparent 1.7px
+    ),
+    radial-gradient(
+      circle at 79% 88%,
+      rgba(195, 138, 255, 0.86) 0 1.1px,
+      transparent 1.8px
+    ),
+    radial-gradient(
+      circle at 90% 72%,
+      rgba(255, 255, 255, 0.92) 0 1px,
+      transparent 1.7px
+    );
   animation: eonlabs-stars-twinkle 5.5s ease-in-out infinite alternate;
 }
 
@@ -6593,15 +6680,47 @@ body::after {
   z-index: 0;
   opacity: 0.7;
   background-image:
-    radial-gradient(circle at 10% 14%, rgba(255,255,255,0.95) 0 2px, transparent 3px),
-    radial-gradient(circle at 24% 52%, rgba(104,233,255,0.9) 0 2px, transparent 3px),
-    radial-gradient(circle at 44% 18%, rgba(200,140,255,0.95) 0 2px, transparent 3px),
-    radial-gradient(circle at 63% 44%, rgba(255,255,255,0.95) 0 2px, transparent 3px),
-    radial-gradient(circle at 81% 22%, rgba(96,233,255,0.9) 0 2px, transparent 3px),
-    radial-gradient(circle at 14% 82%, rgba(255,255,255,0.9) 0 2px, transparent 3px),
-    radial-gradient(circle at 54% 76%, rgba(186,116,255,0.95) 0 2px, transparent 3px),
-    radial-gradient(circle at 88% 84%, rgba(255,255,255,0.92) 0 2px, transparent 3px);
-  filter: drop-shadow(0 0 8px rgba(255,255,255,0.25));
+    radial-gradient(
+      circle at 10% 14%,
+      rgba(255, 255, 255, 0.95) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 24% 52%,
+      rgba(104, 233, 255, 0.9) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 44% 18%,
+      rgba(200, 140, 255, 0.95) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 63% 44%,
+      rgba(255, 255, 255, 0.95) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 81% 22%,
+      rgba(96, 233, 255, 0.9) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 14% 82%,
+      rgba(255, 255, 255, 0.9) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 54% 76%,
+      rgba(186, 116, 255, 0.95) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 88% 84%,
+      rgba(255, 255, 255, 0.92) 0 2px,
+      transparent 3px
+    );
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.25));
   animation: eonlabs-stars-sparkle 3.2s ease-in-out infinite alternate;
 }
 
@@ -6630,15 +6749,14 @@ main::before {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.02) 0%,
-      rgba(255,255,255,0) 18%,
-      rgba(120,50,255,0.03) 45%,
-      rgba(0,190,255,0.025) 72%,
-      rgba(255,255,255,0) 100%
-    );
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0) 18%,
+    rgba(120, 50, 255, 0.03) 45%,
+    rgba(0, 190, 255, 0.025) 72%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 /* Animações */
@@ -6686,5 +6804,46 @@ main::before {
   body::before,
   body::after {
     animation: none;
+  }
+}
+
+/* ==========================================================
+   EONLABS | FOOTER — CENTRALIZAÇÃO MOBILE
+   Aplica-se exclusivamente a smartphones até 600px.
+   Preserva o layout desktop e tablet.
+   ========================================================== */
+
+@media (max-width: 600px) {
+  .footer .footer__meta,
+  .footer--cosmic .footer__meta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    align-items: center;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    gap: 0.65rem;
+    margin-inline: auto;
+
+    text-align: center;
+  }
+
+  .footer .footer__meta > p,
+  .footer--cosmic .footer__meta > p {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+
+    text-align: center;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+  }
+
+  .footer .footer__technology,
+  .footer--cosmic .footer__technology {
+    text-align: center;
   }
 }

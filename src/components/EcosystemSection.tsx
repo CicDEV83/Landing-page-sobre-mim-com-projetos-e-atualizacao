@@ -144,7 +144,10 @@ export function EcosystemSection() {
         </header>
 
         <div className="ecosystem__grid">
-          <article id="projetos" className="ecosystem__card ecosystem__card--projects">
+          <article
+            id="projetos"
+            className="ecosystem__card ecosystem__card--projects"
+          >
             <div className="ecosystem__icon">
               <EcosystemIcon type="projects" />
             </div>
@@ -165,13 +168,16 @@ export function EcosystemSection() {
               <span aria-hidden="true">→</span>
             </button>
           </article>
-
-
         </div>
 
         <p className="ecosystem__footer-note">
-          <span aria-hidden="true">✧</span>
-          Um ecossistema preparado para novas soluções e conexões.
+          <span className="ecosystem__footer-star" aria-hidden="true">
+            ✧
+          </span>
+
+          <span className="ecosystem__footer-text">
+            Um ecossistema preparado para novas soluções e conexões.
+          </span>
         </p>
       </div>
 
@@ -187,7 +193,9 @@ export function EcosystemSection() {
           <div
             ref={dialogRef}
             className={`ecosystem__dialog${
-              activeView === "projects" ? " ecosystem__dialog--products" : " ecosystem__dialog--partners"
+              activeView === "projects"
+                ? " ecosystem__dialog--products"
+                : " ecosystem__dialog--partners"
             }`}
             role="dialog"
             aria-modal="true"
@@ -223,8 +231,6 @@ export function EcosystemSection() {
             </div>
 
             {activeView === "projects" && <Carousel />}
-
-
           </div>
         </div>
       )}

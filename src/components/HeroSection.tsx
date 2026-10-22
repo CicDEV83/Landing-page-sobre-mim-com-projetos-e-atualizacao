@@ -328,7 +328,10 @@ export function HeroSection() {
             transformar desafios em inovação.
           </p>
 
-          <ul className="hero__technologies" aria-label="Tecnologias utilizadas">
+          <ul
+            className="hero__technologies"
+            aria-label="Tecnologias utilizadas"
+          >
             {technologies.map((technology) => (
               <li
                 className={`hero__technology hero__technology--${technology.id}`}
@@ -343,7 +346,10 @@ export function HeroSection() {
           </ul>
 
           <div className="hero__actions">
-            <a className="button button--primary animate-neon-pulse" href="#solutions">
+            <a
+              className="button button--primary animate-neon-pulse"
+              href="#solutions"
+            >
               Conhecer soluções <span aria-hidden="true">↗</span>
             </a>
             <a className="button button--secondary" href="#projetos">
@@ -361,16 +367,25 @@ export function HeroSection() {
           </a>
         </div>
 
-        <div className="hero__visual" aria-label="Tecnologia e soluções EonLabs">
+        <div
+          className="hero__visual"
+          aria-label="Tecnologia e soluções EonLabs"
+        >
           <div className="hero__visual-aura" aria-hidden="true" />
-          <div className="hero__hologram hero__hologram--top" aria-hidden="true">
+          <div
+            className="hero__hologram hero__hologram--top"
+            aria-hidden="true"
+          >
             <span className="hero__hologram-indicator" />
             SYSTEM ONLINE
           </div>
 
           <TypingHologram />
 
-          <div className="hero__highlights" aria-label="Diferenciais da EonLabs">
+          <div
+            className="hero__highlights"
+            aria-label="Diferenciais da EonLabs"
+          >
             {highlights.map((highlight) => (
               <div
                 className={`hero__highlight hero__highlight--${highlight.id}`}
@@ -387,7 +402,10 @@ export function HeroSection() {
             ))}
           </div>
 
-          <div className="hero__hologram hero__hologram--bottom" aria-hidden="true">
+          <div
+            className="hero__hologram hero__hologram--bottom"
+            aria-hidden="true"
+          >
             <span className="hero__hologram-indicator" />
             BUILDING DIGITAL FUTURES
           </div>

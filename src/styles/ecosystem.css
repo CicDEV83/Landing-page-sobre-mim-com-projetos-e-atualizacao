@@ -334,19 +334,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.65rem;
+  gap: clamp(0.55rem, 2vw, 0.9rem);
 
-  margin: 2rem auto 0;
+  width: fit-content;
+  max-width: min(100%, 42rem);
+  margin: clamp(2rem, 4vw, 3rem) auto 0;
+  padding-inline: 0.5rem;
 
   color: #b9b8d5;
-  text-align: center;
-  font-size: 0.82rem;
+  text-align: left;
+  font-size: clamp(0.78rem, 2.5vw, 0.95rem);
   line-height: 1.6;
 }
 
-.ecosystem__footer-note span {
+.ecosystem__footer-star {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+
   color: #bc82ff;
-  font-size: 1.2rem;
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
+  line-height: 1;
+}
+
+.ecosystem__footer-text {
+  display: block;
+  min-width: 0;
+  color: inherit;
+  font-size: inherit;
+  overflow-wrap: break-word;
 }
 
 /* ==========================================================
@@ -630,7 +647,6 @@
   }
 }
 
-
 /* EONLABS - CATALOGO RESPONSIVO V1 */
 
 .ecosystem__dialog--products {
@@ -675,12 +691,9 @@
   }
 }
 
-
 /* EONLABS - LAYOUT PRODUTOS E PARCEIROS V1 */
 
-.ecosystem__grid:has(
-  > .ecosystem__card--projects:only-child
-) {
+.ecosystem__grid:has(> .ecosystem__card--projects:only-child) {
   grid-template-columns: minmax(0, 720px);
   justify-content: center;
 }
