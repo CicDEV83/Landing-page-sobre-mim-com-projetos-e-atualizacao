@@ -1,18 +1,16 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-
 import { App } from "./app/App";
-import "./styles/globals.css";
+import "./styles/global/tokens.css";
+import "./styles/global/globals.css";
 
-const rootElement = document.getElementById("root");
+const container = document.getElementById("root");
 
-if (!rootElement) {
-  throw new Error(
-    "Elemento root não encontrado. A aplicação não pôde ser inicializada.",
-  );
+if (!container) {
+  throw new Error("Elemento #root nao encontrado.");
 }
 
-createRoot(rootElement).render(
+createRoot(container).render(
   <StrictMode>
     <App />
   </StrictMode>,

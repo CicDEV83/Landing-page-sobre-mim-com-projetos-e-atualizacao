@@ -1,0 +1,530 @@
+
+/* =========================================
+   EONLABS — CONTATO E SOLICITACAO DE PROJETO
+   ========================================= */
+
+.section {
+  position: relative;
+  padding: 100px 0 112px;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(30, 144, 255, 0.09),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 88% 75%,
+      rgba(124, 58, 237, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(
+      180deg,
+      #071733 0%,
+      #06132c 100%
+    );
+
+  scroll-margin-top: 110px;
+}
+
+.container {
+  width: min(1280px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+/* ESTRUTURA */
+
+.grid {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.6fr)
+    minmax(300px, 0.8fr);
+  align-items: start;
+  gap: 30px;
+}
+
+.formColumn {
+  min-width: 0;
+}
+
+/* CABECALHO */
+
+.header {
+  margin-bottom: 30px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #27c2ff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: #f5f8ff;
+  font-size: clamp(2.25rem, 4vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.description {
+  max-width: 690px;
+  margin: 18px 0 0;
+  color: rgba(218, 228, 248, 0.82);
+  font-size: 1.04rem;
+  line-height: 1.75;
+}
+
+/* FORMULARIO */
+
+.form {
+  display: grid;
+  gap: 20px;
+}
+
+.fieldsGrid {
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    minmax(0, 1fr)
+  );
+  gap: 18px;
+}
+
+.field,
+.fullWidth {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 9px;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.label {
+  color: #edf4ff;
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
+.label > span[aria-hidden] {
+  color: #48caff;
+}
+
+.optional {
+  color: rgba(186, 201, 231, 0.66);
+  font-size: 0.78rem;
+  font-weight: 400;
+}
+
+.input,
+.textarea {
+  box-sizing: border-box;
+  width: 100%;
+
+  border: 1px solid rgba(74, 119, 196, 0.4);
+  border-radius: 13px;
+
+  background: rgba(17, 37, 76, 0.94);
+  color: #f5f8ff;
+
+  font: inherit;
+  font-size: 0.95rem;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.input {
+  min-height: 53px;
+  padding: 13px 16px;
+}
+
+.textarea {
+  min-height: 160px;
+  padding: 16px;
+  resize: vertical;
+  line-height: 1.65;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(188, 206, 235, 0.51);
+}
+
+.input:hover,
+.textarea:hover {
+  border-color: rgba(83, 155, 232, 0.65);
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #27c2ff;
+  background: rgba(19, 43, 86, 0.98);
+  box-shadow: 0 0 0 3px rgba(39, 194, 255, 0.13);
+}
+
+.characterCount {
+  align-self: flex-end;
+  color: rgba(192, 207, 235, 0.66);
+  font-size: 0.76rem;
+}
+
+/* BOTAO DE ENVIO */
+
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  min-height: 54px;
+  width: 100%;
+
+  padding: 14px 22px;
+
+  border: 0;
+  border-radius: 14px;
+
+  background: linear-gradient(
+    100deg,
+    #09b9fa 0%,
+    #3678ff 48%,
+    #8c35ec 100%
+  );
+
+  box-shadow:
+    0 14px 30px rgba(20, 80, 216, 0.22);
+
+  color: #ffffff;
+  font: inherit;
+  font-size: 0.96rem;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.submitButton:focus-visible {
+  outline: 3px solid #9ee7ff;
+  outline-offset: 4px;
+}
+
+.formNotice {
+  margin: 0;
+  color: rgba(188, 204, 233, 0.76);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.emailFeedback {
+  display: grid;
+  gap: 12px;
+
+  padding: 18px;
+
+  border: 1px solid rgba(68, 155, 255, 0.35);
+  border-radius: 14px;
+
+  background: rgba(23, 64, 119, 0.3);
+  color: #d8eaff;
+
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.emailFallback {
+  color: #6cceff;
+  font-weight: 700;
+  text-underline-offset: 4px;
+}
+
+/* CANAIS DE CONTATO */
+
+.channels {
+  display: grid;
+  align-content: start;
+  gap: 15px;
+
+  padding-top: 8px;
+}
+
+.channelsHeader {
+  margin-bottom: 14px;
+}
+
+.channelsEyebrow {
+  margin: 0 0 12px;
+  color: #27c2ff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.channelsTitle {
+  margin: 0;
+  color: #f5f8ff;
+  font-size: clamp(1.45rem, 2.2vw, 1.95rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.channelsDescription {
+  margin: 14px 0 0;
+  color: rgba(218, 228, 248, 0.8);
+  font-size: 0.93rem;
+  line-height: 1.7;
+}
+
+/* CARDS DE ATENDIMENTO */
+
+.channelCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  min-width: 0;
+  padding: 19px;
+
+  border: 1px solid rgba(74, 119, 196, 0.36);
+  border-radius: 18px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(18, 39, 80, 0.98),
+    rgba(12, 25, 56, 0.98)
+  );
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.channelCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(39, 194, 255, 0.55);
+  background: rgba(20, 44, 91, 0.98);
+}
+
+.channelCard:focus-visible {
+  outline: 3px solid #8ce2ff;
+  outline-offset: 4px;
+}
+
+.channelIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 49px;
+  height: 49px;
+
+  border-radius: 14px;
+
+  color: #ffffff;
+}
+
+.whatsappIcon {
+  background: linear-gradient(
+    135deg,
+    #0abb73,
+    #078f5d
+  );
+}
+
+.emailIcon {
+  background: linear-gradient(
+    135deg,
+    #1a9cff,
+    #5057fb
+  );
+}
+
+.channelText {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.channelText strong {
+  color: #ffffff;
+  font-size: 0.96rem;
+  font-weight: 700;
+}
+
+.channelText > span {
+  color: rgba(210, 224, 246, 0.72);
+  font-size: 0.78rem;
+}
+
+.channelText .channelValue {
+  overflow-wrap: anywhere;
+  color: #dceaff;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.channelArrow {
+  margin-left: auto;
+  color: #5bcfff;
+  font-size: 1.2rem;
+}
+
+/* CARD INSTITUCIONAL */
+
+.informationCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+
+  margin-top: 8px;
+  padding: 20px;
+
+  border: 1px solid rgba(74, 119, 196, 0.3);
+  border-radius: 18px;
+
+  background: rgba(14, 31, 65, 0.75);
+}
+
+.informationIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 31px;
+  height: 31px;
+
+  border-radius: 10px;
+  background: rgba(39, 194, 255, 0.12);
+  color: #47caff;
+  font-weight: 800;
+}
+
+.informationCard strong {
+  color: #f5f8ff;
+  font-size: 0.9rem;
+}
+
+.informationCard p {
+  margin: 8px 0 0;
+  color: rgba(205, 220, 243, 0.78);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+/* TABLETS */
+
+@media (max-width: 991px) {
+  .section {
+    padding: 88px 0;
+  }
+
+  .container {
+    width: min(100% - 32px, 1000px);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 46px;
+  }
+
+  .channels {
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    );
+  }
+
+  .channelsHeader,
+  .informationCard {
+    grid-column: 1 / -1;
+  }
+}
+
+/* CELULARES */
+
+@media (max-width: 767px) {
+  .section {
+    padding: 72px 0;
+    scroll-margin-top: 100px;
+  }
+
+  .container {
+    width: calc(100% - 24px);
+  }
+
+  .title {
+    font-size: 2.15rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .fieldsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .fullWidth {
+    grid-column: auto;
+  }
+
+  .channels {
+    grid-template-columns: 1fr;
+  }
+
+  .channelsHeader,
+  .informationCard {
+    grid-column: auto;
+  }
+
+  .channelCard {
+    padding: 16px;
+  }
+
+  .submitButton {
+    font-size: 0.9rem;
+  }
+}
+
+/* ACESSIBILIDADE */
+
+@media (prefers-reduced-motion: reduce) {
+  .input,
+  .textarea,
+  .submitButton,
+  .channelCard {
+    transition: none;
+  }
+
+  .submitButton:hover,
+  .channelCard:hover {
+    transform: none;
+  }
+}

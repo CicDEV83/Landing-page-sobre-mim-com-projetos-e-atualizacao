@@ -1,0 +1,168 @@
+/* =========================================
+   EONLABS — FOOTER INSTITUCIONAL
+   ========================================= */
+
+.footer {
+  position: relative;
+  width: 100%;
+  padding: 38px 0;
+
+  border-top: 1px solid rgba(74, 119, 196, 0.25);
+
+  background: linear-gradient(180deg, #06132c 0%, #040d20 100%);
+}
+
+/* CONTAINER PRINCIPAL */
+
+.container {
+  width: min(1280px, calc(100% - 48px));
+  margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 32px;
+}
+
+/* IDENTIDADE EONLABS */
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 8px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: baseline;
+
+  text-decoration: none;
+
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1;
+
+  letter-spacing: -0.055em;
+
+  transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+  opacity: 0.85;
+}
+
+.logo:focus-visible {
+  outline: 3px solid #8ce2ff;
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+
+.logoEon {
+  color: #ffffff;
+}
+
+.logoLabs {
+  color: #49c9ff;
+}
+
+.logoDot {
+  color: #8b5cf6;
+}
+
+/* POSICIONAMENTO INSTITUCIONAL */
+
+.tagline {
+  margin: 0;
+
+  color: rgba(189, 205, 234, 0.72);
+
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.6;
+
+  letter-spacing: 0.01em;
+}
+
+/* DIREITOS AUTORAIS */
+
+.copyright {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  text-align: right;
+}
+
+.copyright p {
+  margin: 0;
+
+  color: rgba(189, 205, 234, 0.72);
+
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.copyright span {
+  color: rgba(189, 205, 234, 0.72);
+}
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+
+@media (max-width: 991px) {
+  .container {
+    width: min(100% - 32px, 1000px);
+  }
+}
+
+@media (max-width: 767px) {
+  .footer {
+    padding: 34px 0;
+  }
+
+  .container {
+    width: calc(100% - 24px);
+
+    flex-direction: column;
+    align-items: center;
+
+    gap: 22px;
+  }
+
+  .brand {
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo {
+    font-size: 1.55rem;
+  }
+
+  .tagline {
+    text-align: center;
+  }
+
+  .copyright {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .copyright p {
+    font-size: 0.78rem;
+  }
+}
+
+/* =========================================
+   ACESSIBILIDADE
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .logo {
+    transition: none;
+  }
+}

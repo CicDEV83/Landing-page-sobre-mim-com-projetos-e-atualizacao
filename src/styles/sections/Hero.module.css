@@ -1,0 +1,543 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 73% 42%,
+      rgba(33, 75, 221, 0.25),
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse at 99% 89%,
+      rgba(0, 203, 185, 0.12),
+      transparent 38%
+    ),
+    var(--color-background);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  align-items: center;
+  gap: clamp(2rem, 4vw, 4rem);
+  width: min(calc(100% - 3rem), 1200px);
+  min-height: 610px;
+  margin: 0 auto;
+  padding: 4.5rem 0 5rem;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  display: block;
+  color: #4cb7ff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+}
+
+.title {
+  max-width: 620px;
+  margin: 1rem 0 1.3rem;
+  font-size: clamp(2.65rem, 4.4vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.075;
+  letter-spacing: -0.055em;
+}
+
+.title span {
+  color: #6387ff;
+  background: linear-gradient(100deg, #19c9ed, #736dff, #ac5eff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  max-width: 500px;
+  margin: 0;
+  color: #afbdd7;
+  font-size: clamp(0.98rem, 1.3vw, 1.08rem);
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 2rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 9px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.primaryButton {
+  background: linear-gradient(105deg, #1688ff, #8430f4);
+  box-shadow: 0 8px 28px rgba(53, 86, 243, 0.28);
+}
+
+.secondaryButton {
+  border: 1px solid #4168a7;
+  background: rgba(5, 17, 41, 0.38);
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  filter: brightness(1.15);
+}
+
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible {
+  outline: 2px solid #28d9ff;
+  outline-offset: 4px;
+}
+
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.6rem;
+  margin-top: 3.2rem;
+  color: #99aecf;
+  font-size: 0.74rem;
+}
+
+.visual {
+  position: relative;
+  min-width: 0;
+  padding: 1.5rem 1.7rem 2.5rem 0;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 24% 76%;
+  overflow: hidden;
+  width: 100%;
+  min-height: 405px;
+  border: 1px solid rgba(73, 158, 255, 0.48);
+  border-radius: 17px;
+  background: #09162e;
+  box-shadow: 0 22px 70px rgba(0, 23, 92, 0.4);
+  transform: perspective(1400px) rotateY(-4deg);
+}
+
+.sidebar {
+  padding: 1.2rem 0.55rem;
+  border-right: 1px solid rgba(125, 153, 210, 0.1);
+  background: #09132a;
+}
+
+.sidebarBrand {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+  color: white;
+  font-size: clamp(0.55rem, 0.85vw, 0.8rem);
+}
+
+.brandSymbol {
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  border-radius: 5px;
+  background: #168cfa;
+  color: #071326;
+  font-weight: 900;
+}
+
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 0.4rem;
+  border-radius: 5px;
+  color: #8395b9;
+  font-size: clamp(0.46rem, 0.65vw, 0.67rem);
+  white-space: nowrap;
+}
+
+.sidebarActive {
+  background: #152e5b;
+  color: #e8f2ff;
+}
+
+.sidebarIcon {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border: 1px solid #638cff;
+  border-radius: 3px;
+}
+
+.dashboardMain {
+  min-width: 0;
+  padding: 1rem;
+}
+
+.dashboardTop,
+.panelHeading,
+.projectRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.dashboardBreadcrumb,
+.dashboardSubtitle,
+.panelHeading span {
+  color: #7990b7;
+  font-size: 0.57rem;
+}
+
+.avatar {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border: 1px solid #304b78;
+  border-radius: 50%;
+  color: #b8dcff;
+  font-size: 0.53rem;
+}
+
+.dashboardTitle {
+  margin: 1rem 0 0.15rem;
+  font-size: clamp(0.85rem, 1.2vw, 1.1rem);
+}
+
+.dashboardSubtitle {
+  margin: 0;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+
+.metric,
+.chartPanel,
+.projectsPanel {
+  min-width: 0;
+  border: 1px solid #1b2e50;
+  border-radius: 7px;
+  background: #111e37;
+}
+
+.metric {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.65rem;
+}
+
+.metric span,
+.metric small {
+  color: #899bbf;
+  font-size: 0.55rem;
+}
+
+.metric strong {
+  color: white;
+  font-size: clamp(0.9rem, 1.4vw, 1.3rem);
+}
+
+.metric small {
+  color: #28d8ac;
+}
+
+.chartPanel {
+  margin-top: 0.6rem;
+  padding: 0.85rem;
+}
+
+.panelHeading strong,
+.projectsPanel > strong {
+  font-size: 0.66rem;
+}
+
+.chart {
+  display: flex;
+  height: 93px;
+  align-items: end;
+  justify-content: space-between;
+  gap: 0.45rem;
+  margin-top: 0.8rem;
+  padding-top: 0.5rem;
+  border-bottom: 1px solid #29446e;
+  background: repeating-linear-gradient(
+    to top,
+    transparent 0 23px,
+    rgba(121, 154, 210, 0.1) 24px
+  );
+}
+
+.chartBar {
+  flex: 1;
+  min-width: 0;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(to top, #1754b5, #13c4fc);
+  opacity: 0.85;
+}
+
+.projectsPanel {
+  margin-top: 0.6rem;
+  padding: 0.75rem;
+}
+
+.projectRow {
+  margin-top: 0.55rem;
+  color: #abbddd;
+  font-size: 0.57rem;
+}
+
+.projectRow small {
+  color: #30ceae;
+  font-size: 0.52rem;
+}
+
+.phone {
+  position: absolute;
+  z-index: 2;
+  top: 11%;
+  right: -3%;
+  overflow: hidden;
+  width: 28%;
+  min-width: 115px;
+  max-width: 170px;
+  min-height: 310px;
+  padding: 0.65rem;
+  border: 4px solid #15294e;
+  border-radius: 26px;
+  background: #081329;
+  box-shadow:
+    0 0 0 1px #3e76cd,
+    0 18px 45px rgba(0, 0, 0, 0.55);
+  transform: rotate(3deg);
+}
+
+.phoneCamera {
+  width: 34%;
+  height: 9px;
+  margin: -0.45rem auto 1.5rem;
+  border-radius: 0 0 9px 9px;
+  background: #020714;
+}
+
+.phoneContent {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.phoneGreeting {
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.phoneContent > small {
+  color: #91a6c5;
+  font-size: 0.54rem;
+}
+
+.phoneBanner {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  min-height: 105px;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0.7rem 0;
+  padding: 0.65rem;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #036ef1, #673df5);
+}
+
+.phoneBanner strong {
+  max-width: 100px;
+  font-size: 0.68rem;
+  line-height: 1.3;
+}
+
+.phoneBanner span {
+  max-width: 95px;
+  font-size: 0.49rem;
+}
+
+.phoneBars {
+  display: flex;
+  height: 30px;
+  align-items: end;
+  gap: 4px;
+}
+
+.phoneBars i {
+  width: 9px;
+  border-radius: 2px 2px 0 0;
+  background: #9ad2ff;
+}
+
+.phoneStat {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.9rem 0.4rem;
+  border-bottom: 1px solid #263758;
+  color: #aabfe2;
+  font-size: 0.63rem;
+}
+
+.phoneStat strong {
+  color: #38d7c7;
+}
+
+.demoLabel {
+  position: absolute;
+  right: 0;
+  bottom: 0.2rem;
+  color: #8195b6;
+  font-size: 0.65rem;
+}
+
+@media (max-width: 1050px) {
+  .container {
+    gap: 1.8rem;
+  }
+
+  .title {
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  }
+
+  .visual {
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 820px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+  }
+
+  .content {
+    max-width: 680px;
+  }
+
+  .title {
+    font-size: clamp(2.8rem, 7vw, 4rem);
+  }
+
+  .visual {
+    width: min(100%, 680px);
+    margin: 0 auto;
+    padding-right: 2rem;
+  }
+
+  .dashboard {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: min(calc(100% - 2rem), 1200px);
+    padding-top: 3rem;
+  }
+
+  .eyebrow {
+    font-size: 0.59rem;
+  }
+
+  .title {
+    font-size: clamp(2.4rem, 10vw, 3.1rem);
+  }
+
+  .highlights {
+    margin-top: 2rem;
+  }
+
+  .visual {
+    padding-right: 0.8rem;
+  }
+
+  .dashboard {
+    min-height: 320px;
+    grid-template-columns: 20% 80%;
+  }
+
+  .sidebar {
+    padding: 0.7rem 0.2rem;
+  }
+
+  .sidebarBrand strong,
+  .sidebarItem {
+    font-size: 0;
+  }
+
+  .sidebarItem {
+    justify-content: center;
+  }
+
+  .sidebarIcon {
+    width: 10px;
+    height: 10px;
+  }
+
+  .dashboardMain {
+    padding: 0.6rem;
+  }
+
+  .chart {
+    height: 65px;
+  }
+
+  .phone {
+    right: -1%;
+    min-width: 95px;
+    min-height: 255px;
+    padding: 0.4rem;
+  }
+
+  .phoneBanner {
+    min-height: 90px;
+    padding: 0.4rem;
+  }
+
+  .metric {
+    padding: 0.4rem;
+  }
+
+  .metric small {
+    display: none;
+  }
+
+  .demoLabel {
+    font-size: 0.55rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryButton,
+  .secondaryButton {
+    scroll-behavior: auto;
+  }
+}

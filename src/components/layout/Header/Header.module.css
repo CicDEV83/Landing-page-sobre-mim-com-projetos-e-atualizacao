@@ -1,0 +1,187 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  border-bottom: 1px solid rgba(115, 152, 221, 0.09);
+  background: rgba(8, 15, 32, 0.94);
+}
+
+.inner {
+  width: min(calc(100% - 3rem), 1200px);
+  min-height: 76px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+  color: #f5f7ff;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.055em;
+}
+
+.symbol {
+  display: grid;
+  width: 27px;
+  height: 27px;
+  place-items: center;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #20c9e8, #3279ff);
+  color: #081020;
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: -0.08em;
+}
+
+.brandAccent {
+  color: #f5f7ff;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.nav a {
+  color: #d6dff1;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.nav a:hover {
+  color: #38d8f4;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.8rem 1.15rem;
+  border-radius: 8px;
+  background: linear-gradient(110deg, #127dff, #8738f7);
+  box-shadow: 0 4px 19px rgba(57, 92, 255, 0.22);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: filter 160ms ease;
+}
+
+.cta:hover {
+  filter: brightness(1.13);
+}
+
+.menuButton {
+  display: none;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(127, 151, 207, 0.27);
+  border-radius: 9px;
+  background: #14213b;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.brand:focus-visible,
+.nav a:focus-visible,
+.cta:focus-visible,
+.menuButton:focus-visible {
+  outline: 2px solid #20c9e8;
+  outline-offset: 4px;
+}
+
+@media (max-width: 960px) {
+  .inner {
+    width: min(calc(100% - 2rem), 1200px);
+    min-height: 68px;
+  }
+
+  .menuButton {
+    display: inline-flex;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.5rem 1rem 1rem;
+    border-bottom: 1px solid rgba(115, 152, 221, 0.2);
+    background: #0c1730;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+  }
+
+  .navOpen {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 0.9rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+  }
+
+  .nav a:hover {
+    background: #142645;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    gap: 0.5rem;
+  }
+
+  .brand {
+    font-size: 1.1rem;
+  }
+
+  .cta {
+    padding: 0.7rem;
+    font-size: 0.72rem;
+  }
+
+  .actions {
+    gap: 0.45rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .cta {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav a,
+  .cta {
+    transition: none;
+  }
+}
