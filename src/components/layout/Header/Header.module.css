@@ -1,3 +1,8 @@
+/* =========================================
+   EONLABS — HEADER INSTITUCIONAL
+   Nova identidade visual
+   ========================================= */
+
 .header {
   position: sticky;
   top: 0;
@@ -11,53 +16,63 @@
   width: min(calc(100% - 3rem), 1200px);
   min-height: 76px;
   margin-inline: auto;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
 }
 
+/* =========================================
+   NOVA LOGOMARCA
+   ========================================= */
+
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  justify-content: flex-start;
+
   flex-shrink: 0;
+  min-width: 0;
+
   color: #f5f7ff;
   text-decoration: none;
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: -0.055em;
 }
 
-.symbol {
-  display: grid;
-  width: 27px;
-  height: 27px;
-  place-items: center;
-  border-radius: 8px;
-  background: linear-gradient(145deg, #20c9e8, #3279ff);
-  color: #081020;
-  font-weight: 900;
-  font-size: 1rem;
-  letter-spacing: -0.08em;
+.brandLogo {
+  display: block;
+
+  width: clamp(145px, 15vw, 190px);
+  height: auto;
+
+  max-width: 100%;
+  max-height: 64px;
+
+  object-fit: contain;
+  object-position: left center;
+
+  border: 0;
 }
 
-.brandAccent {
-  color: #f5f7ff;
-}
+/* =========================================
+   NAVEGAÇÃO
+   ========================================= */
 
 .nav {
   display: flex;
   align-items: center;
   justify-content: center;
+
   gap: clamp(1rem, 2vw, 2rem);
 }
 
 .nav a {
   color: #d6dff1;
+
   font-size: 0.85rem;
   font-weight: 500;
   text-decoration: none;
+
   transition: color 160ms ease;
 }
 
@@ -65,10 +80,15 @@
   color: #38d8f4;
 }
 
+/* =========================================
+   AÇÕES
+   ========================================= */
+
 .actions {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex-shrink: 0;
 }
 
 .cta {
@@ -76,15 +96,20 @@
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
+
   padding: 0.8rem 1.15rem;
   border-radius: 8px;
+
   background: linear-gradient(110deg, #127dff, #8738f7);
   box-shadow: 0 4px 19px rgba(57, 92, 255, 0.22);
+
   color: #fff;
+
   font-size: 0.82rem;
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
+
   transition: filter 160ms ease;
 }
 
@@ -92,19 +117,32 @@
   filter: brightness(1.13);
 }
 
+/* =========================================
+   MENU MOBILE
+   ========================================= */
+
 .menuButton {
   display: none;
+
   width: 42px;
   height: 42px;
+
   align-items: center;
   justify-content: center;
+
   border: 1px solid rgba(127, 151, 207, 0.27);
   border-radius: 9px;
+
   background: #14213b;
   color: #fff;
+
   cursor: pointer;
   font-size: 1.2rem;
 }
+
+/* =========================================
+   ACESSIBILIDADE
+   ========================================= */
 
 .brand:focus-visible,
 .nav a:focus-visible,
@@ -114,10 +152,19 @@
   outline-offset: 4px;
 }
 
+/* =========================================
+   RESPONSIVIDADE — TABLETS
+   ========================================= */
+
 @media (max-width: 960px) {
   .inner {
     width: min(calc(100% - 2rem), 1200px);
     min-height: 68px;
+  }
+
+  .brandLogo {
+    width: 155px;
+    max-height: 56px;
   }
 
   .menuButton {
@@ -129,12 +176,16 @@
     top: 100%;
     left: 0;
     right: 0;
+
     display: none;
     flex-direction: column;
     align-items: stretch;
+
     gap: 0;
     padding: 0.5rem 1rem 1rem;
+
     border-bottom: 1px solid rgba(115, 152, 221, 0.2);
+
     background: #0c1730;
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
   }
@@ -154,13 +205,18 @@
   }
 }
 
+/* =========================================
+   RESPONSIVIDADE — CELULARES
+   ========================================= */
+
 @media (max-width: 480px) {
   .inner {
     gap: 0.5rem;
   }
 
-  .brand {
-    font-size: 1.1rem;
+  .brandLogo {
+    width: clamp(108px, 30vw, 145px);
+    max-height: 48px;
   }
 
   .cta {
@@ -173,11 +229,24 @@
   }
 }
 
+/* =========================================
+   CELULARES PEQUENOS
+   ========================================= */
+
 @media (max-width: 360px) {
+  .brandLogo {
+    width: 125px;
+    max-height: 45px;
+  }
+
   .cta {
     display: none;
   }
 }
+
+/* =========================================
+   MOVIMENTO REDUZIDO
+   ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
   .nav a,

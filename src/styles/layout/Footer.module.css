@@ -1,51 +1,50 @@
 /* =========================================
    EONLABS — FOOTER INSTITUCIONAL
+   Ajuste de alinhamento e responsividade
    ========================================= */
 
 .footer {
   position: relative;
   width: 100%;
-  padding: 38px 0;
+  padding: 30px 0;
 
   border-top: 1px solid rgba(74, 119, 196, 0.25);
-
   background: linear-gradient(180deg, #06132c 0%, #040d20 100%);
 }
 
-/* CONTAINER PRINCIPAL */
+/* CONTAINER */
 
 .container {
-  width: min(1280px, calc(100% - 48px));
+  width: min(1200px, calc(100% - 48px));
   margin-inline: auto;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
-
-  gap: 32px;
+  column-gap: 48px;
 }
 
-/* IDENTIDADE EONLABS */
+/* IDENTIDADE */
 
 .brand {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  gap: 8px;
+  justify-content: center;
+  gap: 0;
+  min-width: 0;
 }
+
+/* LOGOMARCA */
 
 .logo {
   display: inline-flex;
-  align-items: baseline;
+  align-items: center;
+  justify-content: flex-start;
 
+  width: fit-content;
+  max-width: 100%;
   text-decoration: none;
-
-  font-size: 1.65rem;
-  font-weight: 800;
-  line-height: 1;
-
-  letter-spacing: -0.055em;
 
   transition: opacity 0.2s ease;
 }
@@ -60,29 +59,25 @@
   border-radius: 4px;
 }
 
-.logoEon {
-  color: #ffffff;
+.logoImage {
+  display: block;
+  width: clamp(190px, 19vw, 235px);
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;
+  border: 0;
 }
 
-.logoLabs {
-  color: #49c9ff;
-}
-
-.logoDot {
-  color: #8b5cf6;
-}
-
-/* POSICIONAMENTO INSTITUCIONAL */
+/* DESCRIÇÃO */
 
 .tagline {
-  margin: 0;
+  margin: -5px 0 0;
 
   color: rgba(189, 205, 234, 0.72);
-
   font-size: 0.82rem;
   font-weight: 400;
   line-height: 1.6;
-
   letter-spacing: 0.01em;
 }
 
@@ -92,15 +87,13 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-
+  align-self: center;
   text-align: right;
 }
 
 .copyright p {
   margin: 0;
-
   color: rgba(189, 205, 234, 0.72);
-
   font-size: 0.82rem;
   font-weight: 400;
   line-height: 1.7;
@@ -110,40 +103,51 @@
   color: rgba(189, 205, 234, 0.72);
 }
 
-/* =========================================
-   RESPONSIVIDADE
-   ========================================= */
+/* TABLETS */
 
 @media (max-width: 991px) {
   .container {
     width: min(100% - 32px, 1000px);
+    column-gap: 24px;
+  }
+
+  .logoImage {
+    width: 215px;
   }
 }
 
+/* TELAS MENORES */
+
 @media (max-width: 767px) {
   .footer {
-    padding: 34px 0;
+    padding: 28px 0;
   }
 
   .container {
     width: calc(100% - 24px);
-
-    flex-direction: column;
-    align-items: center;
-
-    gap: 22px;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    row-gap: 18px;
   }
 
   .brand {
+    width: 100%;
     align-items: center;
     text-align: center;
   }
 
   .logo {
-    font-size: 1.55rem;
+    justify-content: center;
+  }
+
+  .logoImage {
+    width: clamp(205px, 57vw, 245px);
+    max-width: 100%;
+    object-position: center;
   }
 
   .tagline {
+    margin: -4px 0 0;
     text-align: center;
   }
 
@@ -157,9 +161,31 @@
   }
 }
 
-/* =========================================
-   ACESSIBILIDADE
-   ========================================= */
+/* CELULARES PEQUENOS */
+
+@media (max-width: 360px) {
+  .footer {
+    padding: 24px 0;
+  }
+
+  .container {
+    row-gap: 14px;
+  }
+
+  .logoImage {
+    width: 205px;
+  }
+
+  .tagline {
+    font-size: 0.75rem;
+  }
+
+  .copyright p {
+    font-size: 0.72rem;
+  }
+}
+
+/* ACESSIBILIDADE */
 
 @media (prefers-reduced-motion: reduce) {
   .logo {

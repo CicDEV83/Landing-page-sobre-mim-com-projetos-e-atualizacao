@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+
 import { navigation } from "../../../data/navigation";
+import eonlabsLogo from "../../../assets/images/branding/eonlabs-logo.png";
+
 import styles from "../../../styles/layout/Header.module.css";
 
 export function Header() {
@@ -27,7 +30,9 @@ export function Header() {
     const media = window.matchMedia("(min-width: 961px)");
 
     function handleViewportChange() {
-      if (media.matches) setMenuOpen(false);
+      if (media.matches) {
+        setMenuOpen(false);
+      }
     }
 
     media.addEventListener("change", handleViewportChange);
@@ -50,12 +55,14 @@ export function Header() {
           aria-label="EonLabs — voltar ao início"
           onClick={closeMenu}
         >
-          <span className={styles.symbol} aria-hidden="true">
-            E
-          </span>
-          <span>
-            Eon<span className={styles.brandAccent}>Labs</span>
-          </span>
+          <img
+            src={eonlabsLogo}
+            alt="EonLabs — Tecnologia que impulsiona"
+            className={styles.brandLogo}
+            width={200}
+            height={72}
+            decoding="async"
+          />
         </a>
 
         <nav
@@ -64,11 +71,7 @@ export function Header() {
           aria-label="Navegação principal"
         >
           {navigation.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={closeMenu}
-            >
+            <a key={item.href} href={item.href} onClick={closeMenu}>
               {item.label}
             </a>
           ))}
@@ -89,9 +92,7 @@ export function Header() {
             aria-controls="eonlabs-navigation"
             onClick={() => setMenuOpen((current) => !current)}
           >
-            <span aria-hidden="true">
-              {menuOpen ? "✕" : "☰"}
-            </span>
+            <span aria-hidden="true">{menuOpen ? "✕" : "☰"}</span>
           </button>
         </div>
       </div>

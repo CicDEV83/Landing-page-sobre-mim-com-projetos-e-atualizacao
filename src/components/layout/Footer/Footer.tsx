@@ -1,3 +1,5 @@
+import eonlabsLogo from "../../../assets/images/branding/eonlabs-logo.png";
+
 import styles from "../../../styles/layout/Footer.module.css";
 
 export function Footer() {
@@ -12,9 +14,15 @@ export function Footer() {
             className={styles.logo}
             aria-label="EonLabs — Voltar ao início"
           >
-            <span className={styles.logoEon}>Eon</span>
-            <span className={styles.logoLabs}>Labs</span>
-            <span className={styles.logoDot}>.</span>
+            <img
+              src={eonlabsLogo}
+              alt="EonLabs — Tecnologia que impulsiona"
+              className={styles.logoImage}
+              width={300}
+              height={108}
+              loading="lazy"
+              decoding="async"
+            />
           </a>
 
           <p className={styles.tagline}>

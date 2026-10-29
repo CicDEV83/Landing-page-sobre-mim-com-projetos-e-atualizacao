@@ -5,7 +5,6 @@
 .casesSection {
   position: relative;
   padding: 112px 0 32px;
-
   background:
     radial-gradient(
       circle at 15% 20%,
@@ -20,32 +19,21 @@
     linear-gradient(180deg, #06122b 0%, #071733 100%);
 }
 
-/* =========================================
-   CONTAINER
-   ========================================= */
-
 .container {
   width: min(1280px, calc(100% - 48px));
   margin: 0 auto;
 }
-
-/* =========================================
-   CABEÇALHO
-   ========================================= */
-
 .header {
   margin-bottom: 40px;
   display: flex;
   justify-content: center;
   text-align: center;
 }
-
 .headingBlock {
   width: 100%;
   max-width: 760px;
   margin: 0 auto;
 }
-
 .eyebrow {
   margin: 0 0 12px;
   color: #27c2ff;
@@ -55,7 +43,6 @@
   text-transform: uppercase;
   text-align: center;
 }
-
 .title {
   margin: 0;
   color: #f5f8ff;
@@ -64,7 +51,6 @@
   letter-spacing: -0.04em;
   text-align: center;
 }
-
 .description {
   margin: 20px auto 0;
   max-width: 720px;
@@ -73,27 +59,19 @@
   line-height: 1.8;
   text-align: center;
 }
-
-/* =========================================
-   CARROSSEL
-   ========================================= */
-
 .carouselWrapper {
   position: relative;
   padding: 0 74px;
 }
-
 .viewport {
   overflow-x: auto;
   overflow-y: visible;
   scroll-behavior: smooth;
   scrollbar-width: none;
 }
-
 .viewport::-webkit-scrollbar {
   display: none;
 }
-
 .track {
   display: grid;
   grid-auto-flow: column;
@@ -101,135 +79,97 @@
   gap: 22px;
   align-items: stretch;
 }
-
-/* =========================================
-   CARDS
-   ========================================= */
-
 .card {
   min-height: 100%;
   scroll-snap-align: start;
-
   background: linear-gradient(
     180deg,
     rgba(16, 34, 70, 0.96) 0%,
     rgba(10, 24, 52, 0.98) 100%
   );
-
   border: 1px solid rgba(74, 119, 196, 0.35);
   border-radius: 28px;
-
   box-shadow:
     0 24px 64px rgba(3, 10, 24, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
-
   overflow: hidden;
 }
-
 .cardHeader {
   padding: 24px 24px 0;
 }
-
 .brandIdentity {
   display: flex;
   align-items: center;
   gap: 14px;
 }
-
 .brandLetter {
   width: 42px;
   height: 42px;
   border-radius: 14px;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   background: linear-gradient(135deg, #1a9cff 0%, #7c4dff 100%);
-
-  color: #ffffff;
+  color: #fff;
   font-weight: 800;
   font-size: 1rem;
-
   box-shadow: 0 12px 24px rgba(17, 91, 255, 0.2);
 }
-
 .brandText {
   display: grid;
   gap: 4px;
 }
-
 .brandName {
   margin: 0;
   color: #f6f9ff;
   font-size: 1.35rem;
   font-weight: 700;
 }
-
 .brandSegment {
   margin: 0;
   color: rgba(194, 208, 236, 0.72);
   font-size: 0.92rem;
 }
-
-/* =========================================
-   CONTEÚDO DOS CARDS
-   ========================================= */
-
 .cardContent {
   display: grid;
   gap: 22px;
   padding: 22px 24px 28px;
 }
-
 .caseTitle {
   margin: 0;
-  color: #ffffff;
+  color: #fff;
   font-size: 2rem;
   line-height: 1.05;
   letter-spacing: -0.03em;
 }
-
 .infoBlock {
   display: grid;
   gap: 8px;
 }
-
 .infoLabel {
   color: #27c2ff;
   font-size: 0.98rem;
   font-weight: 700;
 }
-
 .infoText {
   margin: 0;
   color: rgba(220, 229, 246, 0.88);
   line-height: 1.75;
   font-size: 1rem;
 }
-
-/* =========================================
-   IMAGENS DOS CASES
-   ========================================= */
-
 .previewBox {
   position: relative;
   overflow: hidden;
-
   border-radius: 22px;
   border: 1px solid rgba(76, 114, 184, 0.38);
-
   background: linear-gradient(
     180deg,
     rgba(9, 22, 48, 0.95) 0%,
     rgba(8, 18, 38, 1) 100%
   );
-
   min-height: 250px;
-
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
-
 .previewImage {
   display: block;
   width: 100%;
@@ -237,22 +177,15 @@
   object-fit: cover;
   object-position: center top;
 }
-
-/* =========================================
-   MÉTRICAS
-   ========================================= */
-
 .metrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
-
 .metricItem {
   display: grid;
   gap: 4px;
 }
-
 .metricValue {
   color: #27c2ff;
   font-size: 2rem;
@@ -260,252 +193,137 @@
   font-weight: 800;
   letter-spacing: -0.03em;
 }
-
 .metricLabel {
   color: rgba(196, 210, 236, 0.82);
   font-size: 0.95rem;
 }
-
-/* =========================================
-   DEPOIMENTOS
-   ========================================= */
-
 .testimonial {
   margin: 0;
   padding: 20px;
-
   border-radius: 20px;
   border: 1px solid rgba(69, 106, 176, 0.32);
-
   background: rgba(9, 20, 42, 0.68);
 }
-
 .testimonialQuote {
   margin: 0 0 14px;
   color: rgba(238, 244, 255, 0.94);
   line-height: 1.7;
   font-size: 1rem;
 }
-
 .testimonialFooter {
   display: grid;
   gap: 4px;
 }
-
 .testimonialFooter strong {
-  color: #ffffff;
+  color: #fff;
   font-size: 0.98rem;
 }
-
 .testimonialFooter span {
   color: rgba(194, 208, 236, 0.76);
   font-size: 0.9rem;
 }
-
-/* =========================================
-   BOTÕES — DESKTOP E NOTEBOOK
-   ========================================= */
-
 .carouselButton {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 3;
-
   width: 52px;
   height: 52px;
-
   border: 1px solid rgba(83, 123, 205, 0.36);
   border-radius: 16px;
-
   background: rgba(10, 21, 45, 0.94);
-
   color: #f3f7ff;
   font-size: 1.25rem;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   box-shadow: 0 16px 32px rgba(0, 8, 24, 0.3);
-
   cursor: pointer;
-
   transition:
     transform 0.2s ease,
     border-color 0.2s ease,
     background 0.2s ease,
     opacity 0.2s ease;
 }
-
 .carouselButton:hover:not(:disabled) {
   transform: translateY(-50%) scale(1.04);
   border-color: rgba(95, 170, 255, 0.48);
   background: rgba(14, 29, 60, 1);
 }
-
 .carouselButton:disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }
-
 .carouselButton:focus-visible {
   outline: 2px solid #27c2ff;
   outline-offset: 3px;
 }
-
 .carouselButtonPrev {
   left: 0;
 }
-
 .carouselButtonNext {
   right: 0;
 }
-
-/* =========================================
-   RESPONSIVIDADE — ATÉ 1200PX
-   ========================================= */
-
 @media (max-width: 1200px) {
   .track {
     grid-auto-columns: minmax(340px, 1fr);
   }
 }
-
-/* =========================================
-   RESPONSIVIDADE — TABLETS
-   ========================================= */
-
 @media (max-width: 991px) {
   .casesSection {
     padding: 88px 0 24px;
   }
-
   .container {
     width: min(100% - 32px, 1000px);
   }
-
   .carouselWrapper {
     padding: 0 58px;
   }
-
   .caseTitle {
     font-size: 1.65rem;
   }
-
   .metrics {
     grid-template-columns: 1fr;
   }
 }
-
-/* =========================================
-   RESPONSIVIDADE — CELULARES
-   CORREÇÃO DOS CONTROLES
-   ========================================= */
-
 @media (max-width: 767px) {
   .container {
     width: min(100% - 24px, 100%);
   }
-
-  /*
-     Reserva apenas o espaço necessário
-     para as setas antes dos cards.
-  */
-
   .carouselWrapper {
-    position: relative;
-    padding: 56px 0 0;
+    padding: 0;
   }
-
-  /*
-     Os controles ficam alinhados
-     à direita, acima do carrossel.
-  */
-
   .carouselButton {
-    top: 0;
-    bottom: auto;
-
-    width: 44px;
-    height: 44px;
-
-    border-radius: 13px;
-
-    transform: none;
+    display: none;
   }
-
-  .carouselButton:hover:not(:disabled) {
-    transform: scale(1.04);
-  }
-
-  /*
-     Os botões ficam próximos entre si,
-     sem ocupar as extremidades da tela.
-  */
-
-  .carouselButtonPrev {
-    left: auto;
-    right: 54px;
-  }
-
-  .carouselButtonNext {
-    left: auto;
-    right: 0;
-  }
-
-  /*
-     Remove o espaço artificial que
-     anteriormente empurrava os controles
-     para baixo do carrossel.
-  */
-
   .viewport {
     padding-bottom: 0;
   }
-
   .track {
     grid-auto-columns: 88%;
   }
-
   .title {
     font-size: 2.15rem;
   }
-
   .description {
     font-size: 1rem;
     line-height: 1.7;
   }
-
   .cardContent {
     gap: 18px;
   }
-
   .previewImage {
     height: 220px;
   }
 }
-
-/* =========================================
-   ACESSIBILIDADE
-   ========================================= */
-
 @media (prefers-reduced-motion: reduce) {
   .viewport {
     scroll-behavior: auto;
   }
-
   .carouselButton {
     transition: none;
   }
-
   .carouselButton:hover:not(:disabled) {
     transform: translateY(-50%);
-  }
-}
-
-@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
-  .carouselButton:hover:not(:disabled) {
-    transform: none;
   }
 }
