@@ -1,21 +1,36 @@
+/* =========================================
+   EONLABS — ESTILOS GLOBAIS
+   Reset e proteção responsiva
+   ========================================= */
+
+/* RESET GLOBAL */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/* DOCUMENTO */
+
 html {
   scroll-behavior: smooth;
 }
+
+/* CORPO DA PÁGINA */
 
 body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
+
   background: var(--color-background);
   color: var(--color-text);
+
   -webkit-font-smoothing: antialiased;
 }
+
+/* ELEMENTOS DE FORMULÁRIO */
 
 button,
 input,
@@ -24,15 +39,22 @@ select {
   font: inherit;
 }
 
+/* CONTEÚDO PRINCIPAL */
+
 .site {
   min-height: 100vh;
 }
+
+/* =========================================
+   ESTILOS EXISTENTES — PRESERVADOS
+   ========================================= */
 
 .welcome {
   display: grid;
   min-height: 100vh;
   place-items: center;
   padding: 3rem 1.5rem;
+
   background:
     radial-gradient(
       ellipse at 50% 15%,
@@ -68,6 +90,7 @@ select {
 .welcome__description {
   max-width: 39rem;
   margin: 0 auto;
+
   color: var(--color-muted);
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   line-height: 1.8;
@@ -77,11 +100,55 @@ select {
   display: inline-block;
   margin-top: 2.5rem;
   padding: 0.75rem 1.25rem;
+
   border: 1px solid var(--color-border);
   border-radius: 999px;
+
   color: var(--color-text);
   font-size: 0.875rem;
 }
+
+/* =========================================
+   RESPONSIVIDADE GLOBAL
+   TELAS MENORES QUE NOTEBOOK
+   ========================================= */
+
+@media (max-width: 1023px) {
+  /*
+    Impede que o documento inteiro
+    se desloque horizontalmente.
+
+    Não interfere na rolagem interna
+    dos carrosséis.
+  */
+
+  html {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .site {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+/* =========================================
+   ACESSIBILIDADE
+   ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
   html {
