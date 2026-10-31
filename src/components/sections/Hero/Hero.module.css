@@ -119,7 +119,6 @@
 
 .primaryButton {
   background: linear-gradient(105deg, #1688ff, #8430f4);
-
   box-shadow: 0 8px 28px rgba(53, 86, 243, 0.28);
 }
 
@@ -321,7 +320,10 @@
   display: none;
 }
 
-/* Etiqueta discreta — NÃO ALTERAR POSIÇÃO */
+/* =========================================
+   ETIQUETA CONCEITO VISUAL
+   POSIÇÃO ORIGINAL PRESERVADA
+   ========================================= */
 
 .demoBadge {
   position: absolute;
@@ -347,12 +349,13 @@
 
 /* =========================================
    INFORMAÇÕES DO SEGMENTO
+   CENTRALIZADAS EM TODAS AS TELAS
    ========================================= */
 
 .showcaseBottom {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
   gap: 16px;
   min-height: 85px;
@@ -363,8 +366,11 @@
 
 .slideInformation {
   display: block;
+  width: 100%;
   min-width: 0;
   flex: 1;
+
+  text-align: center;
 }
 
 .slideTitle {
@@ -374,6 +380,8 @@
   font-size: clamp(0.95rem, 1.3vw, 1.1rem);
   font-weight: 800;
   line-height: 1.35;
+
+  text-align: center;
 }
 
 .slideDescription {
@@ -383,52 +391,8 @@
   color: #9db3d3;
   font-size: 0.78rem;
   line-height: 1.55;
-}
 
-/* =========================================
-   CONTROLES DE NAVEGAÇÃO
-   ========================================= */
-
-.carouselControls {
-  display: flex;
-  flex-shrink: 0;
-  gap: 8px;
-}
-
-.carouselArrow {
-  display: inline-flex;
-  width: 36px;
-  height: 36px;
-
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid rgba(73, 137, 225, 0.45);
-  border-radius: 11px;
-
-  background: rgba(15, 38, 79, 0.65);
-
-  color: #e7f4ff;
-  font: inherit;
-  font-size: 1.1rem;
-
-  cursor: pointer;
-
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.carouselArrow:hover {
-  transform: translateY(-2px);
-  border-color: #47caff;
-  background: rgba(26, 71, 139, 0.85);
-}
-
-.carouselArrow:focus-visible {
-  outline: 2px solid #28d9ff;
-  outline-offset: 3px;
+  text-align: center;
 }
 
 /* =========================================
@@ -464,26 +428,12 @@
 
 .carouselIndicatorActive {
   width: 38px;
-
   background: linear-gradient(90deg, #20c9fa, #7567ff);
 }
 
 .carouselIndicator:focus-visible {
   outline: 2px solid #28d9ff;
   outline-offset: 4px;
-}
-
-/* =========================================
-   IDENTIFICAÇÃO DEMONSTRATIVA
-   ========================================= */
-
-.demoLabel {
-  display: block;
-  margin-top: 8px;
-
-  color: #8195b6;
-  font-size: 0.65rem;
-  text-align: right;
 }
 
 /* =========================================
@@ -501,14 +451,6 @@
 
   .visual {
     padding-top: 0;
-  }
-}
-
-/* Legenda centralizada abaixo da largura de notebook. */
-
-@media (max-width: 1023px) {
-  .demoLabel {
-    text-align: center;
   }
 }
 
@@ -541,45 +483,6 @@
 
   .showcaseViewport {
     aspect-ratio: 1.3 / 1;
-  }
-}
-
-/* =========================================
-   NOVO AJUSTE — APENAS TELAS MENORES
-   ========================================= */
-
-@media (max-width: 767px) {
-  /*
-     Oculta somente as setas da vitrine.
-     Os indicadores e o carrossel automático
-     continuam funcionando normalmente.
-  */
-
-  .carouselControls {
-    display: none;
-  }
-
-  /*
-     Centraliza exclusivamente as informações
-     exibidas abaixo das imagens.
-  */
-
-  .showcaseBottom {
-    justify-content: center;
-  }
-
-  .slideInformation {
-    width: 100%;
-    flex: 1 1 100%;
-    text-align: center;
-  }
-
-  .slideTitle {
-    text-align: center;
-  }
-
-  .slideDescription {
-    text-align: center;
   }
 }
 
@@ -630,10 +533,7 @@
     min-height: 0;
   }
 
-  /*
-     CONCEITO VISUAL permanece
-     na posição inferior esquerda.
-  */
+  /* Etiqueta CONCEITO VISUAL preservada */
 
   .demoBadge {
     left: 8px;
@@ -644,16 +544,16 @@
   }
 
   .showcaseBottom {
-    align-items: flex-start;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
 
+    gap: 10px;
     min-height: 0;
     padding-top: 14px;
-
-    justify-content: center;
   }
 
   .slideInformation {
+    width: 100%;
     text-align: center;
   }
 
@@ -667,21 +567,12 @@
     text-align: center;
   }
 
-  .carouselArrow {
-    width: 32px;
-    height: 32px;
-  }
-
   .carouselIndicator {
     width: 18px;
   }
 
   .carouselIndicatorActive {
     width: 30px;
-  }
-
-  .demoLabel {
-    font-size: 0.6rem;
   }
 }
 
@@ -691,12 +582,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .showcaseSlide,
-  .carouselIndicator,
-  .carouselArrow {
+  .carouselIndicator {
     transition: none;
-  }
-
-  .carouselArrow:hover {
-    transform: none;
   }
 }

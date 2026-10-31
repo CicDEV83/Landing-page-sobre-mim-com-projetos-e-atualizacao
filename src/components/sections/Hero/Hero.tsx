@@ -122,14 +122,6 @@ function HeroShowcase() {
     setActiveIndex(nextIndex);
   }
 
-  function handlePrevious() {
-    goToSlide(activeIndex - 1);
-  }
-
-  function handleNext() {
-    goToSlide(activeIndex + 1);
-  }
-
   const activeSlide = heroSlides[activeIndex];
 
   return (
@@ -150,7 +142,6 @@ function HeroShowcase() {
             <span className={styles.showcaseEyebrow}>
               SOLUÇÕES PARA DIFERENTES SEGMENTOS
             </span>
-
             <span className={styles.showcaseCategory}>
               {activeSlide.category}
             </span>
@@ -184,7 +175,6 @@ function HeroShowcase() {
           })}
 
           <div className={styles.imageOverlay} aria-hidden="true" />
-
           <span className={styles.demoBadge}>CONCEITO VISUAL</span>
         </div>
 
@@ -192,26 +182,6 @@ function HeroShowcase() {
           <div className={styles.slideInformation} aria-live="off">
             <strong className={styles.slideTitle}>{activeSlide.title}</strong>
             <p className={styles.slideDescription}>{activeSlide.description}</p>
-          </div>
-
-          <div className={styles.carouselControls}>
-            <button
-              type="button"
-              className={styles.carouselArrow}
-              onClick={handlePrevious}
-              aria-label="Ver segmento anterior"
-            >
-              <span aria-hidden="true">←</span>
-            </button>
-
-            <button
-              type="button"
-              className={styles.carouselArrow}
-              onClick={handleNext}
-              aria-label="Ver próximo segmento"
-            >
-              <span aria-hidden="true">→</span>
-            </button>
           </div>
         </div>
 
@@ -233,10 +203,6 @@ function HeroShowcase() {
           ))}
         </div>
       </div>
-
-      <span className={styles.demoLabel}>
-        Interfaces conceituais demonstrativas
-      </span>
     </div>
   );
 }
