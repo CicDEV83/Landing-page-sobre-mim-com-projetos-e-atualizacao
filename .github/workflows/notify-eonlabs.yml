@@ -1,0 +1,69 @@
+# ==========================================================
+# EONLABS — ATUALIZAÇÃO AUTOMÁTICA OFICIAL
+#
+# Origem:
+# CicDEV83/Landing-page-sobre-mim-com-projetos-e-atualizacao
+#
+# Destino:
+# eonlabs-tech/eonlabs-tech.github.io
+#
+# Site:
+# https://eonlabs-tech.github.io/
+#
+# A cada push na main, aciona o deploy oficial.
+# ==========================================================
+
+name: EonLabs - Atualização Automática Oficial
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: eonlabs-auto-deploy
+  cancel-in-progress: true
+
+jobs:
+  notify:
+    name: Solicitar publicação oficial
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Verificar credencial
+        env:
+          DEPLOY_TOKEN: ${{ secrets.EONLABS_DEPLOY_TOKEN }}
+        run: |
+          if [ -z "$DEPLOY_TOKEN" ]; then
+            echo "::error::Secret EONLABS_DEPLOY_TOKEN não configurado."
+            exit 1
+          fi
+
+          echo "Credencial encontrada."
+
+      - name: Acionar publicação oficial
+        env:
+          DEPLOY_TOKEN: ${{ secrets.EONLABS_DEPLOY_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          curl \
+            --fail-with-body \
+            --show-error \
+            --silent \
+            --retry 3 \
+            --retry-delay 2 \
+            --request POST \
+            --url "https://api.github.com/repos/eonlabs-tech/eonlabs-tech.github.io/dispatches" \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer $DEPLOY_TOKEN" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            --header "Content-Type: application/json" \
+            --data '{"event_type":"atualizar-eonlabs"}'
+
+          echo "Solicitação de publicação enviada com sucesso."
